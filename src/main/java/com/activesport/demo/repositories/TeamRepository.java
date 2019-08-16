@@ -1,12 +1,12 @@
 package com.activesport.demo.repositories;
 
-import com.activesport.demo.domain.Group;
+import com.activesport.demo.domain.Team;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface GroupRepository extends CrudRepository<Group, Long> {
+public interface TeamRepository extends CrudRepository<Team, Long> {
 
-    Group findByGroupIdentifier(String groupId);
+
 
 }
