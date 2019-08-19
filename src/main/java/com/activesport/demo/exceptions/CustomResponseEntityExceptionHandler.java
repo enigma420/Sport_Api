@@ -12,10 +12,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestController
 public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
-@ExceptionHandler
+    @ExceptionHandler
     public final ResponseEntity<Object> handleTeamIdException(TeamIdException ex, WebRequest req){
-    TeamIdExceptionResponse exceptionResponse = new TeamIdExceptionResponse(ex.getMessage());
-    return new ResponseEntity(exceptionResponse, HttpStatus.FORBIDDEN);
-}
+        TeamIdExceptionResponse exceptionResponse = new TeamIdExceptionResponse(ex.getMessage());
+        return new ResponseEntity(exceptionResponse, HttpStatus.FORBIDDEN);
+    }
 
 }
