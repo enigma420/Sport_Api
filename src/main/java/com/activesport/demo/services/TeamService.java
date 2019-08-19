@@ -21,4 +21,17 @@ public class TeamService {
         throw new TeamIdException("Team ID '" + team.getTeamIdentifier().toUpperCase()+"' already exists");
     }
     }
+
+    public Team findTeamByIdentifier(String teamId){
+
+        Team team = teamRepository.findByTeamIdentifier(teamId.toUpperCase());
+
+        if(team == null){
+            throw new TeamIdException("Project ID '" + teamId + "' does not exist");
+        }
+    return team;
+    }
+
+
+
 }
