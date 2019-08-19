@@ -1,33 +1,148 @@
-.App {
+body,html{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: dodgerblue !important;
+}
+
+.searchbar{
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 60px;
+  background-color: #353b48;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.search_input{
+  color: white;
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 0;
+  caret-color:transparent;
+  line-height: 40px;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_input{
+  padding: 0 10px;
+  width: 250px;
+  caret-color:red;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon{
+  background: white;
+  color: #e74c3c;
+}
+
+.search_icon{
+  height: 40px;
+  width: 40px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color:white;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+
+  height: 120px;
+  text-align: center;
+  background-color: wheat;
+}
+
+.footer {
+  position: fixed;
+  width: 100%;
+  height: 120px;
+  bottom: 0;
+  width: 100%;
+  background-color: wheat;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+
+
+/* The sidebar menu */
+.sidenav {
+  height:190px;
+  width:160px;
+
+  overflow: hidden;
+
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 5; /* Stay on top */
+  top: 315px; /* Stay at the top */
+  left: 0;
+  background-color: greenyellow; /* Black */
+  padding-top: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+.sidenav:hover{
+  height: 450px; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  transition: 0.5s;
 }
 
-.App-link {
-  color: #61dafb;
+input[type=text]:focus {outline:none;}
+
+.icons a:hover{
+  filter: brightness(2);
+  text-shadow: 1px 1px;
+  text-decoration: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #666666;
+  display: block;
+  position: center;
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 2px;
+  border-bottom: 3px solid lightskyblue;
+}
+
+
+.logoss{
+  font-size: 70px;
+  color:darkorange;
+
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: black;
+  filter: brightness(2);
+  text-shadow: 2px 1px;
+  text-decoration: none;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.card{
+  margin-bottom: 10px;
 }
