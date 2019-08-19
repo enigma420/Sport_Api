@@ -26,15 +26,35 @@ public class TeamService {
 
         Team team = teamRepository.findByTeamIdentifier(teamId.toUpperCase());
 
-        if(team == null){
+        if(teamRepository.count() == 0){
+            throw new TeamIdException("No team exists");
+        }
+        else if(team == null){
             throw new TeamIdException("Project ID '" + teamId + "' does not exist");
         }
     return team;
     }
 
     public Iterable<Team> findAllTeams(){
+        if(teamRepository.count() == 0){
+            throw new TeamIdException("No team exists");
+        }
+
         return teamRepository.findAll();
     }
 
+    public void deleteTeamByIdentifier(String teamId){
+
+        Team team = teamRepository.findByTeamIdentifier(teamId.toUpperCase());
+
+        if(teamRepository.count() == 0){
+            throw new TeamIdException("You cannot delete because no team exists");
+        }
+        if(team == null){
+            throw new TeamIdException("Cannot Delete Team with ID: '"+teamId+"' This team does not exist");
+        }
+
+        teamRepository.delete(team);
+    }
 
 }
