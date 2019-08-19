@@ -9,18 +9,23 @@ import org.springframework.stereotype.Service;
 @Service
 public class TeamService {
 
+    /*Injection by field */
+
     @Autowired
     private TeamRepository teamRepository;
 
-    public Team saveTeam(Team team){
+    /* Save or Update Service Method */
 
-        try {
+    public Team saveOrUpdateTeam(Team team){
+        try{
             team.setTeamIdentifier(team.getTeamIdentifier().toUpperCase());
             return teamRepository.save(team);
         }catch(Exception e){
         throw new TeamIdException("Team ID '" + team.getTeamIdentifier().toUpperCase()+"' already exists");
     }
     }
+
+    /* find Team by Identifier Service Method which acquires method from TeamRepository  */
 
     public Team findTeamByIdentifier(String teamId){
 
@@ -35,6 +40,8 @@ public class TeamService {
     return team;
     }
 
+    /* find all Teams which acquires method from TeamRepository  */
+
     public Iterable<Team> findAllTeams(){
         if(teamRepository.count() == 0){
             throw new TeamIdException("No team exists");
@@ -42,6 +49,8 @@ public class TeamService {
 
         return teamRepository.findAll();
     }
+
+    /* Delete Team by Identifier */
 
     public void deleteTeamByIdentifier(String teamId){
 

@@ -15,11 +15,15 @@ import javax.validation.Valid;
 @RequestMapping("/api/team")
 public class TeamController {
 
+    /*Injection by field */
+
     @Autowired
     private TeamService teamService;
 
     @Autowired
     private MapValidationErrorService mapValidationErrorService;
+
+    /* POST endpoint which create new Team */
 
     @PostMapping("")
     public ResponseEntity<?> createNewTeam(@Valid @RequestBody Team team, BindingResult result){
@@ -28,29 +32,35 @@ public class TeamController {
         if(errorMap != null) return errorMap;
 
 
-        Team newTeam = teamService.saveTeam(team);
+        Team newTeam = teamService.saveOrUpdateTeam(team);
         return new ResponseEntity<Team>(team, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{teamId}")
-    public ResponseEntity<?> getTeamById(@PathVariable String teamId){
+    /* GET endpoint which get Team by team Identifier (PathVariable annotation)*/
 
-        Team team = teamService.findTeamByIdentifier(teamId);
+    @GetMapping("/{teamIdentifier}")
+    public ResponseEntity<?> getTeamById(@PathVariable String teamIdentifier){
+
+        Team team = teamService.findTeamByIdentifier(teamIdentifier);
 
         return new ResponseEntity<Team>(team, HttpStatus.OK);
     }
+
+    /* GET endpoint which get all Teams */
 
     @GetMapping("/all")
     public Iterable<Team> getAllTeams(){
         return teamService.findAllTeams();
     }
 
-    @DeleteMapping("/{teamId}")
-    public ResponseEntity<?> deleteTeam(@PathVariable String teamId){
+    /* DELETE endpoint which delete Team by team Identifier (PathVariable annotation)*/
 
-        teamService.deleteTeamByIdentifier(teamId);
+    @DeleteMapping("/{teamIdentifier}")
+    public ResponseEntity<?> deleteTeam(@PathVariable String teamIdentifier){
 
-        return new ResponseEntity<String>("Team with ID: '"+teamId+"' was deleted", HttpStatus.OK);
+        teamService.deleteTeamByIdentifier(teamIdentifier);
+
+        return new ResponseEntity<String>("Team with ID: '"+teamIdentifier+"' was deleted", HttpStatus.OK);
 
     }
 
