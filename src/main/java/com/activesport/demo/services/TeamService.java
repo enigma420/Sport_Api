@@ -50,6 +50,13 @@ public class TeamService {
         return teamRepository.findAll();
     }
 
+    /* Count Teams Method */
+
+    public long amountOfTeams(){
+
+        return teamRepository.count();
+    }
+
     /* Delete Team by Identifier */
 
     public void deleteTeamByIdentifier(String teamId){
