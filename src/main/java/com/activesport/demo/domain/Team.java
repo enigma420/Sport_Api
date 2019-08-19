@@ -1,9 +1,12 @@
 package com.activesport.demo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -13,17 +16,19 @@ public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotBlank(message ="Team Identifier is required")
+    @Size(min=3, max=15, message = "Please use 3 to 15 characters")
+    @Column(updatable = false, unique = true)
     private String teamIdentifier;
-
+    @NotBlank(message = "Project description is required")
     private String nameOfTeamLeader;
-
+    @NotBlank(message = "Project description is required")
     private String nameOfTeam;
-
+    @NotBlank(message = "Project description is required")
     private String typeOfSport;
-
+    @Size(max=250, message = "Use max 250 characters")
     private String description;
-
+    @JsonFormat(pattern = "yyyy-mm-dd")
     private Date dateOfCreationTeam;
 
     public Team() {
