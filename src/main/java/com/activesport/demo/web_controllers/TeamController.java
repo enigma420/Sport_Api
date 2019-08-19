@@ -53,6 +53,13 @@ public class TeamController {
         return teamService.findAllTeams();
     }
 
+    /* GET endpoint which counts all teams */
+
+    @GetMapping("/all/amount")
+    public long getAmountOfTeams(){
+        return teamService.amountOfTeams();
+    }
+
     /* DELETE endpoint which delete Team by team Identifier (PathVariable annotation)*/
 
     @DeleteMapping("/{teamIdentifier}")
