@@ -32,6 +32,9 @@ public class TeamService {
     return team;
     }
 
+    public Iterable<Team> findAllTeams(){
+        return teamRepository.findAll();
+    }
 
 
 }

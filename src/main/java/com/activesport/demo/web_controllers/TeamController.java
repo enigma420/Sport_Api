@@ -40,6 +40,11 @@ public class TeamController {
         return new ResponseEntity<Team>(team, HttpStatus.OK);
     }
 
+    @GetMapping("/all")
+    public Iterable<Team> getAllTeams(){
+        return teamService.findAllTeams();
+    }
+
 
 
 }
