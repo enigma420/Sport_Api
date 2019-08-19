@@ -45,6 +45,13 @@ public class TeamController {
         return teamService.findAllTeams();
     }
 
+    @DeleteMapping("/{teamId}")
+    public ResponseEntity<?> deleteTeam(@PathVariable String teamId){
 
+        teamService.deleteTeamByIdentifier(teamId);
+
+        return new ResponseEntity<String>("Team with ID: '"+teamId+"' was deleted", HttpStatus.OK);
+
+    }
 
 }
