@@ -49,130 +49,126 @@ class CreateTeam extends Component {
     render() {
         const {errors} = this.state;
         return (
-                <div class="dashboard">
-                <div className="container card card-body bg-info position-fixed" >
-                    <form onSubmit={this.onSubmit}>
-                <div className="form-row">
+            <div>
+            <div className="team">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-8 m-auto">
+                            <h5 className="display-4 text-center">Create Team form</h5>
+                            <hr />
+                            <form onSubmit={this.onSubmit}>
+                                <div className="form-group">
+                                    <input
+                                        type="text"
+                                        className={classnames("form-control form-control-lg" , {
+                                            "is-invalid": errors.nameOfTeam
+                                        })}
+                                        placeholder="Team Name"
+                                        name="nameOfTeam"
+                                        value={this.state.nameOfTeam}
+                                        onChange={this.onChange}
+                                    />
+                                    {errors.nameOfTeam && (
+                                        <div className="invalid-feedback">
+                                            {errors.nameOfTeam}
+                                        </div>
+                                    )}
 
-                    <div className="form-group col-md-3" >
-                        <label htmlFor="inputAddress">Team Name</label>
-                        <input
-                            type="text"
-                            className={classnames("form-control form-control-lg" , {
-                                "is-invalid": errors.nameOfTeam
-                            })}
-                            placeholder="Team Name"
-                            name="nameOfTeam"
-                            value={this.state.nameOfTeam}
-                            onChange={this.onChange}
-                        />
-                        {errors.nameOfTeam && (
-                            <div className="invalid-feedback">
-                                {errors.nameOfTeam}
-                            </div>
-                        )}
-                    </div>
-                    <div className="form-group col-md-4 ml-5">
-                        <label htmlFor="inputAddress2">Description</label>
-                        <textarea
-                            type="text"
-                            className={classnames("form-control form-control-lg" , {
-                                "is-invalid": errors.description
-                            })}
-                            placeholder="description"
-                            name="description"
-                            value={this.state.description}
-                            onChange={this.onChange}
-                        />
-                        {errors.description && (
-                            <div className="invalid-feedback">
-                                {errors.description}
-                            </div>
-                        )}
-                    </div>
-                </div>
-                    <div className="form-group col-md-3">
-                        <label htmlFor="inputPassword4">Leader Group Name</label>
-                        <input
-                            type="text"
-                            className={classnames("form-control form-control-lg", {
-                                "is-invalid": errors.nameOfTeamLeader
-                            })}
-                            placeholder="Password"
-                            name="nameOfTeamLeader"
-                            value={this.state.nameOfTeamLeader}
-                            onChange={this.onChange}
-                        />
-                        {errors.nameOfTeamLeader && (
-                            <div className="invalid-feedback">
-                                {errors.nameOfTeamLeader}
-                            </div>
-                        )}
-                    </div>
-                    <div className="form-group col-md-4">
-                        <label htmlFor="inputEmail4">Team Identifier</label>
-                        <input
-                            type="text"
-                            className={classnames("form-control form-control-lg", {
-                                "is-invalid": errors.teamIdentifier
-                            })}
-                            placeholder="Team Identifier"
-                            name="teamIdentifier"
-                            value={this.state.teamIdentifier}
-                            onChange={this.onChange}
-                        />
-                        {errors.teamIdentifier && (
-                            <div className="invalid-feedback">
-                                {errors.teamIdentifier}
-                            </div>
-                        )}
-                    </div>
-                <div className="form-row">
-                    <div className="form-group col-md-3">
-                        <label htmlFor="inputCity">Type of Sport</label>
-                        <input
-                            type="text"
-                            className={classnames("form-control form-control-lg" , {
-                                "is-invalid": errors.typeOfSport
-                            })}
-                            name="typeOfSport"
-                            value={this.state.typeOfSport}
-                            onChange={this.onChange}
-                        />
-                        {errors.typeOfSport && (
-                            <div className="invalid-feedback">
-                                {errors.typeOfSport}
-                            </div>
-                        )}
-                    </div>
-                    <div className="form-group col-md-4">
-                        <div className="custom-file">
-                            <label htmlFor="inputavatar">Date Of Create</label>
+                                </div>
+                                <div className="form-group">
+                                    <input
+                                        type="text"
+                                        className={classnames("form-control form-control-lg", {
+                                            "is-invalid": errors.teamIdentifier
+                                        })}
+                                        placeholder="Unique Team ID"
+                                        name="teamIdentifier"
+                                        value={this.state.teamIdentifier}
+                                        onChange={this.onChange}
+                                    />
+                                    {errors.teamIdentifier && (
+                                        <div className="invalid-feedback">
+                                            {errors.teamIdentifier}
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="form-group">
+                   <textarea
+                       type="text"
+                       className={classnames("form-control form-control-lg" , {
+                           "is-invalid": errors.description
+                       })}
+                       placeholder="description"
+                       name="description"
+                       value={this.state.description}
+                       onChange={this.onChange}
+                   />
+                                    {errors.description && (
+                                        <div className="invalid-feedback">
+                                            {errors.description}
+                                        </div>
+                                    )}
+
+                                </div>
+                                <div className="form-group">
+                                    <input
+                                        type="text"
+                                        className={classnames("form-control form-control-lg", {
+                                            "is-invalid": errors.nameOfTeamLeader
+                                        })}
+                                        placeholder="Name of Team Leader"
+                                        name="nameOfTeamLeader"
+                                        value={this.state.nameOfTeamLeader}
+                                        onChange={this.onChange}
+                                    />
+                                    {errors.nameOfTeamLeader && (
+                                        <div className="invalid-feedback">
+                                            {errors.nameOfTeamLeader}
+                                        </div>
+                                    )}
+
+                         </div>
+                         <div className="form-group">
+                                <input
+                                    type="text"
+                                    className={classnames("form-control form-control-lg" , {
+                                        "is-invalid": errors.typeOfSport
+                                    })}
+                                    placeholder="Type Of Sport"
+                                    name="typeOfSport"
+                                    value={this.state.typeOfSport}
+                                    onChange={this.onChange}
+                                />
+                                {errors.typeOfSport && (
+                                    <div className="invalid-feedback">
+                                        {errors.typeOfSport}
+                                    </div>
+                                )}
+                        </div>
+                        <h6>Creational Date</h6>
+                        <div className="form-group">
                             <input
                                 type="date"
-                                className={classnames("form-control form-control-lg" , {
-                                    "is-invalid": errors.dateOfCreationTeam
-                                })}
+                                className="form-control form-control-lg"
                                 name="dateOfCreationTime"
                                 value={this.state.dateOfCreationTeam}
                                 onChange={this.onChange}
                             />
-                            {errors.dateOfCreationTeam && (
-                                <div className="invalid-feedback">
-                                    {errors.dateOfCreationTeam}
-                                </div>
-                            )}
                         </div>
-                    </div>
-
-                </div>
-                <input type="submit" className="btn btn-primary"/>
+                        <input
+                            type="submit"
+                            className="btn btn-primary btn-block mt-4"
+                        />
                     </form>
                 </div>
-                </div>
+            </div>
+        </div>
+    </div>
+</div>
         );
     }
 }
+
 CreateTeam.propTypes = {
     createTeam: PropTypes.func.isRequired,
     errors: PropTypes.object.isRequired
@@ -180,6 +176,6 @@ CreateTeam.propTypes = {
 
 const mapStateToProps = state => ({
     errors: state.errors
-})
+});
 
 export default connect(mapStateToProps,{createTeam})(CreateTeam);

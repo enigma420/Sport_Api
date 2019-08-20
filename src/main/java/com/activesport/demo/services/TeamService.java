@@ -42,12 +42,12 @@ public class TeamService {
     return team;
     }
 
-
-
     /* find all Teams which acquires method from TeamRepository  */
 
     public  Iterable<Team> findAllTeams(){
-
+        if(teamRepository.count() == 0){
+            throw new TeamIdException("No team exists");
+        }
         return teamRepository.findAll();
     }
 

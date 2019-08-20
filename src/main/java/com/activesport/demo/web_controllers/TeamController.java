@@ -13,6 +13,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/team")
+@CrossOrigin
 public class TeamController {
 
     /*Injection by field */
@@ -49,9 +50,8 @@ public class TeamController {
     /* GET endpoint which get all Teams */
 
     @GetMapping("/all")
-    public ResponseEntity<?> getAllTeams(){
-        Iterable<Team> allTeams = teamService.findAllTeams();
-        return new ResponseEntity<>(T<allTeams, 0>, HttpStatus.OK);
+    public Iterable<Team> getAllTeams(){
+        return teamService.findAllTeams();
     }
 
     /* GET endpoint which counts all teams */
