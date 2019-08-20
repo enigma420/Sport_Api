@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {deleteTeam} from "../../actions/teamActions";
 
 class TeamItem extends Component {
+    onDeleteClick = id => {
+        this.props.deleteTeam(id);
+    };
+
     render() {
         const { team } = this.props;
         return (
@@ -30,7 +37,11 @@ class TeamItem extends Component {
                                     </li>
                                 </Link>
                                 <a href="#">
-                                    <li className="list-group-item delete">
+                                    <li className="list-group-item delete"
+                                    onClick={this.onDeleteClick.bind(
+                                        this,
+                                        team.teamIdentifier
+                                    )}>
                                         <i className="fa fa-minus-circle pr-1">Delete Team</i>
                                     </li>
                                 </a>
@@ -43,4 +54,9 @@ class TeamItem extends Component {
     }
 }
 
-export default TeamItem;
+
+TeamItem.propTypes = {
+    deleteTeam: PropTypes.func.isRequired
+};
+
+export default connect(null,{deleteTeam})(TeamItem);

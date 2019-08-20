@@ -1,4 +1,4 @@
-import { GET_TEAMS, GET_TEAM } from "../actions/types";
+import { GET_TEAMS, GET_TEAM, DELETE_TEAM } from "../actions/types";
 
 const initialState = {
     teams: [],
@@ -18,6 +18,14 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 team: action.payload
+            };
+
+        case DELETE_TEAM:
+            return {
+                ...state,
+                teams: state.teams.filter(
+                    team => team.teamIdentifier !== action.payload
+                )
             };
 
         default:
