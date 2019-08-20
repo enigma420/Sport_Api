@@ -1,17 +1,82 @@
 import React, {Component} from "react";
-import {getTeam} from "../../actions/teamActions";
+import {getTeam, createTeam} from "../../actions/teamActions";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import classnames from "classnames";
 
 class EditTeam extends Component {
+constructor(){
+    super();
+
+    this.state = {
+        id: "",
+        nameOfTeam: "",
+        teamIdentifier: "",
+        nameOfTeamLeader: "",
+        typeOfSport: "",
+        description: "",
+        dateOfCreationTeam: "",
+        errors: {}
+    };
+
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+
+}
+
+componentWillReceiveProps(nextProps) {
+    if(nextProps.errors){
+        this.setState({errors: nextProps.errors });
+    }
+const{
+    id,
+    nameOfTeam,
+    teamIdentifier,
+    nameOfTeamLeader,
+    typeOfSport,
+    description,
+    dateOfCreationTeam
+} = nextProps.team;
+
+this.setState({
+    id,
+    nameOfTeam,
+    teamIdentifier,
+    nameOfTeamLeader,
+    typeOfSport,
+    description,
+    dateOfCreationTeam
+})
+
+}
 
     componentDidMount() {
         const {id} = this.props.match.params;
         this.props.getTeam(id,this.props.history);
     }
 
+    onChange(e){
+    this.setState({[e.target.name]: e.target.value});
+    }
+
+    onSubmit(e){
+    e.preventDefault();
+
+    const editTeam = {
+        id: this.state.id,
+        nameOfTeam: this.state.nameOfTeam,
+        teamIdentifier: this.state.teamIdentifier,
+        nameOfTeamLeader: this.state.nameOfTeamLeader,
+        typeOfSport: this.state.typeOfSport,
+        description: this.state.description,
+        dateOfCreationTeam: this.state.dateOfCreationTeam
+    };
+
+    this.props.createTeam(editTeam, this.props.history);
+    }
+
     render() {
+    const{errors} = this.state;
         return (
             <div>
                 <div className="team">
@@ -24,49 +89,89 @@ class EditTeam extends Component {
                                     <div className="form-group">
                                         <input
                                             type="text"
-                                            className="form-control form-control-lg"
+                                            className={classnames("form-control form-control-lg" , {
+                                                "is-invalid": errors.nameOfTeam
+                                            })}
                                             placeholder="Team Name"
                                             name="nameOfTeam"
+                                            value={this.state.nameOfTeam}
+                                            onChange={this.onChange}
                                         />
+                                        {errors.nameOfTeam && (
+                                            <div className="invalid-feedback">
+                                                {errors.nameOfTeam}
+                                            </div>
+                                        )}
                                     </div>
                                     <div className="form-group">
                                         <input
                                             type="text"
-                                            className="form-control form-control-lg"
+                                            className={classnames("form-control form-control-lg", {
+                                                "is-invalid": errors.teamIdentifier
+                                            })}
                                             placeholder="Unique Team ID"
                                             name="teamIdentifier"
+                                            value={this.state.teamIdentifier}
+                                            onChange={this.onChange}
                                             disabled
                                         />
-
+                                        {errors.teamIdentifier && (
+                                            <div className="invalid-feedback">
+                                                {errors.teamIdentifier}
+                                            </div>
+                                        )}
                                     </div>
                                     <div className="form-group">
-                   <textarea
-                       type="text"
-                       className="form-control form-control-lg"
-                       placeholder="description"
-                       name="description"
-                   />
-
-
+                                        <textarea
+                                            type="text"
+                                            className={classnames("form-control form-control-lg" , {
+                                              "is-invalid": errors.description
+                                        })}
+                                            placeholder="description"
+                                            name="description"
+                                            value={this.state.description}
+                                            onChange={this.onChange}
+                                        />
+                                        {errors.description && (
+                                            <div className="invalid-feedback">
+                                                {errors.description}
+                                            </div>
+                                        )}
                                     </div>
                                     <div className="form-group">
                                         <input
                                             type="text"
-                                            className="form-control form-control-lg"
+                                            className={classnames("form-control form-control-lg", {
+                                                "is-invalid": errors.nameOfTeamLeader
+                                            })}
                                             placeholder="Name of Team Leader"
                                             name="nameOfTeamLeader"
+                                            value={this.state.nameOfTeamLeader}
+                                            onChange={this.onChange}
                                             disabled
                                         />
-
+                                        {errors.nameOfTeamLeader && (
+                                            <div className="invalid-feedback">
+                                                {errors.nameOfTeamLeader}
+                                            </div>
+                                        )}
                                     </div>
                                     <div className="form-group">
                                         <input
                                             type="text"
-                                            className="form-control form-control-lg"
+                                            className={classnames("form-control form-control-lg" , {
+                                                "is-invalid": errors.typeOfSport
+                                            })}
                                             placeholder="Type Of Sport"
                                             name="typeOfSport"
+                                            value={this.state.typeOfSport}
+                                            onChange={this.onChange}
                                         />
-
+                                        {errors.typeOfSport && (
+                                            <div className="invalid-feedback">
+                                                {errors.typeOfSport}
+                                            </div>
+                                        )}
                                     </div>
                                     <h6>Creational Date</h6>
                                     <div className="form-group">
@@ -74,6 +179,8 @@ class EditTeam extends Component {
                                             type="date"
                                             className="form-control form-control-lg"
                                             name="dateOfCreationTime"
+                                            value={this.state.dateOfCreationTeam}
+                                            onChange={this.onChange}
                                         />
                                     </div>
                                     <input
@@ -92,11 +199,13 @@ class EditTeam extends Component {
 
 EditTeam.propTypes = {
     getTeam: PropTypes.func.isRequired,
-    team: PropTypes.object.isRequired
+    team: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-    team: state.team.team
+    team: state.team.team,
+    errors: state.errors
 });
 
-export default connect(mapStateToProps,{getTeam})(EditTeam);
+export default connect(mapStateToProps,{getTeam, createTeam})(EditTeam);

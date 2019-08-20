@@ -22,10 +22,16 @@ export const getTeams = () => async dispatch => {
 };
 
 export const getTeam = (id,history) => async dispatch => {
-    const res = await axios.get(`http://localhost:8080/api/team/${id}`);
-    dispatch({
-        type: GET_TEAM,
-        payload: res.data
-    })
+
+    try{
+        const res = await axios.get(`http://localhost:8080/api/team/${id}`);
+        dispatch({
+            type: GET_TEAM,
+            payload: res.data
+        })
+    }catch (err) {
+        history.push("/dashboard");
+    }
+
 };
 
