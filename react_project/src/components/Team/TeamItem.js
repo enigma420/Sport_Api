@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from "react-router-dom";
 
 class TeamItem extends Component {
     render() {
@@ -23,14 +24,14 @@ class TeamItem extends Component {
                                         <i className="fa fa-flag-checkered pr-1">Events</i>
                                     </li>
                                 </a>
-                                <a href="#">
-                                    <li className="list-group-item update">
-                                        <i className="fa fa-edit pr-1">Group Information</i>
+                                <Link to={`/editTeam/${team.teamIdentifier}`}>
+                                    <li className="list-group-item delete">
+                                        <i className="fa fa-minus-circle pr-1">Edit Team</i>
                                     </li>
-                                </a>
+                                </Link>
                                 <a href="#">
                                     <li className="list-group-item delete">
-                                        <i className="fa fa-minus-circle pr-1">Delete Group</i>
+                                        <i className="fa fa-minus-circle pr-1">Delete Team</i>
                                     </li>
                                 </a>
                             </ul>
