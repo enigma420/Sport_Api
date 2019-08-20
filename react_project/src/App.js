@@ -15,7 +15,6 @@ function App() {
       <Router>
           <div className="App">
               <Header/>
-              <Sidebar/>
               <Route exact path="/dashboard" component={Dashboard}/>
               <Route exact path="/createTeam" component={CreateTeam}/>
               <Footer/>
