@@ -1,4 +1,4 @@
-import { GET_TEAMS } from "../actions/types";
+import { GET_TEAMS, GET_TEAM } from "../actions/types";
 
 const initialState = {
     teams: [],
@@ -12,6 +12,12 @@ export default function(state = initialState, action){
             return {
                 ...state,
                 teams: action.payload
+            };
+
+        case GET_TEAM:
+            return {
+                ...state,
+                team: action.payload
             };
 
         default:
