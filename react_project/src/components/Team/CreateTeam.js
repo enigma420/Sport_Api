@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import { createTeam } from "../../actions/teamActions";
+
 
 class CreateTeam extends Component {
     constructor() {
@@ -32,8 +36,7 @@ class CreateTeam extends Component {
             description: this.state.description,
             dateOfCreationTeam: this.state.dateOfCreationTeam
         };
-
-        console.log(newTeam);
+        this.props.createTeam(newTeam, this.props.history);
     }
 
     render() {
@@ -121,5 +124,8 @@ class CreateTeam extends Component {
         );
     }
 }
+CreateTeam.propTypes = {
+    createTeam: PropTypes.func.isRequired
+};
 
-export default CreateTeam;
+export default connect(null,{createTeam})(CreateTeam);
