@@ -1,5 +1,5 @@
 import axios from "axios";
-import {GET_ERRORS, GET_TEAMS, GET_TEAM} from "./types";
+import {GET_ERRORS, GET_TEAMS, GET_TEAM, DELETE_TEAM} from "./types";
 
 export const createTeam = (team,history) => async dispatch => {
     try{
@@ -36,6 +36,13 @@ export const getTeam = (id,history) => async dispatch => {
     }catch (err) {
         history.push("/dashboard");
     }
+};
 
+export const deleteTeam = id => async dispatch => {
+    await axios.delete(`http://localhost:8080/api/team/${id}`);
+    dispatch({
+        type: DELETE_TEAM,
+        payload: id
+    })
 };
 
