@@ -18,7 +18,7 @@ export const createTeam = (team,history) => async dispatch => {
 };
 
 export const getTeams = () => async dispatch => {
-    const res = await axios.get("http://localhost:8080/api/team/all");
+    const res = await axios.get("/api/team/all");
     dispatch({
         type: GET_TEAMS,
         payload: res.data
@@ -28,7 +28,7 @@ export const getTeams = () => async dispatch => {
 export const getTeam = (id,history) => async dispatch => {
 
     try{
-        const res = await axios.get(`http://localhost:8080/api/team/${id}`);
+        const res = await axios.get(`/api/team/${id}`);
         dispatch({
             type: GET_TEAM,
             payload: res.data
@@ -39,10 +39,14 @@ export const getTeam = (id,history) => async dispatch => {
 };
 
 export const deleteTeam = id => async dispatch => {
-    await axios.delete(`http://localhost:8080/api/team/${id}`);
-    dispatch({
-        type: DELETE_TEAM,
-        payload: id
-    })
+    if(window.confirm(
+        "Are you sure? This will delete the team and all the data related to it!!!"
+    )) {
+        await axios.delete(`/api/team/${id}`);
+        dispatch({
+            type: DELETE_TEAM,
+            payload: id
+        });
+    }
 };
 
