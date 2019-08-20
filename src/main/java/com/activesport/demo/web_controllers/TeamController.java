@@ -49,8 +49,9 @@ public class TeamController {
     /* GET endpoint which get all Teams */
 
     @GetMapping("/all")
-    public Iterable<Team> getAllTeams(){
-        return teamService.findAllTeams();
+    public ResponseEntity<?> getAllTeams(){
+        Iterable<Team> allTeams = teamService.findAllTeams();
+        return new ResponseEntity<>(T<allTeams, 0>, HttpStatus.OK);
     }
 
     /* GET endpoint which counts all teams */
