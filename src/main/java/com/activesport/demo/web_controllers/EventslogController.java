@@ -59,4 +59,11 @@ public class EventslogController {
         return new ResponseEntity<Event>(updatedEvent,HttpStatus.OK);
     }
 
+    @DeleteMapping("/{eventslog_id}/{pt_id}")
+    public ResponseEntity<?> deleteEvent(@PathVariable String eventslog_id, @PathVariable String pt_id){
+        eventService.deletePTByTeamSequence(eventslog_id,pt_id);
+
+        return new ResponseEntity<String>("Event " + pt_id + " was deleted successfully", HttpStatus.OK);
+    }
+
 }

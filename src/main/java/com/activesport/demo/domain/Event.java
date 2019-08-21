@@ -38,7 +38,7 @@ public class Event {
     private String teamIdentifier;
 
     //ManyToOne with Eventslog
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "eventslog_id", updatable = false, nullable = false)
     @JsonIgnore
     private Eventslog eventslog;
