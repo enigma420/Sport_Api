@@ -26,11 +26,11 @@ class TeamItem extends Component {
                         </div>
                         <div className="col-md-4 d-flex d-lg-block">
                             <ul className="list-group">
-                                <a href="#">
+                                <Link to={`/eventBoard/${team.teamIdentifier}`}>
                                     <li className="list-group-item board">
                                         <i className="fa fa-flag-checkered pr-1">Events</i>
                                     </li>
-                                </a>
+                                </Link>
                                 <Link to={`/editTeam/${team.teamIdentifier}`}>
                                     <li className="list-group-item delete">
                                         <i className="fa fa-minus-circle pr-1">Edit Team</i>

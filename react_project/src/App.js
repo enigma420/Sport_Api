@@ -9,6 +9,8 @@ import { BrowserRouter as Router,Route } from "react-router-dom";
 import {Provider} from "react-redux";
 import store from "./store";
 import EditTeam from "./components/Team/EditTeam";
+import AddEvent from "./components/EventBoard/Events/AddEvent";
+import EventBoard from "./components/EventBoard/EventBoard"
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
               <Route exact path="/dashboard" component={Dashboard}/>
               <Route exact path="/createTeam" component={CreateTeam}/>
               <Route exact path="/editTeam/:id" component={EditTeam}/>
+              <Route exact path="/eventBoard/:id" component={EventBoard}/>
+              <Route exact path="/addEvent/:id" component={AddEvent}/>
               <Footer/>
           </div>
       </Router>
