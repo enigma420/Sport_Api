@@ -6,10 +6,95 @@ import PropTypes from "prop-types";
 import {getEvent} from "../../../actions/eventslogActions";
 
 class UpdateEvent extends Component {
+constructor(){
+    super();
+
+    this.state = {
+        id: "",
+        teamSequence: "",
+        nameOfEvent: "",
+        description: "",
+        place: "",
+        cost: "",
+        startDate: "",
+        endDate: "",
+        minNumberOfMembers: "",
+        maxNumberOfMembers: "",
+        priority: "",
+        status: "",
+        requiredEquipment: "",
+        teamIdentifier: ""
+    };
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+
+}
 
     componentDidMount() {
         const { eventslog_id, pt_id} = this.props.match.params;
         this.props.getEvent(eventslog_id,pt_id,this.props.history);
+    }
+
+    componentWillReceiveProps(nextProps) {
+    const{
+        id,
+        teamSequence,
+        nameOfEvent,
+        description,
+        place,
+        cost,
+        startDate,
+        endDate,
+        minNumberOfMembers,
+        maxNumberOfMembers,
+        priority,
+        status,
+        requiredEquipment,
+        teamIdentifier
+    } = nextProps.event;
+
+    this.setState({
+        id,
+        teamSequence,
+        nameOfEvent,
+        description,
+        place,
+        cost,
+        startDate,
+        endDate,
+        minNumberOfMembers,
+        maxNumberOfMembers,
+        priority,
+        status,
+        requiredEquipment,
+        teamIdentifier
+    });
+    }
+
+    onChange(e){
+    this.setState({[e.target.name]:e.target.value});
+    }
+
+    onSubmit(e){
+    e.preventDefault();
+
+    const UpdateEvent = {
+        id: this.state.id,
+        teamSequence: this.state.teamSequence,
+        nameOfEvent: this.state.nameOfEvent,
+        description: this.state.description,
+        place: this.state.place,
+        cost: this.state.cost,
+        startDate: this.state.startDate,
+        endDate: this.state.endDate,
+        minNumberOfMembers: this.state.minNumberOfMembers,
+        maxNumberOfMembers: this.state.maxNumberOfMembers,
+        priority: this.state.priority,
+        status: this.state.status,
+        requiredEquipment: this.state.requiredEquipment,
+        teamIdentifier: this.state.teamIdentifier
+    };
+
     }
 
     render() {
@@ -23,7 +108,10 @@ class UpdateEvent extends Component {
                                 Back to Project Board
                             </Link>
                             <h4 className="display-4 text-center">Add Event</h4>
-                            <p className="lead text-center">Team Name + Team Code</p>
+                            <p className="lead text-center">
+                                Team Name: {this.state.teamIdentifier} | Project Task ID:{" "}
+                                {this.state.teamSequence}{" "}
+                            </p>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
                                     <h5>Event name</h5>
