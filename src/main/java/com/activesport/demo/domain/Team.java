@@ -7,7 +7,9 @@ import org.springframework.data.annotation.CreatedDate;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Team {
@@ -31,7 +33,7 @@ public class Team {
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date dateOfCreationTeam;
 
-    //OneToMany with Event
+
 
     public Team() {
     }
