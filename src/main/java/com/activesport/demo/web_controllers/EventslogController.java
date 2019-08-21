@@ -47,4 +47,16 @@ public class EventslogController {
         return new ResponseEntity<Event>(event,HttpStatus.OK);
     }
 
+    @PatchMapping("/{eventslog_id}/{pt_id}")
+    public ResponseEntity<?> updateEvent(@Valid @RequestBody Event event, BindingResult result,
+                                         @PathVariable String eventslog_id, @PathVariable String pt_id){
+
+        ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
+        if(errorMap != null) return errorMap;
+
+        Event updatedEvent = eventService.updateByEventSequence(event,eventslog_id,pt_id);
+
+        return new ResponseEntity<Event>(updatedEvent,HttpStatus.OK);
+    }
+
 }

@@ -82,4 +82,12 @@ public class EventService {
         return event;
     }
 
+    public Event updateByEventSequence(Event updatedEvent, String eventslog_id, String pt_id){
+        Event event = findPTByTeamSequence(eventslog_id,pt_id);
+
+        event = updatedEvent;
+
+        return eventRepository.save(event);
+    }
+
 }
