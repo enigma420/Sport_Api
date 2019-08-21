@@ -1,5 +1,5 @@
 import axios from "axios";
-import {GET_ERRORS , GET_EVENTSLOG} from "./types";
+import {GET_ERRORS , GET_EVENTSLOG , GET_EVENT} from "./types";
 
 export const addEvent = (eventslog_id, event, history) => async dispatch => {
 try {
@@ -30,5 +30,17 @@ export const getEventslog = eventslog_id => async dispatch => {
         type: GET_ERRORS,
         payload: err.response.data
     });
+    }
+};
+
+export const getEvent = (eventslog_id,pt_id,history) => async dispatch => {
+    try{
+  const res = await axios.get(`/api/eventslog/${eventslog_id}`);
+  dispatch({
+      type: GET_EVENT,
+      payload: res.data
+  });
+    }catch (err) {
+        history.push("/dashboard");
     }
 };

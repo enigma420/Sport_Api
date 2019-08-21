@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from "react-router-dom";
 
 class Event extends Component {
     render() {
@@ -33,9 +34,12 @@ class Event extends Component {
                     <p className="card-text text-truncate ">
                         {event.description}
                     </p>
-                    <a href="#" className="btn btn-primary">
+                    <Link to={`/updateEvent/${event.teamIdentifier}/${
+                        event.teamSequence}
+                        }`} href="#"
+                          className="btn btn-primary">
                         View / Update
-                    </a>
+                    </Link>
 
                     <button className="btn btn-danger ml-4">Delete</button>
                 </div>

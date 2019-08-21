@@ -11,6 +11,7 @@ import store from "./store";
 import EditTeam from "./components/Team/EditTeam";
 import AddEvent from "./components/EventBoard/Events/AddEvent";
 import EventBoard from "./components/EventBoard/EventBoard"
+import UpdateEvent from "./components/EventBoard/Events/UpdateEvent";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route exact path="/editTeam/:id" component={EditTeam}/>
               <Route exact path="/eventBoard/:id" component={EventBoard}/>
               <Route exact path="/addEvent/:id" component={AddEvent}/>
+              <Route exact path="/updateEvent/:eventslog_id/:pt_id" component={UpdateEvent}/>
               <Footer/>
           </div>
       </Router>
