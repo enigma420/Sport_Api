@@ -1,9 +1,10 @@
 package com.activesport.demo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Eventslog {
@@ -15,10 +16,14 @@ public class Eventslog {
     private String teamIdentifier;
 
     //OneToOne with team
-
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "team_id",nullable = false)
+    @JsonIgnore
+    private Team team;
 
     //OneToMany Event
-
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "eventslog")
+    private List<Event> events = new ArrayList<>();
 
     public Eventslog() {
     }
@@ -45,5 +50,21 @@ public class Eventslog {
 
     public void setTeamIdentifier(String teamIdentifier) {
         this.teamIdentifier = teamIdentifier;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
     }
 }

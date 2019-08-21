@@ -33,7 +33,10 @@ public class Event {
     private String teamIdentifier;
 
     //ManyToOne with Team
-
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "eventslog_id", updatable = false, nullable = false)
+    @JsonIgnore
+    private Eventslog eventslog;
 
     public Event() {
     }
@@ -132,6 +135,14 @@ public class Event {
 
     public void setTeamIdentifier(String teamIdentifier) {
         this.teamIdentifier = teamIdentifier;
+    }
+
+    public Eventslog getEventslog() {
+        return eventslog;
+    }
+
+    public void setEventslog(Eventslog eventslog) {
+        this.eventslog = eventslog;
     }
 
     @Override

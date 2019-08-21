@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EventslogRepository extends CrudRepository<Eventslog, Long> {
 
+    Eventslog findByTeamIdentifier(String identifier);
 }
