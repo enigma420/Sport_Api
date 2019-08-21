@@ -42,7 +42,7 @@ public class EventService {
             event.setStatus("IN_FUTURE");
         }
 
-        if (event.getPriority() == null) {
+        if (event.getPriority() == null || event.getPriority() == 0) {
             event.setPriority(5);
         }
     }catch(Exception e){
@@ -88,6 +88,15 @@ public class EventService {
         event = updatedEvent;
 
         return eventRepository.save(event);
+    }
+
+    public void deletePTByTeamSequence(String eventslog_id, String pt_id){
+        Event event = findPTByTeamSequence(eventslog_id,pt_id);
+        if(eventRepository.count() == 0){
+            throw new TeamNotFoundException("You cannot delete because no event exist");
+        }
+
+        eventRepository.delete(event);
     }
 
 }

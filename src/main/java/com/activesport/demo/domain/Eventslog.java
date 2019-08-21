@@ -22,7 +22,7 @@ public class Eventslog {
     private Team team;
 
     //OneToMany Event
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "eventslog")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "eventslog", orphanRemoval = true)
     private List<Event> events = new ArrayList<>();
 
     public Eventslog() {
