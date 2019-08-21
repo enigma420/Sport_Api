@@ -1,6 +1,7 @@
 package com.activesport.demo.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -34,6 +35,7 @@ public class Team {
     private Date dateOfCreationTeam;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "team")
+    @JsonIgnore
     private Eventslog eventslog;
 
     public Team() {
