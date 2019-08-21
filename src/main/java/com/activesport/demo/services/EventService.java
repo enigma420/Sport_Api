@@ -43,8 +43,9 @@ public class EventService {
         }
 
         if (event.getPriority() == null || event.getPriority() == 0) {
-            event.setPriority(5);
+            event.setPriority(3);
         }
+
     }catch(Exception e){
         throw new TeamNotFoundException("Team not found");
     }

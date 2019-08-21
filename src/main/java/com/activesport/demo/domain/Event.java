@@ -15,6 +15,7 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "Please include a name of Event")
     private String nameOfEvent;
     @Column(updatable = false, unique = true)
     private String teamSequence;
@@ -27,6 +28,7 @@ public class Event {
     private Integer minNumberOfMembers;
     @NotNull(message = "How many members maximum?")
     private Integer maxNumberOfMembers;
+    @NotNull(message = "What is price of participation?")
     private Double cost;
     private String requiredEquipment;
     @NotNull(message = "When event will start?")
@@ -62,6 +64,22 @@ public class Event {
 
     public void setTeamSequence(String teamSequence) {
         this.teamSequence = teamSequence;
+    }
+
+    public String getNameOfEvent() {
+        return nameOfEvent;
+    }
+
+    public void setNameOfEvent(String nameOfEvent) {
+        this.nameOfEvent = nameOfEvent;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getStatus() {
