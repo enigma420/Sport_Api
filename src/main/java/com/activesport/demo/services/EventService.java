@@ -64,7 +64,22 @@ public class EventService {
 
     public Event findPTByTeamSequence(String eventslog_id, String pt_id){
 
-        return eventRepository.findByTeamSequence(pt_id);
+        Eventslog eventslog = eventslogRepository.findByTeamIdentifier(eventslog_id);
+        if(eventslog == null){
+            throw new TeamNotFoundException("Team with ID: '" + eventslog_id + "' does not exist");
+        }
+
+        Event event = eventRepository.findByTeamSequence(pt_id);
+
+        if(event == null){
+            throw new TeamNotFoundException("Event '" + pt_id + "' not found");
+        }
+
+        if(!event.getTeamIdentifier().equals(eventslog_id)){
+            throw new TeamNotFoundException("Event '" + pt_id + "' does not exist in Team: '" + eventslog_id);
+        }
+
+        return event;
     }
 
 }
