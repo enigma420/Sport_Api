@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -19,23 +21,23 @@ public class Event {
     @NotBlank(message = "Please include a place of event")
     private String place;
     private Integer priority;
-    @NotBlank(message = "How many members at least?")
+    @NotNull(message = "How many members at least?")
     private Integer minNumberOfMembers;
-    @NotBlank(message = "How many members maximum?")
+    @NotNull(message = "How many members maximum?")
     private Integer maxNumberOfMembers;
     private Double cost;
     private String requiredEquipment;
-    @NotBlank(message = "When event will start?")
+    @NotNull(message = "When event will start?")
     @JsonFormat(pattern = "yyyy-mm-dd hh:mm:ss")
     private Date startDate;
-    @NotBlank(message = "When event will end?")
+    @NotNull(message = "When event will end?")
     @JsonFormat(pattern = "yyyy-mm-dd hh:mm:ss")
     private Date endDate;
 
     @Column(updatable = false)
     private String teamIdentifier;
 
-    //ManyToOne with Team
+    //ManyToOne with Eventslog
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "eventslog_id", updatable = false, nullable = false)
     @JsonIgnore

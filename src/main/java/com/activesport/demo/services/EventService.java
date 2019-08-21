@@ -27,11 +27,15 @@ public class EventService {
 
         eventslogSequence++;
 
-        event.setTeamSequence(teamIdentifier+"-"+eventslogSequence);
+        event.setTeamSequence(eventslog.getTeamIdentifier()+"-"+eventslogSequence);
         event.setTeamIdentifier(teamIdentifier);
 
         if(event.getStatus() == "" || event.getStatus() == null){
             event.setStatus("IN_FUTURE");
+        }
+
+        if(event.getPriority() == null){
+            event.setPriority(5);
         }
 
         return eventRepository.save(event);
