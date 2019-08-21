@@ -1,5 +1,6 @@
 package com.activesport.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -25,8 +26,10 @@ public class Event {
     private Double cost;
     private String requiredEquipment;
     @NotBlank(message = "When event will start?")
+    @JsonFormat(pattern = "yyyy-mm-dd hh:mm:ss")
     private Date startDate;
     @NotBlank(message = "When event will end?")
+    @JsonFormat(pattern = "yyyy-mm-dd hh:mm:ss")
     private Date endDate;
 
     @Column(updatable = false)
