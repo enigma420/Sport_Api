@@ -18,4 +18,10 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
     return new ResponseEntity(exceptionResponse, HttpStatus.FORBIDDEN);
 }
 
+@ExceptionHandler
+    public final ResponseEntity<Object> handleTeamNotFoundException(TeamNotFoundException ex, WebRequest req){
+    TeamNotFoundExceptionResponse exceptionResponse = new TeamNotFoundExceptionResponse(ex.getMessage());
+    return new ResponseEntity(exceptionResponse,HttpStatus.BAD_REQUEST);
+}
+
 }
