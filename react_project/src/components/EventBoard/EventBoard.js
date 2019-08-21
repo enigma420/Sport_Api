@@ -14,6 +14,7 @@ class EventBoard extends Component {
 
     render() {
         const { id } = this.props.match.params;
+        const { events } = this.props.eventslog;
         return (
             <div className="container">
                 <Link to={`/addEvent/${id}`} className="btn btn-primary mb-3">
@@ -22,7 +23,7 @@ class EventBoard extends Component {
                 <br />
                 <hr />
 
-                <Eventslog/>
+                <Eventslog events_prop={events}/>
             </div>
         );
     }
