@@ -33,7 +33,8 @@ public class Team {
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date dateOfCreationTeam;
 
-
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "team")
+    private Eventslog eventslog;
 
     public Team() {
     }
@@ -92,5 +93,13 @@ public class Team {
 
     public void setDateOfCreationTeam(Date dateOfCreationTeam) {
         this.dateOfCreationTeam = dateOfCreationTeam;
+    }
+
+    public Eventslog getEventslog() {
+        return eventslog;
+    }
+
+    public void setEventslog(Eventslog eventslog) {
+        this.eventslog = eventslog;
     }
 }

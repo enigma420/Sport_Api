@@ -1,9 +1,11 @@
 package com.activesport.demo.services;
 
 import com.activesport.demo.domain.Event;
+import com.activesport.demo.domain.Eventslog;
 import com.activesport.demo.domain.Team;
 import com.activesport.demo.exceptions.TeamIdException;
 import com.activesport.demo.repositories.EventRepository;
+import com.activesport.demo.repositories.EventslogRepository;
 import com.activesport.demo.repositories.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +23,7 @@ public class TeamService {
     private TeamRepository teamRepository;
 
     @Autowired
-    private EventRepository eventRepository;
+    private EventslogRepository EventslogRepository;
 
     /* Save or Update Service Method */
 
@@ -29,6 +31,16 @@ public class TeamService {
         try{
             team.setTeamIdentifier(team.getTeamIdentifier().toUpperCase());
 
+            if(team.getId() == null){
+                Eventslog eventslog = new Eventslog();
+                team.setEventslog(eventslog);
+                eventslog.setTeam(team);
+                eventslog.setTeamIdentifier(team.getTeamIdentifier().toUpperCase());
+            }
+
+            if(team.getId() != null){
+                team.setEventslog(EventslogRepository.findByTeamIdentifier(team.getTeamIdentifier().toUpperCase()));
+            }
 
             return teamRepository.save(team);
         }catch(Exception e){
