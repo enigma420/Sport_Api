@@ -4,6 +4,7 @@ import classnames from "classnames";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {getEvent} from "../../../actions/eventslogActions";
+import { getEvent, updateEvent} from "../../../actions/eventslogActions";
 
 class UpdateEvent extends Component {
 constructor(){
@@ -23,7 +24,8 @@ constructor(){
         priority: "",
         status: "",
         requiredEquipment: "",
-        teamIdentifier: ""
+        teamIdentifier: "",
+        errors: {}
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -36,6 +38,9 @@ constructor(){
     }
 
     componentWillReceiveProps(nextProps) {
+    if(nextProps.errors){
+        this.setState({errors: nextProps.errors});
+    }
     const{
         id,
         teamSequence,
@@ -94,6 +99,13 @@ constructor(){
         requiredEquipment: this.state.requiredEquipment,
         teamIdentifier: this.state.teamIdentifier
     };
+
+    this.props.updateEvent(
+        this.state.teamIdentifier,
+        this.state.teamSequence,
+        UpdateEvent,
+        this.props.history
+    );
 
     }
 
@@ -313,11 +325,14 @@ constructor(){
 
 UpdateEvent.propTypes = {
     getEvent: PropTypes.func.isRequired,
-    event: PropTypes.object.isRequired
+    event: PropTypes.object.isRequired,
+    updateEvent:PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-    event: state.eventslog.event
+    event: state.eventslog.event,
+    errors: state.errors
 });
 
-export default connect(mapStateToProps,{getEvent})(UpdateEvent);
+export default connect(mapStateToProps,{getEvent,updateEvent})(UpdateEvent);
