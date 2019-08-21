@@ -3,7 +3,7 @@ import {GET_ERRORS, GET_TEAMS, GET_TEAM, DELETE_TEAM} from "./types";
 
 export const createTeam = (team,history) => async dispatch => {
     try{
-        await axios.post("http://localhost:8080/api/team", team);
+        await axios.post("/api/team", team);
         history.push("/dashboard");
         dispatch({
             type: GET_ERRORS,
