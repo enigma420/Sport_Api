@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import classnames from "classnames";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
-import {getEvent} from "../../../actions/eventslogActions";
 import { getEvent, updateEvent} from "../../../actions/eventslogActions";
 
 class UpdateEvent extends Component {

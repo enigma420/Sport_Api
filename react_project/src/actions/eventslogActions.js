@@ -1,5 +1,5 @@
 import axios from "axios";
-import {GET_ERRORS , GET_EVENTSLOG , GET_EVENT} from "./types";
+import {GET_ERRORS , GET_EVENTSLOG , GET_EVENT , DELETE_EVENT} from "./types";
 
 export const addEvent = (eventslog_id, event, history) => async dispatch => {
 try {
@@ -59,5 +59,19 @@ export const updateEvent = (eventslog_id,pt_id,event,history) => async dispatch 
             payload: err.response.data
         });
 
+    }
+};
+
+export const deleteEvent = (eventslog_id,pt_id) => async dispatch => {
+    if (
+        window.confirm(
+            `You are deleting event ${pt_id}, this action cannot be reverted`
+        )
+    ) {
+        await axios.delete(`/api/eventslog/${eventslog_id}/${pt_id}`);
+        dispatch({
+            type: DELETE_EVENT,
+            payload: pt_id
+        });
     }
 };
