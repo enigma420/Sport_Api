@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.GeneratedValue;
 import javax.validation.Valid;
 
 @RestController
@@ -33,6 +34,11 @@ public class EventslogController {
 
         return new ResponseEntity<Event>(event1, HttpStatus.CREATED);
 
+    }
+
+    @GetMapping("/{eventslog_id}")
+    public Iterable<Event> getTeamEventslog(@PathVariable String eventslog_id){
+        return eventService.findEventslogById(eventslog_id);
     }
 
 

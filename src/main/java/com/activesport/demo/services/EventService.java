@@ -41,4 +41,9 @@ public class EventService {
         return eventRepository.save(event);
     }
 
+    public Iterable<Event> findEventslogById(String id){
+        return eventRepository.findByTeamIdentifierOrderByPriority(id);
+    }
+
+
 }
