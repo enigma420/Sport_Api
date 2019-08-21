@@ -15,7 +15,7 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(updatable = false)
+    @Column(updatable = false, unique = true)
     private String teamSequence;
     private String status;
     @NotBlank(message = "Please include a place of event")

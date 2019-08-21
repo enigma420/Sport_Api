@@ -41,5 +41,10 @@ public class EventslogController {
         return eventService.findEventslogById(eventslog_id);
     }
 
+    @GetMapping("/{eventslog_id/{pt_id}")
+    public ResponseEntity<?> getEvent(@PathVariable String eventslog_id, @PathVariable String pt_id){
+        Event event = eventService.findPTByTeamSequence(eventslog_id,pt_id);
+        return new ResponseEntity<Event>(event,HttpStatus.OK);
+    }
 
 }

@@ -10,4 +10,6 @@ import java.util.List;
 public interface EventRepository extends CrudRepository<Event, Long> {
 
     List<Event> findByTeamIdentifierOrderByPriority(String id);
+
+    Event findByTeamSequence(String sequence);
 }

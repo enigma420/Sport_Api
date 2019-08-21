@@ -62,5 +62,9 @@ public class EventService {
         return eventRepository.findByTeamIdentifierOrderByPriority(id);
     }
 
+    public Event findPTByTeamSequence(String eventslog_id, String pt_id){
+
+        return eventRepository.findByTeamSequence(pt_id);
+    }
 
 }
