@@ -25,7 +25,39 @@ class AddEvent extends Component {
             teamIdentifier: id,
             errors: {}
         };
+        this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
+
+    onChange(e){
+        this.setState({[e.target.name]:e.target.value});
+    }
+
+    onSubmit(e){
+        e.preventDefault();
+
+        const newEvent = {
+            nameOfEvent: this.state.nameOfEvent,
+            description: this.state.description,
+            place: this.state.place,
+            cost: this.state.cost,
+            startDate: this.state.startDate,
+            endDate: this.state.endDate,
+            minNumberOfMembers: this.state.minNumberOfMembers,
+            maxNumberOfMembers: this.state.maxNumberOfMembers,
+            priority: this.state.priority,
+            status: this.state.status,
+            requiredEquipment: this.state.requiredEquipment,
+        };
+
+        this.props.addEvent(
+            this.state.teamIdentifier,
+            newEvent,
+            this.props.history
+        );
+
+    }
+
     render() {
         const { id } = this.props.match.params;
 
@@ -39,7 +71,7 @@ class AddEvent extends Component {
                             </Link>
                             <h4 className="display-4 text-center">Add Event</h4>
                             <p className="lead text-center">Team Name + Team Code</p>
-                            <form>
+                            <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
                                     <h5>Event name</h5>
                                     <input
@@ -48,6 +80,7 @@ class AddEvent extends Component {
                                         name="nameOfEvent"
                                         placeholder="Name..."
                                         value={this.state.nameOfEvent}
+                                        onChange={this.onChange}
                                     />
                                 </div>
                                 <div className="form-group">
@@ -58,6 +91,7 @@ class AddEvent extends Component {
                                         placeholder="description..."
                                         name="description"
                                         value={this.state.description}
+                                        onChange={this.onChange}
                                     />
                                 </div>
                                 <div className="form-group row">
@@ -69,6 +103,7 @@ class AddEvent extends Component {
                                     placeholder="place..."
                                     name="place"
                                     value={this.state.place}
+                                    onChange={this.onChange}
                                 />
                                     </div>
                                     <label htmlFor="example-number-input"
@@ -80,6 +115,7 @@ class AddEvent extends Component {
                                             placeholder="Cost"
                                             name="cost"
                                             value={this.state.cost}
+                                            onChange={this.onChange}
                                         />
                                     </div>
                                 </div>
@@ -92,6 +128,7 @@ class AddEvent extends Component {
                                         className="form-control form-control-lg"
                                         name="startDate"
                                         value={this.state.startDate}
+                                        onChange={this.onChange}
                                     />
                                 </div>
                                 <label htmlFor="example-number-input"
@@ -102,6 +139,7 @@ class AddEvent extends Component {
                                         className="form-control form-control-lg"
                                         name="endDate"
                                         value={this.state.endDate}
+                                        onChange={this.onChange}
                                     />
                                 </div>
                                 </div>
@@ -115,6 +153,7 @@ class AddEvent extends Component {
                                             placeholder="Minimal Players"
                                             name="minNumberOfMembers"
                                             value={this.state.minNumberOfMembers}
+                                            onChange={this.onChange}
                                         />
                                     </div>
                                     <label htmlFor="example-number-input"
@@ -126,6 +165,7 @@ class AddEvent extends Component {
                                             placeholder="Maximal Players"
                                             name="maxNumberOfMembers"
                                             value={this.state.maxNumberOfMembers}
+                                            onChange={this.onChange}
                                             />
                                     </div>
                                 </div>
@@ -135,6 +175,7 @@ class AddEvent extends Component {
                                         className="form-control form-control-lg"
                                         name="priority"
                                         value={this.state.priority}
+                                        onChange={this.onChange}
                                     >
                                         <option value={0}>Select Priority</option>
                                         <option value={1}>High</option>
@@ -147,6 +188,7 @@ class AddEvent extends Component {
                                         className="form-control form-control-lg"
                                         name="status"
                                         value={this.state.status}
+                                        onChange={this.onChange}
                                     >
                                         <option value="">Select Status</option>
                                         <option value="IN_PAST">In Past</option>
@@ -164,6 +206,7 @@ class AddEvent extends Component {
                                         name="requiredEquipment"
                                         placeholder="Required Equipment"
                                         value={this.state.requiredEquipment}
+                                        onChange={this.onChange}
                                     />
                                 </div>
                                 <input
