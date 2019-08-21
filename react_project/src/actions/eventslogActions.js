@@ -44,3 +44,20 @@ export const getEvent = (eventslog_id,pt_id,history) => async dispatch => {
         history.push("/dashboard");
     }
 };
+
+export const updateEvent = (eventslog_id,pt_id,event,history) => async dispatch => {
+    try{
+        await axios.patch(`/api/eventslog/${eventslog_id}/${pt_id}`,event);
+        history.push(`/eventBoard/${eventslog_id}`);
+        dispatch({
+            type:GET_ERRORS,
+            payload: {}
+        });
+    }catch (err) {
+        dispatch({
+            type: GET_ERRORS,
+            payload: err.response.data
+        });
+
+    }
+};
