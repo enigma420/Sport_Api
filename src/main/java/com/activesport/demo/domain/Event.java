@@ -1,5 +1,7 @@
 package com.activesport.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
@@ -22,13 +24,16 @@ public class Event {
     private Integer maxNumberOfMembers;
     private Double cost;
     private String requiredEquipment;
+    @NotBlank(message = "When event will start?")
     private Date startDate;
+    @NotBlank(message = "When event will end?")
     private Date endDate;
 
     @Column(updatable = false)
     private String teamIdentifier;
 
     //ManyToOne with Team
+
 
     public Event() {
     }
