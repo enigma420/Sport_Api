@@ -1,8 +1,31 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import {connect} from "react-redux";
+import classnames from "classnames";
+import {addEvent} from "../../../actions/eventslogActions";
+import PropTypes from "prop-types";
 
 class AddEvent extends Component {
+    constructor(props){
+        super(props);
+        const{id} = this.props.match.params;
+
+        this.state = {
+            nameOfEvent: "",
+            description: "",
+            place: "",
+            cost: 0,
+            startDate: "",
+            endDate: "",
+            minNumberOfMembers: 0,
+            maxNumberOfMembers: "",
+            priority: 0,
+            status: "",
+            requiredEquipment: "",
+            teamIdentifier: id,
+            errors: {}
+        };
+    }
     render() {
         const { id } = this.props.match.params;
 
@@ -24,6 +47,7 @@ class AddEvent extends Component {
                                         className="form-control form-control-lg"
                                         name="nameOfEvent"
                                         placeholder="Name..."
+                                        value={this.state.nameOfEvent}
                                     />
                                 </div>
                                 <div className="form-group">
@@ -33,6 +57,7 @@ class AddEvent extends Component {
                                         rows="3"
                                         placeholder="description..."
                                         name="description"
+                                        value={this.state.description}
                                     />
                                 </div>
                                 <div className="form-group row">
@@ -43,6 +68,7 @@ class AddEvent extends Component {
                                     className="form-control"
                                     placeholder="place..."
                                     name="place"
+                                    value={this.state.place}
                                 />
                                     </div>
                                     <label htmlFor="example-number-input"
@@ -53,6 +79,7 @@ class AddEvent extends Component {
                                             type="number"
                                             placeholder="Cost"
                                             name="cost"
+                                            value={this.state.cost}
                                         />
                                     </div>
                                 </div>
@@ -64,6 +91,7 @@ class AddEvent extends Component {
                                         type="datetime-local"
                                         className="form-control form-control-lg"
                                         name="startDate"
+                                        value={this.state.startDate}
                                     />
                                 </div>
                                 <label htmlFor="example-number-input"
@@ -73,6 +101,7 @@ class AddEvent extends Component {
                                         type="datetime-local"
                                         className="form-control form-control-lg"
                                         name="endDate"
+                                        value={this.state.endDate}
                                     />
                                 </div>
                                 </div>
@@ -85,7 +114,8 @@ class AddEvent extends Component {
                                             type="number"
                                             placeholder="Minimal Players"
                                             name="minNumberOfMembers"
-                                            />
+                                            value={this.state.minNumberOfMembers}
+                                        />
                                     </div>
                                     <label htmlFor="example-number-input"
                                            className="col-3 col-form-label">Maximal Members</label>
@@ -95,6 +125,7 @@ class AddEvent extends Component {
                                             type="number"
                                             placeholder="Maximal Players"
                                             name="maxNumberOfMembers"
+                                            value={this.state.maxNumberOfMembers}
                                             />
                                     </div>
                                 </div>
@@ -103,6 +134,7 @@ class AddEvent extends Component {
                                     <select
                                         className="form-control form-control-lg"
                                         name="priority"
+                                        value={this.state.priority}
                                     >
                                         <option value={0}>Select Priority</option>
                                         <option value={1}>High</option>
@@ -114,6 +146,7 @@ class AddEvent extends Component {
                                     <select
                                         className="form-control form-control-lg"
                                         name="status"
+                                        value={this.state.status}
                                     >
                                         <option value="">Select Status</option>
                                         <option value="IN_PAST">In Past</option>
@@ -130,6 +163,7 @@ class AddEvent extends Component {
                                         rows="3"
                                         name="requiredEquipment"
                                         placeholder="Required Equipment"
+                                        value={this.state.requiredEquipment}
                                     />
                                 </div>
                                 <input
@@ -145,4 +179,8 @@ class AddEvent extends Component {
     }
 }
 
-export default AddEvent;
+AddEvent.propTypes = {
+    addEvent: PropTypes.func.isRequired
+};
+
+export default connect(null,{addEvent})(AddEvent);
