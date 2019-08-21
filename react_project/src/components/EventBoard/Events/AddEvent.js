@@ -29,6 +29,12 @@ class AddEvent extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
+    componentWillReceiveProps(nextProps) {
+    if(nextProps.errors){
+        this.setState({errors: nextProps.errors});
+        }
+    }
+
     onChange(e){
         this.setState({[e.target.name]:e.target.value});
     }
@@ -60,7 +66,7 @@ class AddEvent extends Component {
 
     render() {
         const { id } = this.props.match.params;
-
+        const { errors } = this.state;
         return (
             <div className="add-PBI">
                 <div className="container">
@@ -76,12 +82,19 @@ class AddEvent extends Component {
                                     <h5>Event name</h5>
                                     <input
                                         type="text"
-                                        className="form-control form-control-lg"
+                                        className={classnames("form-control form-control-lg" , {
+                                            "is-invalid": errors.nameOfEvent
+                                        })}
                                         name="nameOfEvent"
                                         placeholder="Name..."
                                         value={this.state.nameOfEvent}
                                         onChange={this.onChange}
                                     />
+                                    {errors.nameOfEvent && (
+                                        <div className="invalid-feedback">
+                                            {errors.nameOfEvent}
+                                        </div>
+                                    )}
                                 </div>
                                 <div className="form-group">
                                     <h5>Description</h5>
@@ -99,24 +112,38 @@ class AddEvent extends Component {
                                            className="col-3 col-form-label">Place</label>
                                     <div className="col-3">
                                     <textarea
-                                    className="form-control"
+                                    className={classnames("form-control form-control-lg" , {
+                                        "is-invalid": errors.place
+                                    })}
                                     placeholder="place..."
                                     name="place"
                                     value={this.state.place}
                                     onChange={this.onChange}
                                 />
+                                        {errors.place && (
+                                            <div className="invalid-feedback">
+                                                {errors.place}
+                                            </div>
+                                        )}
                                     </div>
                                     <label htmlFor="example-number-input"
                                            className="col-3 col-form-label">Cost</label>
                                     <div className="col-2">
                                         <input
-                                            className="form-control"
+                                            className={classnames("form-control form-control-lg" , {
+                                                "is-invalid": errors.cost
+                                            })}
                                             type="number"
                                             placeholder="Cost"
                                             name="cost"
                                             value={this.state.cost}
                                             onChange={this.onChange}
                                         />
+                                        { errors.cost && (
+                                            <div className="invalid-feedback">
+                                                {errors.cost}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                                 <div className="form-group row">
@@ -125,22 +152,36 @@ class AddEvent extends Component {
                                     <div className="col-3">
                                     <input
                                         type="datetime-local"
-                                        className="form-control form-control-lg"
+                                        className={classnames("form-control form-control-lg" , {
+                                            "is-invalid": errors.startDate
+                                        })}
                                         name="startDate"
                                         value={this.state.startDate}
                                         onChange={this.onChange}
                                     />
+                                        {errors.startDate && (
+                                            <div className="invalid-feedback">
+                                                {errors.startDate}
+                                            </div>
+                                        )}
                                 </div>
                                 <label htmlFor="example-number-input"
                                        className="col-3 col-form-label">End Date</label>
                                 <div className="col-3">
                                     <input
                                         type="datetime-local"
-                                        className="form-control form-control-lg"
+                                        className={classnames("form-control form-control-lg" , {
+                                            "is-invalid": errors.endDate
+                                        })}
                                         name="endDate"
                                         value={this.state.endDate}
                                         onChange={this.onChange}
                                     />
+                                    {errors.endDate && (
+                                        <div className="invalid-feedback">
+                                            {errors.endDate}
+                                        </div>
+                                    )}
                                 </div>
                                 </div>
                                 <div className="form-group row">
@@ -148,25 +189,39 @@ class AddEvent extends Component {
                                            className="col-3 col-form-label">Minimal Members</label>
                                     <div className="col-3">
                                         <input
-                                            className="form-control"
+                                            className={classnames("form-control form-control-lg" , {
+                                                "is-invalid": errors.minNumberOfMembers
+                                            })}
                                             type="number"
                                             placeholder="Minimal Players"
                                             name="minNumberOfMembers"
                                             value={this.state.minNumberOfMembers}
                                             onChange={this.onChange}
                                         />
+                                        { errors.minNumberOfMembers && (
+                                            <div className="invalid-feedback">
+                                                {errors.minNumberOfMembers}
+                                            </div>
+                                        )}
                                     </div>
                                     <label htmlFor="example-number-input"
                                            className="col-3 col-form-label">Maximal Members</label>
                                     <div className="col-3">
                                         <input
-                                            className="form-control"
+                                            className={classnames("form-control form-control-lg" , {
+                                                "is-invalid": errors.maxNumberOfMembers
+                                            })}
                                             type="number"
                                             placeholder="Maximal Players"
                                             name="maxNumberOfMembers"
                                             value={this.state.maxNumberOfMembers}
                                             onChange={this.onChange}
                                             />
+                                        {errors.maxNumberOfMembers && (
+                                            <div className="invalid-feedback">
+                                                {errors.maxNumberOfMembers}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                                 <div className="form-group row">
@@ -200,7 +255,6 @@ class AddEvent extends Component {
                                 <div className="form-group">
                                     <h5>Required Equipment</h5>
                                     <textarea
-                                        type="text"
                                         className="form-control form-control-lg "
                                         rows="3"
                                         name="requiredEquipment"
@@ -223,7 +277,12 @@ class AddEvent extends Component {
 }
 
 AddEvent.propTypes = {
-    addEvent: PropTypes.func.isRequired
+    addEvent: PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired
 };
 
-export default connect(null,{addEvent})(AddEvent);
+const mapStateToProps = state => ({
+    errors: state.errors
+});
+
+export default connect(mapStateToProps,{addEvent})(AddEvent);
