@@ -1,7 +1,15 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
+import {deleteEvent} from "../../../actions/eventslogActions";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
 
 class Event extends Component {
+
+    onDeleteClick(eventslog_id,pt_id){
+        this.props.deleteEvent(eventslog_id,pt_id);
+    }
+
     render() {
         const{ event } = this.props;
 
@@ -36,16 +44,29 @@ class Event extends Component {
                     </p>
                     <Link to={`/updateEvent/${event.teamIdentifier}/${
                         event.teamSequence}
-                        }`} href="#"
+                        }`}
                           className="btn btn-primary">
                         View / Update
                     </Link>
 
-                    <button className="btn btn-danger ml-4">Delete</button>
+                    <button
+                        className="btn btn-danger ml-4"
+                        onClick={this.onDeleteClick.bind(
+                            this,
+                            event.teamIdentifier,
+                            event.teamSequence
+                        )}
+                    >
+                        Delete
+                    </button>
                 </div>
             </div>
         );
     }
 }
 
-export default Event;
+Event.propTypes = {
+    deleteEvent: PropTypes.func.isRequired
+};
+
+export default connect(null,{deleteEvent})(Event);

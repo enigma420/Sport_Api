@@ -22,9 +22,10 @@ export default function (state = initialState,action) {
 
         case DELETE_EVENT:
             return {
-                ...state
-
-                //TO_DO
+                ...state,
+                events: state.events.filter(
+                    event => event.teamSequence !== action.payload
+                )
             };
 
         default:
