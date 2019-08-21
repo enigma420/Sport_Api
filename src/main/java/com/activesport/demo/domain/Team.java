@@ -20,7 +20,7 @@ public class Team {
     private Long id;
     @NotBlank(message ="Team Identifier is required")
     @Size(min=3, max=15, message = "Please use 3 to 15 characters")
-    @Column(updatable = false)
+    @Column(updatable = false, unique = true)
     private String teamIdentifier;
     @NotBlank(message = "Project description is required")
     private String nameOfTeamLeader;
