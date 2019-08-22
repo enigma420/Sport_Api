@@ -5,24 +5,21 @@ class Header extends Component {
 
     render() {
         return (
-<nav className="navbar sticky-top navbar-expand-sm  navbar-dark bg-primary mb-4">
-
+<nav className="navbar sticky-top navbar-expand-sm bg-info border-bottom">
     <div className="container">
-        <a className="navbar-text" href="/dashboard" class="logoss">
-            <h1 class="logoss" className="btn-group-lg ">Active Sport</h1>
+        <ul className="navbar-nav">
+            <li className="nav-item" >
+        <a className="navbar-text" href="/dashboard"  class="logoss">
+            <img src="logo.png" href="/dashboard" height="50" width="180" className="logo btn-space"/>
         </a>
-
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
-            <span className="navbar-toggler-icon"/>
-        </button>
-
+            </li>
+        </ul>
         <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                    <a className="nav-link " href="/dashboard">
-                        <button type="button" className="btn btn-dark font-weight-bold">News</button>
+                    <a className="nav-link" href="/dashboard">
+                        <button type="button" className="btn btn-dark font-weight-bold btn-lg btn-space">Board</button>
                     </a>
-
                 </li>
                 <li>
                     <div className="container h-100">
@@ -36,17 +33,18 @@ class Header extends Component {
                     </div>
                 </li>
             </ul>
-
+            <div className="">
             <ul className="navbar-nav ml-auto">
                 <div className="btn-group " role="group" aria-label="Basic example">
                     <a className="nav-link " href="/profile">
-                        <button type="button" className="btn btn-secondary glyphicon glyphicon-user">User</button>
+                        <button type="button" className="btn btn-dark font-weight-bold btn-lg btn-space">User</button>
                     </a>
                     <a className="nav-link" href="/logout">
-                        <button type="button" className="btn btn-secondary">logout</button>
+                        <button type="button" className="btn btn-dark font-weight-bold btn-lg btn-space" >Logout</button>
                     </a>
                 </div>
             </ul>
+            </div>
         </div>
     </div>
 </nav>

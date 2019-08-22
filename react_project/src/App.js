@@ -12,6 +12,7 @@ import EditTeam from "./components/Team/EditTeam";
 import AddEvent from "./components/EventBoard/Events/AddEvent";
 import EventBoard from "./components/EventBoard/EventBoard"
 import UpdateEvent from "./components/EventBoard/Events/UpdateEvent";
+import Sidebar from "./components/Layout/Sidebar";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Router>
           <div className="App">
               <Header/>
+              <Sidebar/>
               <Route exact path="/dashboard" component={Dashboard}/>
               <Route exact path="/createTeam" component={CreateTeam}/>
               <Route exact path="/editTeam/:id" component={EditTeam}/>

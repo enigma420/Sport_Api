@@ -24,6 +24,12 @@ constructor(){
 
 }
 
+    componentDidMount() {
+        const {id} = this.props.match.params;
+        this.props.getTeam(id,this.props.history);
+    }
+
+
 componentWillReceiveProps(nextProps) {
     if(nextProps.errors){
         this.setState({errors: nextProps.errors });
@@ -50,10 +56,6 @@ this.setState({
 
 }
 
-    componentDidMount() {
-        const {id} = this.props.match.params;
-        this.props.getTeam(id,this.props.history);
-    }
 
     onChange(e){
     this.setState({[e.target.name]: e.target.value});

@@ -33,8 +33,8 @@ class Event extends Component {
 
         return (
             <div className="card mb-1 bg-light">
-                <div className={`card-header text-primary ${priorityClass}`}>
-                    ID: {event.teamSequence} -- Priority:{priorityString}
+                <div className={`card-header text-primary text-center ${priorityClass}`}>
+                    ID: {event.teamSequence} -- Priority: {priorityString}
                     {event.priority}
                 </div>
                 <div className="card-body bg-light">
