@@ -3,7 +3,10 @@ body,html{
   width: 100%;
   margin: 0;
   padding: 0;
-  background: dodgerblue !important;
+  background-image: url("https://spprzystajn.pl/wp-content/uploads/2015/02/slide1-image-tablet.png");
+  background-repeat: no-repeat;
+  background-position: center;
+background-size: auto;
 }
 
 .searchbar{
@@ -36,6 +39,7 @@ body,html{
 .searchbar:hover > .search_icon{
   background: white;
   color: #e74c3c;
+
 }
 
 .search_icon{
@@ -120,8 +124,12 @@ input[type=text]:focus {outline:none;}
 
 .logoss{
   font-size: 70px;
-  color:darkorange;
+  color:black;
+}
 
+.logoss h1:hover {
+  color: darkorange;
+  transform: scale(1.2);
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -143,7 +151,16 @@ input[type=text]:focus {outline:none;}
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-.card{
-  margin-bottom: 10px;
+
+.logo:hover{
+  transform: scale(1.2);
 }
 
+button:hover{
+  transform: scale(1.5);
+  padding: 5px 20px 5px 20px;
+}
+
+.btn-space {
+  margin-right: 15px;
+}
