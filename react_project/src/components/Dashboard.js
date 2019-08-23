@@ -15,9 +15,39 @@ class Dashboard extends Component {
         const { teams } = this.props.team;
         return (
 <div className="teams" >
-    <div className="container">
-        <div className="row">
-            <div className="col-md-12 bg-warning">
+    <div className="dash">
+        <div className="dashboard">
+            <div className="container2">
+                    <div id="myCarousel" className="carousel slide " data-ride="carousel">
+                        <ol className="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1" className="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="2" className="active"></li>
+                        </ol>
+
+                        <div className="carousel-inner ">
+                            <div className="item active ">
+                                <img src="carousel1.jpg" alt="Los Angeles" className="carouselItems"/>
+                            </div>
+
+                            <div className="item">
+                                <img src="carousel2.jpg" alt="Chicago"  className="carouselItems"/>
+                            </div>
+
+                            <div className="item">
+                                <img src="carousel3.jpg" alt="New york" className="carouselItems"/>
+                            </div>
+                        </div>
+
+                        <a className="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span className="active glyphicon glyphicon-chevron-left"></span>
+                            <span className="sr-only">Previous</span>
+                        </a>
+                        <a className="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span className="active glyphicon glyphicon-chevron-right"></span>
+                            <span className="sr-only">Next</span>
+                        </a>
+                    </div>
                 <h1 className="display-4 text-center">Teams</h1>
                 <br />
                 <CreateTeamButton />

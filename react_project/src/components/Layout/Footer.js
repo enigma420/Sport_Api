@@ -4,11 +4,11 @@ class Footer extends Component {
     render() {
         return (
 <div>
-            <div className="navbar navbar-default navbar-fixed-bottom " class="footer">
+            <div className="navbar navbar-default navbar-fixed-bottom " className="footer">
                 <ul>
-                <div className="container">
-                    <p className="navbar-text pull-left" class="copywriter">©CopyWriter -> 2019 Simple App
-                        <a href="http://tinyurl.com/tbvalid"  class="copywriter"> HTML 5</a>
+                <div className="container ">
+                    <p className="navbar-text pull-left" className="copywriter">©CopyWriter -> 2019 Simple App
+                        <a href="http://tinyurl.com/tbvalid"  className="copywriter"> HTML 5</a>
                         <h4> Author: Dominik Nowak </h4>
                     </p>
                 </div>
