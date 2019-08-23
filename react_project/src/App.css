@@ -1,12 +1,11 @@
 body,html{
-  height: 100%;
-  width: 100%;
+
   margin: 0;
   padding: 0;
   background-image: url("https://spprzystajn.pl/wp-content/uploads/2015/02/slide1-image-tablet.png");
   background-repeat: no-repeat;
   background-position: center;
-background-size: auto;
+  background-size: auto;
 }
 
 .searchbar{
@@ -42,7 +41,7 @@ background-size: auto;
 
 }
 
-.search_icon{
+.search_icon {
   height: 40px;
   width: 40px;
   float: right;
@@ -50,110 +49,46 @@ background-size: auto;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  color:white;
+  color: white;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
 
-  height: 120px;
-  text-align: center;
-  background-color: wheat;
-}
+
 
 .footer {
   position: fixed;
-  width: 100%;
-  height: 120px;
+  right:0;
+  left:0;
   bottom: 0;
   width: 100%;
-  background-color: wheat;
+  height: 12%;
+  background-color: navajowhite;
   text-align: center;
+  border-top: 2px solid black;
 }
 
-
-
-/* The sidebar menu */
-.sidenav {
-  height:190px;
-  width:160px;
-
-  overflow: hidden;
-
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 5; /* Stay on top */
-  top: 315px; /* Stay at the top */
-  left: 0;
-  background-color: greenyellow; /* Black */
-  padding-top: 20px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-
-}
-
-
-.sidenav:hover{
-  height: 450px; /* Full-height: remove this if you want "auto" height */
-  width: 160px; /* Set the width of the sidebar */
-  transition: 0.5s;
-}
-
-input[type=text]:focus {outline:none;}
-
-.icons a:hover{
-  filter: brightness(2);
-  text-shadow: 1px 1px;
-  text-decoration: none;
-}
-
-/* The navigation menu links */
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #666666;
-  display: block;
+.logo{
   position: center;
-  text-align: center;
-  padding: 5px;
-  margin-bottom: 2px;
-  border-bottom: 3px solid lightskyblue;
-}
-
-
-.logoss{
-  font-size: 70px;
-  color:black;
-}
-
-.logoss h1:hover {
-  color: darkorange;
-  transform: scale(1.2);
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-  color: black;
-  filter: brightness(2);
-  text-shadow: 2px 1px;
-  text-decoration: none;
-}
-
-/* Style page content */
-.main {
-  margin-left: 160px; /* Same as the width of the sidebar */
-  padding: 0px 10px;
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
 }
 
 .logo:hover{
   transform: scale(1.2);
+}
+
+.logos {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  border: 2px solid cadetblue;
+}
+
+.corner_button{
+  display: block;
+  position: absolute;
+  top:0;
+  right: 0;
+  border-radius: 10px;
+  border: 2px solid cadetblue;
 }
 
 button:hover{
@@ -163,4 +98,239 @@ button:hover{
 
 .btn-space {
   margin-right: 15px;
+}
+
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+.fa-2x {
+  font-size: 2em;
+}
+.fa {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size:20px;
+}
+
+
+.main-menu:hover,nav.main-menu.expanded {
+  width:250px;
+  overflow:visible;
+}
+
+.main-menu {
+  background:#5bc0de;
+  border:2px solid black;
+  position:absolute;
+  bottom:16%;
+  height:65%;
+  left:0;
+  width:60px;
+  overflow:hidden;
+  -webkit-transition:width .05s linear;
+  transition:width .05s linear;
+  -webkit-transform:translateZ(0) scale(1,1);
+  z-index:1000;
+  border-radius: 5px 20px 5px 20px;
+  opacity: 0.92;
+}
+
+.main-menu>ul {
+  margin:20px 0;
+}
+
+.main-menu li {
+  position: center;
+  display:block;
+  width:250px;
+}
+
+.main-menu li>a {
+  position:relative;
+  display:table;
+  border-collapse:collapse;
+  border-spacing:0;
+  color:black;
+  font-family: arial;
+  font-size: 14px;
+  text-decoration:none;
+  -webkit-transform:translateZ(0) scale(1,1);
+  -webkit-transition:all .1s linear;
+  transition:all .1s linear;
+
+
+}
+
+.main-menu .nav-icon {
+  position:relative;
+  display:table-cell;
+  width:60px;
+  height:36px;
+  text-align:center;
+  vertical-align:middle;
+  font-size:18px;
+}
+
+.main-menu .nav-text {
+  position:relative;
+  display:table-cell;
+  vertical-align:middle;
+  width:190px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.main-menu>ul.logout {
+  position:absolute;
+  left:0;
+  bottom:0;
+}
+
+.no-touch .scrollable.hover {
+  overflow-y:hidden;
+}
+
+.no-touch .scrollable.hover:hover {
+  overflow-y:auto;
+  overflow:visible;
+}
+
+a:hover,a:focus {
+  text-decoration:none;
+}
+
+nav {
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  -o-user-select:none;
+  user-select:none;
+}
+
+nav ul,nav li {
+  outline:0;
+  margin:0;
+  padding:0;
+}
+.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
+  color:#fff;
+  background-color:#5fa2db;
+  border-right: 2px solid black;
+}
+.area {
+  float: left;
+  background: #e2e2e2;
+  width: 100%;
+  height: 100%;
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
+
+button{
+  width: 150px;
+  height: 35px;
+}
+
+.demo-icon{
+text-underline-style: none
+}
+
+.dashboard{
+
+}
+
+.container2{
+  width: 800px;
+  margin: auto;
+  /*width: 50%;*/
+}
+
+
+
+.all{
+  width: 120px;
+  margin: 10px;
+
+
+}
+
+.all2{
+  width: 300px;
+  margin: 5px;
+
+
+
+}
+
+.all3{
+  width: 135px;
+  margin: 10px;
+
+
+}
+
+.carouselItems{
+  width: 50%;
+  margin: auto;
+  height: 60px;
+}
+
+.carousel{
+  width: 100%;
+  border-radius: 8px;
+  padding: 55px;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 3px solid black;
+  position: center;
+}
+
+.active{
+  width: 50%;
+  margin: auto;
+}
+
+.teamMenu{
+  width: auto;
+  border: 2px solid deepskyblue;
+  margin: 1px;
+  padding: auto;
+  border-radius: 3px;
+
+}
+
+
+.border-3{
+  border-right: 5px solid deepskyblue;
+}
+
+.border-1{
+  border: 1px dashed deepskyblue;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.dash{
+  background-color: lightsalmon;
+}
+
+.header{
+  background-color: deepskyblue;
+  border-bottom: 3px solid black;
+  padding: 8px;
+  top:0;
+  height: 12%;
+}
+
+.row{
+  height: auto;
 }

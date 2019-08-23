@@ -5,7 +5,7 @@ class Header extends Component {
 
     render() {
         return (
-<nav className="navbar sticky-top navbar-expand-sm bg-info border-bottom">
+<nav className=" sticky-top navbar-expand-sm header">
     <div className="container">
         <ul className="navbar-nav">
             <li className="nav-item" >
@@ -16,11 +16,7 @@ class Header extends Component {
         </ul>
         <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav mr-auto">
-                <li className="nav-item">
-                    <a className="nav-link" href="/dashboard">
-                        <button type="button" className="btn btn-dark font-weight-bold btn-lg btn-space">Board</button>
-                    </a>
-                </li>
+
                 <li>
                     <div className="container h-100">
                         <div className="d-flex justify-content-center h-100">
@@ -36,12 +32,11 @@ class Header extends Component {
             <div className="">
             <ul className="navbar-nav ml-auto">
                 <div className="btn-group " role="group" aria-label="Basic example">
-                    <a className="nav-link " href="/profile">
-                        <button type="button" className="btn btn-dark font-weight-bold btn-lg btn-space">User</button>
-                    </a>
-                    <a className="nav-link" href="/logout">
-                        <button type="button" className="btn btn-dark font-weight-bold btn-lg btn-space" >Logout</button>
-                    </a>
+                    <li className="nav-item">
+                        <a className="nav-link" href="/dashboard">
+                            <button type="button" className="btn btn-dark font-weight-bold btn-lg btn-space">Dashboard</button>
+                        </a>
+                    </li>
                 </div>
             </ul>
             </div>
