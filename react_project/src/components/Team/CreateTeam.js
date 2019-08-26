@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import { createTeam } from "../../actions/teamActions";
 import classnames from "classnames";
+import {Link} from "react-router-dom";
 
 class CreateTeam extends Component {
     constructor() {
@@ -49,15 +50,16 @@ class CreateTeam extends Component {
     render() {
         const {errors} = this.state;
         return (
-            <div>
-            <div className="team">
-                <div className="container">
+            <div className="dashboard">
+                <div className="container2">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h5 className="display-4 text-center">Create Team form</h5>
+                            <h5 className="modifyTeam">Create Team</h5>
                             <hr />
+                            <Link to={"/dashboard"} className="exit btn btn-danger"> EXIT </Link>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
+                                    <h5>Team Name:</h5>
                                     <input
                                         type="text"
                                         className={classnames("form-control form-control-lg" , {
@@ -76,6 +78,7 @@ class CreateTeam extends Component {
 
                                 </div>
                                 <div className="form-group">
+                                    <h5>Team ID:</h5>
                                     <input
                                         type="text"
                                         className={classnames("form-control form-control-lg", {
@@ -93,6 +96,7 @@ class CreateTeam extends Component {
                                     )}
                                 </div>
                                 <div className="form-group">
+                                    <h5>Description:</h5>
                    <textarea
                        type="text"
                        className={classnames("form-control form-control-lg" , {
@@ -111,6 +115,7 @@ class CreateTeam extends Component {
 
                                 </div>
                                 <div className="form-group">
+                                    <h5>Team Leader:</h5>
                                     <input
                                         type="text"
                                         className={classnames("form-control form-control-lg", {
@@ -129,6 +134,7 @@ class CreateTeam extends Component {
 
                          </div>
                          <div className="form-group">
+                             <h5>Type of Sport:</h5>
                                 <input
                                     type="text"
                                     className={classnames("form-control form-control-lg" , {
@@ -145,26 +151,17 @@ class CreateTeam extends Component {
                                     </div>
                                 )}
                         </div>
-                        <h6>Creational Date</h6>
-                        <div className="form-group">
-                            <input
-                                type="date"
-                                className="form-control form-control-lg"
-                                name="dateOfCreationTime"
-                                value={this.state.dateOfCreationTeam}
-                                onChange={this.onChange}
-                            />
-                        </div>
                         <input
                             type="submit"
-                            className="btn btn-primary btn-block mt-4"
-                        />
+                            className="btn btn-primary btn-block "
+                        ></input>
                     </form>
                 </div>
             </div>
+
         </div>
+
     </div>
-</div>
         );
     }
 }

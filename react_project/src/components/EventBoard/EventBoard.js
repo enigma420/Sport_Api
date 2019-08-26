@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import { getEventslog} from "../../actions/eventslogActions";
 
+
 class EventBoard extends Component {
     constructor() {
         super();
@@ -54,9 +55,9 @@ class EventBoard extends Component {
         BoardContent = boardAlgorithm(errors, events);
 
         return (
-            <div className="container">
-                <Link to={`/addEvent/${id}`} className="btn btn-primary mb-3">
-                    <i className="fas fa-plus-circle">Add Event</i>
+            <div className="eventboard">
+                <Link to={`/addEvent/${id}`} className="top-buffer btn col-2 btn-primary mb-3 ">
+                    <i className="fas fa-plus-circle">Create Event</i>
                 </Link>
                 <br />
                 <hr />

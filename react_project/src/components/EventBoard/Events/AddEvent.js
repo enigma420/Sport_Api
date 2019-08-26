@@ -69,14 +69,16 @@ class AddEvent extends Component {
         const { errors } = this.state;
         return (
             <div className="add-PBI">
+                <div className="dashboard">
+                    <div className="container2">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <Link to={`/eventBoard/${id}`} className="btn btn-light">
+                            <Link to={`/eventBoard/${id}`} className="btn-lg btn-primary">
                                 Back to Project Board
                             </Link>
-                            <h4 className="display-4 text-center">Add Event</h4>
-                            <p className="lead text-center">Team Name + Team Code</p>
+                            <h5 className="modifyTeam">Create Event</h5>
+                        <hr/>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
                                     <h5>Event name</h5>
@@ -232,7 +234,7 @@ class AddEvent extends Component {
                                         value={this.state.priority}
                                         onChange={this.onChange}
                                     >
-                                        <option value={0}>Select Priority</option>
+                                        <option value={0}>Select Priority...</option>
                                         <option value={1}>High</option>
                                         <option value={2}>Medium</option>
                                         <option value={3}>Low</option>
@@ -245,7 +247,7 @@ class AddEvent extends Component {
                                         value={this.state.status}
                                         onChange={this.onChange}
                                     >
-                                        <option value="">Select Status</option>
+                                        <option value="">Select Status...</option>
                                         <option value="IN_PAST">In Past</option>
                                         <option value="TODAY">Today</option>
                                         <option value="IN_FUTURE">In Future</option>
@@ -269,6 +271,8 @@ class AddEvent extends Component {
                                 />
                             </form>
                         </div>
+                    </div>
+                    </div>
                     </div>
                 </div>
             </div>

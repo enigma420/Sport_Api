@@ -112,20 +112,22 @@ constructor(){
         const { errors } = this.state;
         return (
             <div className="add-PBI">
-                <div className="container">
+                <div className="dashboard">
+                <div className="container2">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <Link to={`/eventBoard/${this.state.teamIdentifier}`} className="btn btn-light">
-                                Back to Project Board
+                            <Link to={`/eventBoard/${this.state.teamIdentifier}`} className="btn-lg btn-primary">
+                                Back to Events Board
                             </Link>
-                            <h4 className="display-4 text-center">Add Event</h4>
+                            <h6 className="modifyTeam">Edit Event</h6>
+                            <hr/>
                             <p className="lead text-center">
-                                Team Name: {this.state.teamIdentifier} | Project Task ID:{" "}
+                                Team Name: {this.state.teamIdentifier} | Team ID:{" "}
                                 {this.state.teamSequence}{" "}
                             </p>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
-                                    <h5>Event name</h5>
+                                    <h5>Event name:</h5>
                                     <input
                                         type="text"
                                         className={classnames("form-control form-control-lg" , {
@@ -143,7 +145,7 @@ constructor(){
                                     )}
                                 </div>
                                 <div className="form-group">
-                                    <h5>Description</h5>
+                                    <h5>Description:</h5>
                                     <textarea
                                         className="form-control form-control-lg"
                                         rows="3"
@@ -299,7 +301,7 @@ constructor(){
                                     </div>
                                 </div>
                                 <div className="form-group">
-                                    <h5>Required Equipment</h5>
+                                    <h5>Required Equipment:</h5>
                                     <textarea
                                         className="form-control form-control-lg "
                                         rows="3"
@@ -317,7 +319,8 @@ constructor(){
                         </div>
                     </div>
                 </div>
-            </div>
+                </div>
+                </div>
         );
     }
 }

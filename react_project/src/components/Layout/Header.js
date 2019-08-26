@@ -1,9 +1,17 @@
 import React, {Component} from 'react';
-
+import date from 'date-and-time';
 
 class Header extends Component {
+    componentDidMount() {
+        this.interval = setInterval(() => this.setState({ time: Date.now() }), 1000);
+    }
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
 
     render() {
+        const now = new Date();
         return (
 <nav className=" sticky-top navbar-expand-sm header">
     <div className="container">
@@ -29,19 +37,20 @@ class Header extends Component {
                     </div>
                 </li>
             </ul>
-            <div className="">
             <ul className="navbar-nav ml-auto">
+                <a className="nav-link" href="https://www.timeanddate.com/worldclock/">
+                    <div className="clock">
+                    {date.format(new Date(), 'YYYY/MM/DD HH:mm:ss') }
+                    </div>
+                </a>
                 <div className="btn-group " role="group" aria-label="Basic example">
-                    <li className="nav-item">
-                        <a className="nav-link" href="/dashboard">
-                            <button type="button" className="btn btn-dark font-weight-bold btn-lg btn-space">Dashboard</button>
-                        </a>
-                    </li>
+
+
+
                 </div>
             </ul>
             </div>
         </div>
-    </div>
 </nav>
 
 
