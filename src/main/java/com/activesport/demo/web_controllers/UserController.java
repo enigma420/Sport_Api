@@ -4,6 +4,7 @@ package com.activesport.demo.web_controllers;
 import com.activesport.demo.domain.User;
 import com.activesport.demo.services.MapValidationErrorService;
 import com.activesport.demo.services.UserService;
+import com.activesport.demo.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +26,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserValidator userValidator;
+
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@Valid @RequestBody User user, BindingResult result){
+
+        userValidator.validate(user,result);
 
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
 
