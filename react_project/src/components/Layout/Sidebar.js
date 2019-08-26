@@ -10,78 +10,62 @@ class Sidebar extends Component {
                         <img src={process.env.PUBLIC_URL + './avatar.jpg'}  alt="logo" className="logos" width="55px" height="65px"/>
                         <h2 align="center">Nick</h2>
                         <li>
-                            <a href="http://justinfarrow.com">
-                                <i className="fa fa-home fa-2x"></i>
+                            <a href="/profile">
+                                <i className="fa fa-smile-o fa-2x"></i>
                                 <span className="nav-text">
-                            Dashboard
+                            Profile
                         </span>
                             </a>
 
                         </li>
                         <li className="has-subnav">
-                            <a href="#">
-                                <i className="fa fa-laptop fa-2x"></i>
+                            <a href="/friends">
+                                <i className="fa fa-users fa-2x"></i>
                                 <span className="nav-text">
-    Stars Components
+    Friends
     </span>
                             </a>
 
                         </li>
                         <li className="has-subnav">
-                            <a href="#">
-                                <i className="fa fa-list fa-2x"></i>
+                            <a href="/dashboard">
+                                <i className="fa fa-tasks "></i>
                                 <span className="nav-text">
-    Forms
-    </span>
-                            </a>
-
-                        </li>
-                        <li className="has-subnav">
-                            <a href="#">
-                                <i className="fa fa-folder-open fa-2x"></i>
-                                <span className="nav-text">
-    Pages
+    Teams
     </span>
                             </a>
 
                         </li>
                         <li>
-                            <a href="#">
-                                <i className="fa fa-bar-chart-o fa-2x"></i>
+                            <a href="/calendar">
+                                <i className="fa fa-calendar fa-2x"></i>
                                 <span className="nav-text">
-    Graphs and Statistics
+    Events Calendar
+    </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/weather">
+                                <i className="fa fa-cloud fa-x"></i>
+                                <span className="nav-text">
+    Check Weather
     </span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <i className="fa fa-font fa-2x"></i>
-                                <span className="nav-text">
-    Quotes
-    </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i className="fa fa-table fa-2x"></i>
-                                <span className="nav-text">
-    Tables
-    </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i className="fa fa-map-marker fa-2x"></i>
-                                <span className="nav-text">
-    Maps
-    </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
+                            <a href="/about_us">
                                 <i className="fa fa-info fa-2x"></i>
                                 <span className="nav-text">
-    Documentation
+    About us
+    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contact">
+                                <i className="fa fa-phone fa-2x"></i>
+                                <span className="nav-text">
+    Contact
     </span>
                             </a>
                         </li>
@@ -89,7 +73,7 @@ class Sidebar extends Component {
 
                     <ul className="logout">
                         <li>
-                            <a href="#">
+                            <a href="/">
                                 <i className="fa fa-power-off fa-2x"></i>
                                 <span className="nav-text">
     Logout

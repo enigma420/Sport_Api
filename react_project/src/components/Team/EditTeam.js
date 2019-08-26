@@ -80,15 +80,15 @@ this.setState({
     render() {
     const{errors} = this.state;
         return (
-            <div>
-                <div className="team">
-                    <div className="container">
+            <div className="dashboard">
+                <div className="container2">
                         <div className="row">
                             <div className="col-md-8 m-auto">
-                                <h5 className="display-4 text-center">Create Team form</h5>
+                                <h5 className="modifyTeam">Modify Team</h5>
                                 <hr />
                                 <form onSubmit={this.onSubmit}>
                                     <div className="form-group">
+                                        <h5>Team Name:</h5>
                                         <input
                                             type="text"
                                             className={classnames("form-control form-control-lg" , {
@@ -106,6 +106,7 @@ this.setState({
                                         )}
                                     </div>
                                     <div className="form-group">
+                                        <h5>Team Identifier:</h5>
                                         <input
                                             type="text"
                                             className={classnames("form-control form-control-lg", {
@@ -124,6 +125,7 @@ this.setState({
                                         )}
                                     </div>
                                     <div className="form-group">
+                                        <h5>Description:</h5>
                                         <textarea
                                             type="text"
                                             className={classnames("form-control form-control-lg" , {
@@ -141,6 +143,7 @@ this.setState({
                                         )}
                                     </div>
                                     <div className="form-group">
+                                        <h5>Team Leader:</h5>
                                         <input
                                             type="text"
                                             className={classnames("form-control form-control-lg", {
@@ -159,6 +162,7 @@ this.setState({
                                         )}
                                     </div>
                                     <div className="form-group">
+                                        <h5>Type of Sport:</h5>
                                         <input
                                             type="text"
                                             className={classnames("form-control form-control-lg" , {
@@ -175,16 +179,6 @@ this.setState({
                                             </div>
                                         )}
                                     </div>
-                                    <h6>Creational Date</h6>
-                                    <div className="form-group">
-                                        <input
-                                            type="date"
-                                            className="form-control form-control-lg"
-                                            name="dateOfCreationTime"
-                                            value={this.state.dateOfCreationTeam}
-                                            onChange={this.onChange}
-                                        />
-                                    </div>
                                     <input
                                         type="submit"
                                         className="btn btn-primary btn-block mt-4"
@@ -192,9 +186,9 @@ this.setState({
                                 </form>
                             </div>
                         </div>
-                    </div>
-                </div>
             </div>
+            </div>
+
         );
     }
 }

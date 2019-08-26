@@ -4,7 +4,7 @@ class Footer extends Component {
     render() {
         return (
 <div>
-            <div className="navbar navbar-default navbar-fixed-bottom " className="footer">
+            <div className="footer">
                 <ul>
                 <div className="container ">
                     <p className="navbar-text pull-left" className="copywriter">©CopyWriter -> 2019 Simple App
