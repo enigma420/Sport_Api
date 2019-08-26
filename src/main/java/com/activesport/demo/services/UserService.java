@@ -1,6 +1,7 @@
 package com.activesport.demo.services;
 
 import com.activesport.demo.domain.User;
+import com.activesport.demo.exceptions.UsernameAlreadyExistsException;
 import com.activesport.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,10 +17,18 @@ public class UserService {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public User saveUser(User newUser){
-        newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
 
+        try{
+            newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
 
-        return userRepository.save(newUser);
+            newUser.setUsername(newUser.getUsername());
+
+            return userRepository.save(newUser);
+
+        }catch (Exception e){
+            throw new UsernameAlreadyExistsException("Username '" + newUser.getUsername() + "' already exists");
+        }
+
     }
 
 }
