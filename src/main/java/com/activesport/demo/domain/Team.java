@@ -38,6 +38,11 @@ public class Team {
     @JsonIgnore
     private Eventslog eventslog;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id", updatable = false, nullable = false)
+    @JsonIgnore
+    private User user;
+
     public Team() {
     }
 
@@ -103,5 +108,13 @@ public class Team {
 
     public void setEventslog(Eventslog eventslog) {
         this.eventslog = eventslog;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
