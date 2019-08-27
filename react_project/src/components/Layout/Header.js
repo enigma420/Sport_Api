@@ -38,16 +38,28 @@ class Header extends Component {
                 </li>
             </ul>
             <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
                 <a className="nav-link" href="https://www.timeanddate.com/worldclock/">
                     <div className="clock">
                     {date.format(new Date(), 'YYYY/MM/DD HH:mm:ss') }
                     </div>
                 </a>
-                <div className="btn-group " role="group" aria-label="Basic example">
-
-
-
-                </div>
+                </li>
+                    <li className="nav-item">
+                <Link className="nav-link" to="/dashboard">
+                    Dashboard
+                </Link>
+                    </li>
+                        <li className="nav-item">
+                <Link className="nav-link" to="/register">
+                    Sign Up
+            </Link>
+                        </li>
+                            <li className="nav-item">
+                <Link className="nav-link" to="/login">
+                    Login
+            </Link>
+                            </li>
             </ul>
             </div>
         </div>
