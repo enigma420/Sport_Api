@@ -22,10 +22,13 @@ public class EventService {
     @Autowired
     private TeamRepository teamRepository;
 
+    @Autowired
+    private TeamService teamService;
 
-    public Event addEvent(String teamIdentifier, Event event){
+
+    public Event addEvent(String teamIdentifier, Event event, String username){
     try {
-        Eventslog eventslog = eventslogRepository.findByTeamIdentifier(teamIdentifier);
+        Eventslog eventslog = teamService.findTeamByIdentifier(teamIdentifier, username).getEventslog();
 
         event.setEventslog(eventslog);
 
@@ -52,13 +55,9 @@ public class EventService {
         return eventRepository.save(event);
     }
 
-    public Iterable<Event> findEventslogById(String id){
+    public Iterable<Event> findEventslogById(String id, String username){
 
-        Team team = teamRepository.findByTeamIdentifier(id);
-
-        if(team == null){
-            throw new TeamNotFoundException("Team with ID: '" + id + "' does not exist");
-        }
+        teamService.findTeamByIdentifier(id, username);
 
         return eventRepository.findByTeamIdentifierOrderByPriority(id);
     }
