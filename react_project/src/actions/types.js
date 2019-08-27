@@ -8,3 +8,5 @@ export const DELETE_TEAM = "DELETE_TEAM";
 export const GET_EVENTSLOG = "GET_EVENTSLOG";
 export const GET_EVENT = "GET_EVENT";
 export const DELETE_EVENT = "DELETE_EVENT";
+
+export const SET_CURRENT_USER = "SET_CURRENT_USER";
