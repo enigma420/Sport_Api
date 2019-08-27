@@ -13,6 +13,10 @@ import AddEvent from "./components/EventBoard/Events/AddEvent";
 import EventBoard from "./components/EventBoard/EventBoard"
 import UpdateEvent from "./components/EventBoard/Events/UpdateEvent";
 import Sidebar from "./components/Layout/Sidebar";
+import Landing from "./components/Layout/Landing";
+import Register from "./components/UserManagement/Register";
+import Login from "./components/UserManagement/Login";
+
 
 function App() {
   return (
@@ -20,6 +24,15 @@ function App() {
       <Router>
           <div className="App">
               <Header/>
+              {
+                  //Public Routes
+              }
+              <Route exact path="/" component={Landing} />
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/login" component={Login} />
+              {
+                  //Private Routes
+              }
               <Sidebar/>
               <Route exact path="/dashboard" component={Dashboard}/>
               <Route exact path="/createTeam" component={CreateTeam}/>
