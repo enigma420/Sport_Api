@@ -34,7 +34,7 @@ public class User implements UserDetails {
 
     //OneToMany Team
     @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "user", orphanRemoval = true)
-    List<Team> teams = new ArrayList<>();
+    private List<Team> teams = new ArrayList<>();
 
     public User() {
     }

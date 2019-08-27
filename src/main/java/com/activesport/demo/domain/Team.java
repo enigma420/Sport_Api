@@ -38,10 +38,11 @@ public class Team {
     @JsonIgnore
     private Eventslog eventslog;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id", updatable = false, nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private User user;
+
+    private String teamLeader;
 
     public Team() {
     }
@@ -116,5 +117,13 @@ public class Team {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getTeamLeader() {
+        return teamLeader;
+    }
+
+    public void setTeamLeader(String teamLeader) {
+        this.teamLeader = teamLeader;
     }
 }

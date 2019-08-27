@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 @RestController
 @RequestMapping("/api/team")
@@ -27,13 +28,13 @@ public class TeamController {
     /* POST endpoint which create new Team */
 
     @PostMapping("")
-    public ResponseEntity<?> createNewTeam(@Valid @RequestBody Team team, BindingResult result){
+    public ResponseEntity<?> createNewTeam(@Valid @RequestBody Team team, BindingResult result, Principal principal){
 
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
         if(errorMap != null) return errorMap;
 
 
-        Team newTeam = teamService.saveOrUpdateTeam(team);
+        Team newTeam = teamService.saveOrUpdateTeam(team, principal.getName());
         return new ResponseEntity<Team>(team, HttpStatus.CREATED);
     }
 
