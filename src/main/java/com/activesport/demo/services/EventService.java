@@ -62,12 +62,9 @@ public class EventService {
         return eventRepository.findByTeamIdentifierOrderByPriority(id);
     }
 
-    public Event findPTByTeamSequence(String eventslog_id, String pt_id){
+    public Event findPTByTeamSequence(String eventslog_id, String pt_id , String username){
 
-        Eventslog eventslog = eventslogRepository.findByTeamIdentifier(eventslog_id);
-        if(eventslog == null){
-            throw new TeamNotFoundException("Team with ID: '" + eventslog_id + "' does not exist");
-        }
+        teamService.findTeamByIdentifier(eventslog_id,username);
 
         Event event = eventRepository.findByTeamSequence(pt_id);
 
@@ -82,16 +79,16 @@ public class EventService {
         return event;
     }
 
-    public Event updateByEventSequence(Event updatedEvent, String eventslog_id, String pt_id){
-        Event event = findPTByTeamSequence(eventslog_id,pt_id);
+    public Event updateByEventSequence(Event updatedEvent, String eventslog_id, String pt_id, String username){
+        Event event = findPTByTeamSequence(eventslog_id,pt_id,username);
 
         event = updatedEvent;
 
         return eventRepository.save(event);
     }
 
-    public void deletePTByTeamSequence(String eventslog_id, String pt_id){
-        Event event = findPTByTeamSequence(eventslog_id,pt_id);
+    public void deletePTByTeamSequence(String eventslog_id, String pt_id, String username){
+        Event event = findPTByTeamSequence(eventslog_id,pt_id,username);
         if(eventRepository.count() == 0){
             throw new TeamNotFoundException("You cannot delete because no event exist");
         }
