@@ -7,8 +7,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class User implements UserDetails {
@@ -31,7 +33,8 @@ public class User implements UserDetails {
     private Date update_At;
 
     //OneToMany Team
-
+    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "user", orphanRemoval = true)
+    List<Team> teams = new ArrayList<>();
 
     public User() {
     }
@@ -90,6 +93,14 @@ public class User implements UserDetails {
 
     public void setUpdate_At(Date update_At) {
         this.update_At = update_At;
+    }
+
+    public List<Team> getTeams() {
+        return teams;
+    }
+
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
     }
 
     @PrePersist
