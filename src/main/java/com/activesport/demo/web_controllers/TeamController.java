@@ -41,9 +41,9 @@ public class TeamController {
     /* GET endpoint which get Team by team Identifier (PathVariable annotation)*/
 
     @GetMapping("/{teamIdentifier}")
-    public ResponseEntity<?> getTeamById(@PathVariable String teamIdentifier){
+    public ResponseEntity<?> getTeamById(@PathVariable String teamId, Principal principal){
 
-        Team team = teamService.findTeamByIdentifier(teamIdentifier);
+        Team team = teamService.findTeamByIdentifier(teamId, principal.getName());
 
         return new ResponseEntity<Team>(team, HttpStatus.OK);
     }
@@ -51,8 +51,8 @@ public class TeamController {
     /* GET endpoint which get all Teams */
 
     @GetMapping("/all")
-    public Iterable<Team> getAllTeams(){
-        return teamService.findAllTeams();
+    public Iterable<Team> getAllTeams(Principal principal){
+        return teamService.findAllTeams(principal.getName());
     }
 
     /* GET endpoint which counts all teams */
@@ -65,11 +65,11 @@ public class TeamController {
     /* DELETE endpoint which delete Team by team Identifier (PathVariable annotation)*/
 
     @DeleteMapping("/{teamIdentifier}")
-    public ResponseEntity<?> deleteTeam(@PathVariable String teamIdentifier){
+    public ResponseEntity<?> deleteTeam(@PathVariable String teamId, Principal principal){
 
-        teamService.deleteTeamByIdentifier(teamIdentifier);
+        teamService.deleteTeamByIdentifier(teamId , principal.getName());
 
-        return new ResponseEntity<String>("Team with ID: '"+teamIdentifier+"' was deleted", HttpStatus.OK);
+        return new ResponseEntity<String>("Team with ID: '"+ teamId +"' was deleted", HttpStatus.OK);
 
     }
 

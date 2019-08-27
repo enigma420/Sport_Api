@@ -5,6 +5,7 @@ import com.activesport.demo.domain.Eventslog;
 import com.activesport.demo.domain.Team;
 import com.activesport.demo.domain.User;
 import com.activesport.demo.exceptions.TeamIdException;
+import com.activesport.demo.exceptions.TeamNotFoundException;
 import com.activesport.demo.repositories.EventRepository;
 import com.activesport.demo.repositories.EventslogRepository;
 import com.activesport.demo.repositories.TeamRepository;
@@ -59,7 +60,7 @@ public class TeamService {
 
     /* find Team by Identifier Service Method which acquires method from TeamRepository  */
 
-    public Team findTeamByIdentifier(String teamId){
+    public Team findTeamByIdentifier(String teamId, String username){
 
         Team team = teamRepository.findByTeamIdentifier(teamId.toUpperCase());
 
@@ -69,16 +70,20 @@ public class TeamService {
         else if(team == null){
             throw new TeamIdException("Project ID '" + teamId + "' does not exist");
         }
+
+        if(!team.getTeamLeader().equals(username)){
+            throw new TeamNotFoundException("Team not found in your account");
+        }
     return team;
     }
 
     /* find all Teams which acquires method from TeamRepository  */
 
-    public  Iterable<Team> findAllTeams(){
+    public  Iterable<Team> findAllTeams(String username){
         if(teamRepository.count() == 0){
             throw new TeamIdException("No team exists");
         }
-        return teamRepository.findAll();
+        return teamRepository.findAllByTeamLeader(username);
     }
 
     /* Count Teams Method */
@@ -90,7 +95,7 @@ public class TeamService {
 
     /* Delete Team by Identifier */
 
-    public void deleteTeamByIdentifier(String teamId){
+    public void deleteTeamByIdentifier(String teamId, String username){
 
         Team team = teamRepository.findByTeamIdentifier(teamId.toUpperCase());
 
@@ -101,7 +106,7 @@ public class TeamService {
             throw new TeamIdException("Cannot Delete Team with ID: '"+teamId+"' This team does not exist");
         }
 
-        teamRepository.delete(team);
+        teamRepository.delete(findTeamByIdentifier(teamId , username));
     }
 
 }
