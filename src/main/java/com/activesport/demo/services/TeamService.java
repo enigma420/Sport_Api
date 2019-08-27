@@ -35,6 +35,15 @@ public class TeamService {
 
     public Team saveOrUpdateTeam(Team team, String username){
 
+        if(team.getId() != null){
+            Team existingTeam = teamRepository.findByTeamIdentifier(team.getTeamIdentifier());
+            if(existingTeam != null &&(!existingTeam.getTeamLeader().equals(username))){
+                throw new TeamNotFoundException("Team not found in your account");
+            }else if(existingTeam == null){
+                throw new TeamNotFoundException("Team with ID: '" + team.getTeamIdentifier() + "' cannot be updated");
+            }
+        }
+
         try{
             User user = userRepository.findByUsername(username);
             team.setUser(user);
