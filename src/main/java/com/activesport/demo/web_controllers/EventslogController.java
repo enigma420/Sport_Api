@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.GeneratedValue;
 import javax.validation.Valid;
+import java.security.Principal;
 
 @RestController
 @RequestMapping("/api/eventslog")
@@ -25,20 +26,20 @@ public class EventslogController {
 
     @PostMapping("/{eventslog_id}")
     public ResponseEntity<?> addPTtoEventslog(@Valid @RequestBody Event event,
-                                              BindingResult result, @PathVariable String eventslog_id){
+                                              BindingResult result, @PathVariable String eventslog_id, Principal principal){
 
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
         if(errorMap != null) return errorMap;
 
-        Event event1 = eventService.addEvent(eventslog_id,event);
+        Event event1 = eventService.addEvent(eventslog_id,event, principal.getName());
 
         return new ResponseEntity<Event>(event1, HttpStatus.CREATED);
 
     }
 
     @GetMapping("/{eventslog_id}")
-    public Iterable<Event> getTeamEventslog(@PathVariable String eventslog_id){
-        return eventService.findEventslogById(eventslog_id);
+    public Iterable<Event> getTeamEventslog(@PathVariable String eventslog_id, Principal principal){
+        return eventService.findEventslogById(eventslog_id, principal.getName());
     }
 
     @GetMapping("/{eventslog_id}/{pt_id}")
