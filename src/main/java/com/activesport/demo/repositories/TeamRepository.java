@@ -11,4 +11,6 @@ public interface TeamRepository extends CrudRepository<Team, Long> {
 
     @Override
     Iterable<Team> findAll();
+
+    Iterable<Team> findAllByTeamLeader(String username);
 }
