@@ -43,26 +43,26 @@ public class EventslogController {
     }
 
     @GetMapping("/{eventslog_id}/{pt_id}")
-    public ResponseEntity<?> getEvent(@PathVariable String eventslog_id, @PathVariable String pt_id){
-        Event event = eventService.findPTByTeamSequence(eventslog_id,pt_id);
+    public ResponseEntity<?> getEvent(@PathVariable String eventslog_id, @PathVariable String pt_id , Principal principal){
+        Event event = eventService.findPTByTeamSequence(eventslog_id,pt_id , principal.getName());
         return new ResponseEntity<Event>(event,HttpStatus.OK);
     }
 
     @PatchMapping("/{eventslog_id}/{pt_id}")
     public ResponseEntity<?> updateEvent(@Valid @RequestBody Event event, BindingResult result,
-                                         @PathVariable String eventslog_id, @PathVariable String pt_id){
+                                         @PathVariable String eventslog_id, @PathVariable String pt_id, Principal principal){
 
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
         if(errorMap != null) return errorMap;
 
-        Event updatedEvent = eventService.updateByEventSequence(event,eventslog_id,pt_id);
+        Event updatedEvent = eventService.updateByEventSequence(event,eventslog_id,pt_id,principal.getName());
 
         return new ResponseEntity<Event>(updatedEvent,HttpStatus.OK);
     }
 
     @DeleteMapping("/{eventslog_id}/{pt_id}")
-    public ResponseEntity<?> deleteEvent(@PathVariable String eventslog_id, @PathVariable String pt_id){
-        eventService.deletePTByTeamSequence(eventslog_id,pt_id);
+    public ResponseEntity<?> deleteEvent(@PathVariable String eventslog_id, @PathVariable String pt_id , Principal principal){
+        eventService.deletePTByTeamSequence(eventslog_id,pt_id , principal.getName());
 
         return new ResponseEntity<String>("Event " + pt_id + " was deleted successfully", HttpStatus.OK);
     }
