@@ -39,6 +39,11 @@ class EventBoard extends Component {
                         <div className="alert alert-danger text-center" role="alert">
                             {errors.teamNotFound}
                         </div>
+                    );} else if (errors.projectIdentifier) {
+                    return (
+                        <div className="alert alert-danger text-center" role="alert">
+                            {errors.projectIdentifier}
+                        </div>
                     );
                 } else {
                     return (
