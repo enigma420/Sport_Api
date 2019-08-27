@@ -51,9 +51,11 @@ function App() {
               <Route exact path="/" component={Landing} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+              <Footer/>
               {
                   //Private Routes
               }
+              <Switch>
               <Sidebar/>
               <Route exact path="/dashboard" component={Dashboard}/>
               <Route exact path="/createTeam" component={CreateTeam}/>
@@ -61,7 +63,7 @@ function App() {
               <Route exact path="/eventBoard/:id" component={EventBoard}/>
               <Route exact path="/addEvent/:id" component={AddEvent}/>
               <Route exact path="/updateEvent/:eventslog_id/:pt_id" component={UpdateEvent}/>
-              <Footer/>
+              </Switch>
           </div>
       </Router>
    </Provider>
