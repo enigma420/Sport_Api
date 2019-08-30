@@ -68,17 +68,16 @@ class AddEvent extends Component {
         const { id } = this.props.match.params;
         const { errors } = this.state;
         return (
-            <div className="add-PBI">
                 <div className="dashboard">
-                    <div className="container2">
-                <div className="container">
+                    <Link to={`/eventBoard/${id}`} >
+                        <div id="back">Back to Event Board</div>
+                    </Link>
+                <div className="container2">
+
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <Link to={`/eventBoard/${id}`} className="btn-lg btn-primary">
-                                Back to Project Board
-                            </Link>
-                            <h5 className="modifyTeam">Create Event</h5>
-                        <hr/>
+                            <h1 className="TEAM_LEAD">Create Event</h1>
+                            <hr/>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
                                     <h5>Event name</h5>
@@ -267,15 +266,14 @@ class AddEvent extends Component {
                                 </div>
                                 <input
                                     type="submit"
-                                    className="btn btn-primary btn-block mt-4"
+                                    className="btn btn-success btn-block mt-4"
+                                    value="Create"
                                 />
                             </form>
                         </div>
                     </div>
                     </div>
                     </div>
-                </div>
-            </div>
         );
     }
 }

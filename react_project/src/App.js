@@ -5,7 +5,7 @@ import Footer from "./components/Layout/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./components/Dashboard";
 import CreateTeam from "./components/Team/CreateTeam";
-import { BrowserRouter as Router,Route } from "react-router-dom";
+import { BrowserRouter as Router,Route,Switch } from "react-router-dom";
 import {Provider} from "react-redux";
 import store from "./store";
 import EditTeam from "./components/Team/EditTeam";
@@ -20,6 +20,7 @@ import jwt_decode from "jwt-decode";
 import setJWTToken from "./securityUtils/setJWTToken";
 import {SET_CURRENT_USER} from "./actions/types";
 import {logout} from "./actions/securityActions"
+import Profile from "./components/UserManagement/Profile";
 
 
 const jwtToken = localStorage.jwtToken;
@@ -55,8 +56,9 @@ function App() {
               {
                   //Private Routes
               }
+              <Route exact path={["/dashboard","/createTeam","/editTeam/:id","/eventBoard/:id","/addEvent/:id","/updateEvent/:eventslog_id/:pt_id"]} component={Sidebar}/>
               <Switch>
-              <Sidebar/>
+              <Route exact path="/profile" component={Profile}/>
               <Route exact path="/dashboard" component={Dashboard}/>
               <Route exact path="/createTeam" component={CreateTeam}/>
               <Route exact path="/editTeam/:id" component={EditTeam}/>

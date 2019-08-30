@@ -12,8 +12,9 @@ class TeamItem extends Component {
     render() {
         const { team } = this.props;
         return (
-            <div className="container card card-body bg-info " >
-                <div className="card card-body bg-light mb-6">
+            <div>
+            <div className="container card card-body  bg-primary" >
+                <div className="card card-body teamItem mb-6">
                         <div className="row">
                             <div className="col-3 border-3">
                             <text className="nameOfTeam">{team.nameOfTeam}</text>
@@ -65,7 +66,7 @@ class TeamItem extends Component {
                                 <text className="nameOfType">{team.typeOfSport}</text>
                                 </li>
                                 <Link to={`/eventBoard/${team.teamIdentifier}`}>
-                                        <i className="fa fa-flag-checkered pr-1">Events</i>
+                                        <i className="fa fa-flag-checkered h3">&nbsp;Events</i>
                                 </Link>
                             </div>
                         </div>
@@ -85,7 +86,7 @@ class TeamItem extends Component {
                                                     this,
                                                     team.teamIdentifier
                                                 )}>
-                                                <text className="fa fa-minus-circle ">Delete Team</text>
+                                                <i className="fa fa-minus-circle pr-1">Delete Team</i>
                                             </li>
                                         </a>
                                     </div>
@@ -94,6 +95,9 @@ class TeamItem extends Component {
                         </div>
                         </div>
                 </div>
+
+            </div>
+            <hr/>
             </div>
         );
     }

@@ -1,17 +1,26 @@
 body,html{
-  margin: 0;
-  padding: 0;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: auto;
+  background: linear-gradient(
+          to bottom left,
+          #b0bec5 0%,
+          #b0bec5 35%,
+          whitesmoke 75%,
+          whitesmoke 100%
+  );
+    /*top:8%;*/
+    /*bottom: 17%;*/
+    width: 100%;
+}
 
+.dashboard{
+    margin-bottom: 11%;
+    z-index: -1;
 }
 
 .searchbar{
   margin-bottom: auto;
   margin-top: auto;
   height: 60px;
-  background-color: #353b48;
+  background-color: lightslategrey;
   border-radius: 30px;
   padding: 10px;
 }
@@ -29,7 +38,8 @@ body,html{
 
 .searchbar:hover > .search_input{
   padding: 0 10px;
-  width: 250px;
+    width: 200px;
+  margin-right: 5px;
   caret-color:red;
   transition: width 0.4s linear;
 }
@@ -37,7 +47,6 @@ body,html{
 .searchbar:hover > .search_icon{
   background: white;
   color: #e74c3c;
-
 }
 
 .search_icon {
@@ -51,7 +60,9 @@ body,html{
   color: white;
 }
 
-
+.teamItem{
+    background-color: antiquewhite;
+}
 
 .footer {
   position: fixed;
@@ -59,26 +70,29 @@ body,html{
   left:0;
   bottom: 0;
   width: 100%;
-  height: 12%;
-  background-color: navajowhite;
+  height: 13%;
+  background-color: antiquewhite;
   text-align: center;
-  border-top: 2px solid black;
-}
-
-.logo{
-  position: center;
+  border-top: 3px solid seagreen;
+    z-index: 1;
 }
 
 .logo:hover{
-  transform: scale(1.2);
+  transform: scale(1.1);
+  border-radius: 5px;
+  filter: brightness(133%);
 }
 
 .logos {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 10px;
-  border: 2px solid cadetblue;
+  border-radius:50%;
+  border: 3px solid black;
+  margin-bottom: 10px;
+  width:55px;
+  height:65px;
+
 }
 
 .corner_button{
@@ -101,7 +115,9 @@ body,html{
 .fa-2x {
   font-size: 2em;
 }
-.fa {
+
+
+#sideBarIcons{
   position: relative;
   display: table-cell;
   width: 60px;
@@ -110,7 +126,6 @@ body,html{
   vertical-align: middle;
   font-size:20px;
 }
-
 
 .main-menu:hover,nav.main-menu.expanded {
   width:250px;
@@ -142,6 +157,18 @@ body,html{
   position: center;
   display:block;
   width:250px;
+}
+
+.main-menu:hover .logos{
+  display: block;
+  transform: scale(1.5);
+
+}
+
+
+.main-menu:hover .PROFILE_LEAD{
+  display: block;
+
 }
 
 .main-menu li>a {
@@ -214,6 +241,7 @@ nav ul,nav li {
   color:#fff;
   background-color:#5fa2db;
   border-right: 2px solid black;
+  text-align: center;
 }
 .area {
   float: left;
@@ -237,27 +265,15 @@ button{
 text-underline-style: none
 }
 
-.dashboard{
-  background-color: lightsalmon;
-  display: inline-block;
-  position: inherit;
-  /*top:8%;*/
-  /*bottom: 17%;*/
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  overflow: hidden;
-  margin-bottom: 11%;
-}
-
 .teamboard{
   margin-left: 70px;
   margin-right: 70px;
-  height: 100%;
-  background-color: wheat;
-  border: 2px solid black;
+    filter: brightness(115%);
+    background-image: linear-gradient(to right, lightslategrey 0%, #92fe9d 100%);
+  border-right: 3px solid seagreen;
+  border-left: 3px solid seagreen;
   padding: 0 15px 0 15px;
-
+    border-bottom: 2px solid seagreen;
 }
 
 .disabl{
@@ -280,7 +296,7 @@ form{
 .container2{
   width: 800px;
   margin: auto;
-  padding-bottom: 15%;
+  padding-bottom: 12%;
   position: relative;
 
   /*width: 50%;*/
@@ -290,14 +306,8 @@ form{
   position: relative;
 }
 
-.card{
-  margin: 5px;
-}
 
-.carded{
-  height: 150px;
-  margin: auto;
-}
+
 
 
 .all{
@@ -315,16 +325,11 @@ form{
   margin: 10px;
 }
 
-.nameOfTeam{
-  font-family: 'Francois One', sans-serif;
-  color: black ;
-  font-size: 16px;
-}
-
 .nameOfType{
   color: black ;
   font-size: 18px;
   font-family: 'Francois One', sans-serif;
+  border-bottom: 1px solid black;
 }
 
 li{
@@ -334,17 +339,13 @@ li{
 .carousel-indicators{
 }
 
-.carouselItems{
-  width: 50%;
-  margin: auto;
-  height: 60px;
-}
+
 
 .carousel{
-  width: 70%;
-  background-color: lemonchiffon;
+  width: 95%;
+  background-color: darkgrey;
   border-radius: 8px;
-  padding: 55px;
+  padding: 210px;
   border-right: 1px solid black;
   border-left: 1px solid black;
   border-bottom: 3px solid black;
@@ -364,28 +365,29 @@ li{
 
 
 .border-3{
-  border-right: 5px solid deepskyblue;
+  border-right: 5px solid seagreen;
 }
 
 .border-1{
-  border: 1px dashed deepskyblue;
+  border: 1px dashed seagreen;
   width: 100%;
   height: 100%;
   text-align: center;
 }
 
 .header{
-  background-color: deepskyblue;
-  border-bottom: 3px solid black;
+  background-color: white;
+  border-bottom: 3px solid seagreen;
   padding: 8px;
-  top:0;
-  height: 12%;
+  position:relative;
+  min-height: 12%;
+  max-height: 15%;
+
 }
 
 .row{
   height: auto;
   margin: 5px;
-
 }
 
 .teamInfo{
@@ -398,11 +400,29 @@ li{
 
 .nameOfTeam{
   white-space: pre-wrap;
-  font-size: medium;
-  border-bottom: 1px solid black;
+    font-family: 'Francois One', sans-serif;
+    color: black ;
+    font-size: 16px;
   padding: 1px;
+  border-bottom: 1px solid black;
+}
+.view{
+    width: 85px;
+    height: 25px;
+    margin-left: 27px;
+    margin-right: 3px;
 
 }
+
+.delete{
+    margin-right: 3px;
+    margin-left: 12px;
+
+    width: 85px;
+    height: 25px;
+}
+
+
 .exit{
   width: 100%;
 
@@ -412,11 +432,21 @@ li{
 }
 
 .TEAM_LEAD{
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+  color: #007bff ;
+  font-size: 55px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.PROFILE_LEAD{
   margin-top: 20px;
   font-family: 'Permanent Marker', cursive;
   text-align: center;
-  color: black ;
-  font-size: 55px;
+  color: goldenrod ;
+  font-size: 35px;
+  display: none;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .dropbtn {
@@ -483,42 +513,251 @@ li{
   font-size: 12px;
   font-weight: bold;
   text-align: center;
+
+
 }
 
 .list-group{
   margin: 5px;
+  border: 1px dotted seagreen;
 }
-.view{
-  width: 150px;
-  height: 35px;
-  margin-left:23px;
-  margin-right:5px;
 
-}
 .clock{
-  background-size: 100%;
-  font-size: 17px;
-  color: white;
+  font-size: 22px;
+  color: black;
   font-weight: bold;
   font-family: 'Share Tech Mono', monospace;
-  text-align: center;
-  position: absolute;
-  left: 68%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  position: sticky;
+  transform: translate(-50%, -25%);
   text-shadow: 0 0 20px rgba(10, 175, 230, 1),  0 0 20px rgba(10, 175, 230, 0);
-  border: 2px dotted;
+  border-top: 3px dotted;
+  border-bottom: 3px dotted;
+  margin-right:35px ;
+  margin-left:35px ;
+  top: 8%;
+}
+
+.clockAuth{
+  font-size: 22px;
+  color: black;
+  font-weight: bold;
+  font-family: 'Share Tech Mono', monospace;
+  position: sticky;
+  transform: translate(-15%, -25%);
+  text-shadow: 0 0 20px rgba(10, 175, 230, 1),  0 0 20px rgba(10, 175, 230, 0);
+  border-top: 3px dotted;
+  border-bottom: 3px dotted;
+    margin-right: 3px;
+    margin-left: 50px;
+  top: 7%;
 }
 
 .eventboard{
-  background-color: lightsalmon;
-  position: fixed;
-  top:7%;
-  bottom: 12%;
-  width: 100%;
-  overflow: auto;
+    margin-left: 70px;
+    margin-right: 70px;
+    filter: brightness(115%);
+    background-image: linear-gradient(to right, lightslategrey 0%, #92fe9d 100%);
+    border-right: 3px solid seagreen;
+    border-left: 3px solid seagreen;
+    border-bottom: 2px solid seagreen;
+    padding: 0 15px 0 15px;
 }
 .top-buffer {
   margin-top: 30px;
   margin-left: 40px;
+}
+
+
+#signUp{
+  padding: 6px 40px 1px 40px;
+  border: 2px solid black;
+  width: 160px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: lightskyblue;
+  position: sticky;
+  right: 22%;
+  top: 2%;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 5px;
+
+}
+#login{
+  padding: 6px 40px 1px 45px;
+  border: 2px solid black;
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: lightskyblue;
+  position: sticky;
+  right: 3%;
+  top: 2%;
+  display: inline-block;
+  font-size: 16px;
+  margin: auto;
+}
+
+#login:hover{
+  filter: brightness(85%);
+}
+
+#signUp:hover{
+  filter: brightness(85%);
+}
+
+#loginIcon{
+  text-align: center;
+  vertical-align: middle;
+
+}
+
+#back{
+  padding: auto;
+  border: 2px solid black;
+  width: 200px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: red;
+    color:black;
+  position: sticky;
+  right: 3%;
+  top: 2%;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  text-align: center;
+}
+
+#back:hover{
+  filter: brightness(80%);
+}
+
+#dashButton{
+  padding: 6px 20px 5px 45px;
+  border: 2px solid black;
+  width: 120px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: lightskyblue;
+  position: sticky;
+  right: 3%;
+  top: 2%;
+  display: inline-block;
+  font-size: 16px;
+  margin: auto;
+}
+
+#logout{
+   padding: 6px 40px 6px 40px;
+   border: 2px solid black;
+   width: 160px;
+   height: 40px;
+   border-radius: 20px;
+   background-color: lightskyblue;
+   position: sticky;
+   right: 3%;
+   top: 2%;
+   display: inline-block;
+   font-size: 16px;
+   margin: auto;
+ }
+
+#logout:hover{
+  filter: brightness(85%);
+}
+
+<!--
+
+.emp-profile{
+  padding: 3%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+.profile-img{
+  text-align: center;
+}
+.profile-img img{
+  width: 70%;
+  height: 100%;
+}
+.profile-img .file {
+  position: relative;
+  overflow: hidden;
+  margin-top: -20%;
+  width: 70%;
+  border: none;
+  border-radius: 0;
+  font-size: 15px;
+  background: #212529b8;
+}
+.profile-img .file input {
+  position: absolute;
+  opacity: 0;
+  right: 0;
+  top: 0;
+}
+.profile-head h5{
+  color: #333;
+}
+.profile-head h6{
+  color: #0062cc;
+}
+.profile-edit-btn{
+  border: none;
+  border-radius: 1.5rem;
+  width: 70%;
+  padding: 2%;
+  font-weight: 600;
+  color: #6c757d;
+  cursor: pointer;
+}
+.proile-rating{
+  font-size: 12px;
+  color: #818182;
+  margin-top: 5%;
+}
+.proile-rating span{
+  color: #495057;
+  font-size: 15px;
+  font-weight: 600;
+}
+.profile-head .nav-tabs{
+  margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+  font-weight:600;
+  border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+  border: none;
+  border-bottom:2px solid #0062cc;
+}
+.profile-work{
+  padding: 14%;
+  margin-top: -15%;
+}
+.profile-work p{
+  font-size: 12px;
+  color: #818182;
+  font-weight: 600;
+  margin-top: 10%;
+}
+.profile-work a{
+  text-decoration: none;
+  color: #495057;
+  font-weight: 600;
+  font-size: 14px;
+}
+.profile-work ul{
+  list-style: none;
+}
+.profile-tab label{
+  font-weight: 600;
+}
+.profile-tab p{
+  font-weight: 600;
+  color: #0062cc;
 }

@@ -1,26 +1,38 @@
 import React, {Component} from 'react';
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {logout} from "../../actions/securityActions";
 
 class Sidebar extends Component {
 
     render() {
+        const { user } = this.props.security;
         return (
             <div id="mySidenav" className="sidenav">
                 <nav className="main-menu bg-info">
                     <ul>
-                        <img src={process.env.PUBLIC_URL + './avatar.jpg'}  alt="logo" className="logos" width="55px" height="65px"/>
-                        <h2 align="center">Nick</h2>
+                        <img src={process.env.PUBLIC_URL + './avatar.jpg'}  alt="logo" className="logos" />
+                        <div className="PROFILE_LEAD">{user.fullName}</div>
                         <li>
-                            <a href="/profile">
-                                <i className="fa fa-smile-o fa-2x"></i>
+                            <a href="/dashboard">
+                                <i  id="sideBarIcons" className="fa fa-home fa-2x"></i>
                                 <span className="nav-text">
-                            Profile
-                        </span>
+    Dashboard
+    </span>
+                            </a>
+                        </li>
+                            <li>
+                            <a href="/profile">
+                                <i id="sideBarIcons" className="fa fa-smile-o fa-2x"></i>
+                                <span className="nav-text">
+    Profile
+    </span>
                             </a>
 
                         </li>
                         <li className="has-subnav">
                             <a href="/friends">
-                                <i className="fa fa-users fa-2x"></i>
+                                <i  id="sideBarIcons" className="fa fa-users fa-2x"></i>
                                 <span className="nav-text">
     Friends
     </span>
@@ -29,7 +41,7 @@ class Sidebar extends Component {
                         </li>
                         <li className="has-subnav">
                             <a href="/dashboard">
-                                <i className="fa fa-tasks "></i>
+                                <i  id="sideBarIcons" className="fa fa-tasks "></i>
                                 <span className="nav-text">
     Teams
     </span>
@@ -38,7 +50,7 @@ class Sidebar extends Component {
                         </li>
                         <li>
                             <a href="/calendar">
-                                <i className="fa fa-calendar fa-2x"></i>
+                                <i  id="sideBarIcons" className="fa fa-calendar fa-2x"></i>
                                 <span className="nav-text">
     Events Calendar
     </span>
@@ -47,7 +59,7 @@ class Sidebar extends Component {
 
                         <li>
                             <a href="/weather">
-                                <i className="fa fa-cloud fa-x"></i>
+                                <i  id="sideBarIcons" className="fa fa-cloud fa-x"></i>
                                 <span className="nav-text">
     Check Weather
     </span>
@@ -55,7 +67,7 @@ class Sidebar extends Component {
                         </li>
                         <li>
                             <a href="/about_us">
-                                <i className="fa fa-info fa-2x"></i>
+                                <i  id="sideBarIcons" className="fa fa-info fa-2x"></i>
                                 <span className="nav-text">
     About us
     </span>
@@ -63,7 +75,7 @@ class Sidebar extends Component {
                         </li>
                         <li>
                             <a href="/contact">
-                                <i className="fa fa-phone fa-2x"></i>
+                                <i  id="sideBarIcons" className="fa fa-phone fa-2x"></i>
                                 <span className="nav-text">
     Contact
     </span>
@@ -74,7 +86,7 @@ class Sidebar extends Component {
                     <ul className="logout">
                         <li>
                             <a href="/">
-                                <i className="fa fa-power-off fa-2x"></i>
+                                <i  id="sideBarIcons" className="fa fa-power-off fa-2x"></i>
                                 <span className="nav-text">
     Logout
     </span>
@@ -87,4 +99,13 @@ class Sidebar extends Component {
     }
 }
 
-export default Sidebar;
+Sidebar.propTypes = {
+    logout: PropTypes.func.isRequired,
+    security: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    security: state.security
+});
+
+export default connect(mapStateToProps,{logout})(Sidebar);
