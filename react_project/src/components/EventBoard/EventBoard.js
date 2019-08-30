@@ -60,13 +60,19 @@ class EventBoard extends Component {
         BoardContent = boardAlgorithm(errors, events);
 
         return (
+            <div className="dashboard">
             <div className="eventboard">
-                <Link to={`/addEvent/${id}`} className="top-buffer btn col-2 btn-primary mb-3 ">
-                    <i className="fas fa-plus-circle">Create Event</i>
-                </Link>
+                <h2 className="TEAM_LEAD">Your Events:</h2>
+                <br />
+                <React.Fragment>
+                    <Link to={`/addEvent/${id}`} className="btn btn-lg btn-primary">
+                        <i className="fas fa-plus-circle">&nbsp;Create Event</i>
+                    </Link>
+                </React.Fragment>
                 <br />
                 <hr />
                 {BoardContent}
+            </div>
             </div>
         );
     }

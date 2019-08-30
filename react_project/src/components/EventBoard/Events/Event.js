@@ -74,7 +74,7 @@ class Event extends Component {
         }
 
         return (
-            <div className={`card mb-2 bg-light ${disabl}`}>
+            <div className={`card mb-2 bg-muted ${disabl}`}>
                 <div className={`card-header text-primary text-center ${priorityClass}`}>
                     <div className="eventer">{event.nameOfEvent}</div>
                 </div>
@@ -102,21 +102,16 @@ class Event extends Component {
                             <Card>
                                 <CardBody>
                                     <ul className=" list-group">
-
-                                        <div className="row">
-                                        <h6>Cost:</h6>
-                                        <li className="list-group-item col-md-2">{event.cost+"zł"}</li>
-                                        <h6>Min Members:</h6>
-                                        <li className="list-group-item col-md-1">{event.minNumberOfMembers}</li>
-                                        <h6>Max Members:</h6>
-                                        <li className="list-group-item col-md-1">{event.maxNumberOfMembers}</li>
-                                        </div>
-                                            <div className="row">
+                                        <h5>Cost:</h5>
+                                        <li className="list-group-item">{event.cost+"zł"}</li>
+                                        <h5>Min Members:</h5>
+                                        <li className="list-group-item">{event.minNumberOfMembers}</li>
+                                        <h5>Max Members:</h5>
+                                        <li className="list-group-item">{event.maxNumberOfMembers}</li>
                                         <h5>Priority:</h5>
                                         <li className="list-group-item">{priorityString}</li>
                                         <h5>Status:</h5>
                                         <li className="list-group-item">{event.status}</li>
-                                            </div>
                                         <h5>Event ID:</h5>
                                         <li className="list-group-item">{event.teamIdentifier}</li>
                                         <h5>Required Equipment:</h5>
@@ -128,16 +123,16 @@ class Event extends Component {
                             </Card>
                         </Collapse>
                     </div>
-                <div className="row ">
+                <div className="row">
                     <Link to={`/updateEvent/${event.teamIdentifier}/${
                         event.teamSequence}
                         }`}
-                          className="view btn btn-success col-5">
-                        View / Update
+                          className="view btn btn-success ">
+                        Modify
                     </Link>
 
                     <button
-                        className="btn btn-danger col-5"
+                        className="delete btn btn-danger "
                         onClick={this.onDeleteClick.bind(
                             this,
                             event.teamIdentifier,

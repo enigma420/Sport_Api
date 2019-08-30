@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import mapStateToProps from "react-redux/es/connect/mapStateToProps";
 
 class Landing extends Component {
 
@@ -15,23 +14,52 @@ class Landing extends Component {
     render() {
         return (
             <div className="landing">
-                <div className="light-overlay landing-inner text-dark">
+                <div className=" landing-inner text-dark">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12 text-center">
-                                <h1 className="display-3 mb-4">
-                                    Personal Project Management Tool
-                                </h1>
-                                <p className="lead">
+                                <h2 className="display-5 font-weight-bold">
+                                    Our community combines by sport and drugs
+                                </h2>
+                                <hr/>
+                                <div id="myCarousel" className="carousel slide" data-ride="carousel">
+                                    <ol className="carousel-indicators">
+                                        <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
+                                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                                    </ol>
+
+                                    <div className="carousel-inner">
+                                        <div className="item active">
+                                            <img src="https://www.w3schools.com/bootstrap/ny.jpg" alt="Los Angeles"
+                                                 />
+                                        </div>
+
+                                        <div className="item">
+                                            <img src="https://www.w3schools.com/bootstrap/chicago.jpg" alt="Chicago"
+                                                 />
+                                        </div>
+
+                                        <div className="item">
+                                            <img src="https://www.w3schools.com/bootstrap/newyork.jpg" alt="New york"
+                                                 />
+                                        </div>
+                                    </div>
+
+                                    <a className="left carousel-control" href="#myCarousel" data-slide="prev">
+                                        <span className="glyphicon glyphicon-chevron-left"></span>
+                                        <span className="sr-only">Previous</span>
+                                    </a>
+                                    <a className="right carousel-control" href="#myCarousel" data-slide="next">
+                                        <span className="glyphicon glyphicon-chevron-right"></span>
+                                        <span className="sr-only">Next</span>
+                                    </a>
+                                </div>
+                                <hr/>
+                                <p className="lead font-weight-bolder">
                                     Create your account to join active projects or start your own
                                 </p>
                                 <hr />
-                                <Link className="btn btn-lg btn-primary mr-2" to="/register">
-                                    Sign Up
-                                </Link>
-                                <Link className="btn btn-lg btn-secondary mr-2" to="/login">
-                                    Login
-                                </Link>
                             </div>
                         </div>
                     </div>

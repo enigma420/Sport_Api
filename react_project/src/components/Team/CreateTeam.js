@@ -51,12 +51,15 @@ class CreateTeam extends Component {
         const {errors} = this.state;
         return (
             <div className="dashboard">
+                <Link to="/dashboard">
+                    <div id="back">Back to Dashboard</div>
+                </Link>
                 <div className="container2">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h5 className="modifyTeam">Create Team</h5>
-                            <hr />
-                            <Link to={"/dashboard"} className="exit btn btn-danger"> EXIT </Link>
+                            <h6 className="TEAM_LEAD">Create Team</h6>
+                            <hr/>
+
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
                                     <h5>Team Name:</h5>

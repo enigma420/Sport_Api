@@ -111,20 +111,16 @@ constructor(){
     render() {
         const { errors } = this.state;
         return (
-            <div className="add-PBI">
                 <div className="dashboard">
+                    <Link to={`/eventBoard/${this.state.teamIdentifier}`} >
+                        <div id="back">Back to Event Board</div>
+                    </Link>
                 <div className="container2">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <Link to={`/eventBoard/${this.state.teamIdentifier}`} className="btn-lg btn-primary">
-                                Back to Events Board
-                            </Link>
-                            <h6 className="modifyTeam">Edit Event</h6>
+
+                            <h6 className="TEAM_LEAD">Edit Event</h6>
                             <hr/>
-                            <p className="lead text-center">
-                                Team Name: {this.state.teamIdentifier} | Team ID:{" "}
-                                {this.state.teamSequence}{" "}
-                            </p>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
                                     <h5>Event name:</h5>
@@ -318,7 +314,6 @@ constructor(){
                             </form>
                         </div>
                     </div>
-                </div>
                 </div>
                 </div>
         );

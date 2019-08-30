@@ -4,7 +4,6 @@ import TeamItem from "./Team/TeamItem";
 import { connect } from "react-redux";
 import { getTeams } from "../actions/teamActions";
 import PropTypes from "prop-types";
-import Clock from 'react-live-clock';
 
 class Dashboard extends Component {
 
