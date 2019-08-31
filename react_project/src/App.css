@@ -1,9 +1,9 @@
 body,html{
   background: linear-gradient(
-          to bottom left,
+          to bottom right,
           #b0bec5 0%,
           #b0bec5 35%,
-          whitesmoke 75%,
+          whitesmoke 85%,
           whitesmoke 100%
   );
     /*top:8%;*/

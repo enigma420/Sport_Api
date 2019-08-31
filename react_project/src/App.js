@@ -21,6 +21,7 @@ import setJWTToken from "./securityUtils/setJWTToken";
 import {SET_CURRENT_USER} from "./actions/types";
 import {logout} from "./actions/securityActions"
 import Profile from "./components/UserManagement/Profile";
+import WeatherApi from "./components/API-additives/Weather/WeatherApi";
 
 
 const jwtToken = localStorage.jwtToken;
@@ -58,6 +59,7 @@ function App() {
               }
               <Route exact path={["/dashboard","/createTeam","/editTeam/:id","/eventBoard/:id","/addEvent/:id","/updateEvent/:eventslog_id/:pt_id"]} component={Sidebar}/>
               <Switch>
+              <Route exact path="/weather" component={WeatherApi}/>
               <Route exact path="/profile" component={Profile}/>
               <Route exact path="/dashboard" component={Dashboard}/>
               <Route exact path="/createTeam" component={CreateTeam}/>
