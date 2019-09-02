@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import WeatherForm from "./WeatherForm";
 import WeatherResult from "./WeatherResult";
-
 //API access key:
 const APIKey = '3bd17fcc0af94c30566296526e1f3429';
 
@@ -59,49 +58,64 @@ super();
 
     }
 
+    weatherMapMethod = () => {
+    let content = null;
+    const weather = this.state.weather;
+    const err = this.state.err;
+    const city = this.state.city;
+    if(!err && city){
+
+        return content = (
+     weather.map((maps, i) => (
+
+        <div className="cards" key={i}>
+        <h5 className="card-header">
+        <a data-toggle="collapse" href={`#/${i}`}  >
+        <i className="fa fa-chevron-down pull-right"></i> Date: {maps.dt_txt}
+        </a>
+        </h5>
+
+        <div id={`/${i}`} className="collapse" role="tabpanel" aria-labelledby="heading-example">
+        <div className="card-body">
+        <p>Temperature: {maps.main.temp} &#176;C</p>
+    <p>Pressure: {maps.main.pressure} hPa</p>
+    <p>Humidity: {maps.main.humidity} %</p>
+    <p>Cloudy:{maps.weather.main} , {maps.weather.description}</p>
+    <p>Percentage of cloud cover: {maps.clouds.all} %</p>
+    <p>Wind speed: {maps.wind.speed} mph</p>
+    </div>
+    </div>
+    </div>
+    )
+    )
+    )
+        }else {
+    <div className="citySearch">
+            We don't find {city}
+            </div>
+    }
+}
 
     render() {
-        const{weather} = this.state;
-        const weathermap = weather && weather.map(maps => (
-
-            <div>
-                <div className="card">
-                    <div className="card-header" id="headingOne">
-                        <h5 className="mb-0">
-                            <button className="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                                    aria-expanded="true" aria-controls="collapseOne">
-                                <h1>Date: {maps.dt_txt}</h1>
-                            </button>
-                        </h5>
-                    </div>
-
-                    <div id="collapseOne" className="collapse show" aria-labelledby="headingOne"
-                         data-parent="#accordion">
-                        <div className="card-body">
-                            <p>Temperature: {maps.main.temp} &#176;C</p>
-                            <p>Pressure: {maps.main.pressure} hPa</p>
-                            <p>Humidity: {maps.main.humidity} %</p>
-                            {/*<h2>Cloudy:{maps.weather.main} , {maps.weather.description}</h2>*/}
-                            <p>Percentage of cloud cover: {maps.clouds.all} %</p>
-                            <p>Wind speed: {maps.wind.speed} mph</p>
-                                                 </div>
-                    </div>
-
-
-            </div>
-            </div>
-                ));
+        const { city } = this.state;
         return (
             <div>
-                <WeatherForm
-                value={this.state.value}
-                change={this.handleInputChange}
-                //submit={this.handleCitySubmit}
-                />
-                <div className="accordion">
-                {weathermap}
+            <WeatherForm
+    value={this.state.value}
+    change={this.handleInputChange}
+    //submit={this.handleCitySubmit}
+    />
+            <div className="cityResult">City: {city} </div>
+            <div>
+
+            <div className="container wrap 5">
+
+                <div id="accordion" role="tablist" aria-multiselectable="true">
+                    {this.weatherMapMethod()}
                 </div>
                 {/*<WeatherResult weather={this.state}/>*/}
+            </div>
+            </div>
             </div>
         );
     }

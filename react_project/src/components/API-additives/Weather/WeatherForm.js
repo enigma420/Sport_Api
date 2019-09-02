@@ -3,7 +3,8 @@ import React from 'react';
 const WeatherForm = props => {
     return(
         <form>
-            <input type = "text"
+            <input
+                    className="searchCity"
                    value={props.value}
                    onChange={props.change}
                    placeholder="Enter City..."/>

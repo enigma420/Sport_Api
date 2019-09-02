@@ -11,6 +11,16 @@ body,html{
     width: 100%;
 }
 
+
+.card-header .fa {
+  transition: .3s transform ease-in-out;
+}
+.card-header .collapsed .fa {
+  transform: rotate(90deg);
+}
+
+
+
 .dashboard{
     margin-bottom: 11%;
     z-index: -1;
@@ -293,6 +303,19 @@ form{
   color: #5fa2db;
 }
 
+.cityResult{
+  text-align: center;
+  font-size: 42px;
+  font-family: 'Permanent Marker', cursive;
+  color: #007bff ;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.searchCity{
+  text-align: center;
+  margin-left: 44%;
+}
+
 .container2{
   width: 800px;
   margin: auto;
@@ -302,12 +325,20 @@ form{
   /*width: 50%;*/
 }
 
+#accordion{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2rem;
+}
+
 .card-body{
   position: relative;
 }
 
 
-
+.cards{
+  width: 50%;
+}
 
 
 .all{
