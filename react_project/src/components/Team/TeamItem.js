@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {deleteTeam} from "../../actions/teamActions";
 
+
 class TeamItem extends Component {
     onDeleteClick = id => {
         this.props.deleteTeam(id);

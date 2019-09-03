@@ -22,6 +22,8 @@ import {SET_CURRENT_USER} from "./actions/types";
 import {logout} from "./actions/securityActions"
 import Profile from "./components/UserManagement/Profile";
 import WeatherApi from "./components/API-additives/Weather/WeatherApi";
+import indexx from "./chat/indexx.html";
+import js from "./chat/js";
 
 
 const jwtToken = localStorage.jwtToken;
@@ -47,12 +49,14 @@ function App() {
       <Router>
           <div className="App">
               <Header/>
+
               {
                   //Public Routes
               }
               <Route exact path="/" component={Landing} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/chat" component={js}/>
               <Footer/>
               {
                   //Private Routes
