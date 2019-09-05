@@ -26,6 +26,7 @@ import MemoryGame from "./games/MemoryGame";
 import GallowsGame from "./games/GallowsGame";
 import Example from "./games/Example";
 import Contact from "./components/UserManagement/Contact";
+import Gallows from "./games/Gallows";
 
 
 const jwtToken = localStorage.jwtToken;
@@ -68,6 +69,7 @@ function App() {
               {/*<Route exact path="/games/memory-game" component={MemoryGame}/>*/}
               {/*<Route exact path="/games/gallows-game" component={Example}/>*/}
               <Route exact path="/profile" component={Profile}/>
+              <Route exact path="/game" component={Gallows}/>
               <Route exact path="/contact" component={Contact}/>
               <Route exact path="/dashboard" component={Dashboard}/>
               <Route exact path="/createTeam" component={CreateTeam}/>

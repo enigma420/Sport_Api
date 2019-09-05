@@ -3,68 +3,59 @@ import {Form, FormGroup, Input, Label, Button} from 'reactstrap';
 import axios from 'axios'
 
 class Contact extends Component {
-    constructor(){
-        super();
 
-        this.state={
-            name: '',
-            email: '',
-            message: ''
-        };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleChange = e => {
-        this.setState({[e.target.name]: e.target.value})
-    };
-
-    handleSubmit(e) {
-        e.preventDefault();
-
-        const { name , email , message } = this.state;
-
-        const form =await axios.post('http://localhost:3000/api/form' , {
-            name,
-            email,
-            message
-        })
-
-    }
     render() {
         return (
-            <Form onSubmit={this.handleSubmit} style = {{ width: '600px'}}>
-                <FormGroup>
-                    <label for="name">Name:</label>
-                    <Input
-                        type="text"
-                        name="name"
-                        onChange={this.handleChange}
-                    />
-                </FormGroup>
 
-                <FormGroup>
-                    <label for="email">Email:</label>
-                    <Input
-                        type="email"
-                        name="email"
-                        onChange={this.handleChange}
-                    />
-                </FormGroup>
+            <div className="container contact" >
+                <div className="row">
+                    <div className="col-md-3">
+                        <div className="contact-info">
+                            <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image"/>
+                            <h2>Contact Us</h2>
+                            <h4>We would love to hear from you !</h4>
+                        </div>
+                    </div>
+                    <div className="col-md-9">
+                        <div className="contact-form">
+                            <div className="form-group">
+                                <label className="control-label col-sm-2" htmlFor="fname">First Name:</label>
+                                <div className="col-sm-10">
+                                    <input type="text" className="form-control" id="fname"
+                                           placeholder="Enter First Name" name="fname"/>
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <label className="control-label col-sm-2" htmlFor="lname">Last Name:</label>
+                                <div className="col-sm-10">
+                                    <input type="text" className="form-control" id="lname" placeholder="Enter Last Name"
+                                           name="lname"/>
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <label className="control-label col-sm-2" htmlFor="email">Email:</label>
+                                <div className="col-sm-10">
+                                    <input type="email" className="form-control" id="email" placeholder="Enter email"
+                                           name="email"/>
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <label className="control-label col-sm-2" htmlFor="comment">Comment:</label>
+                                <div className="col-sm-10">
+                                    <textarea className="form-control" rows="5" id="comment"></textarea>
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <div className="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" className="btn btn-default">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <FormGroup>
-                    <label for="message">Message:</label>
-                    <Input
-                        type="textarea"
-                        name="message"
-                        onChange={this.handleChange}
-                    />
-                </FormGroup>
-
-                <Button>Submit</Button>
-            </Form>
-        );
+    );
     }
 }
 
