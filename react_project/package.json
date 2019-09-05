@@ -27,10 +27,7 @@
     "vue": "^2.6.10"
   },
   "scripts": {
-    "start": "node indexx.js",
-    "server": "nodemon indexx.js",
-    "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
