@@ -47,8 +47,12 @@ class CreateTeam extends Component {
         this.props.createTeam(newTeam, this.props.history);
     }
 
+
+
     render() {
         const {errors} = this.state;
+        let CountOfTeams = 0;
+
         return (
             <div className="dashboard">
                 <Link to="/dashboard">

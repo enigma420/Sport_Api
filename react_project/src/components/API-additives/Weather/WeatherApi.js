@@ -59,14 +59,11 @@ super();
     }
 
     weatherMapMethod = () => {
-    let content = null;
     const weather = this.state.weather;
-    const err = this.state.err;
-    const city = this.state.city;
-    if(!err && city){
 
-        return content = (
-     weather.map((maps, i) => (
+
+
+        return weather.map((maps, i) => (
 
         <div className="cards" key={i}>
         <h6 className="card-header">
@@ -87,8 +84,8 @@ super();
     </div>
     )
     )
-    )
-        }
+
+
 };
 
     render() {
