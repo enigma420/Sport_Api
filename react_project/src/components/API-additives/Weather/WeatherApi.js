@@ -59,28 +59,24 @@ super();
     }
 
     weatherMapMethod = () => {
-    let content = null;
     const weather = this.state.weather;
-    const err = this.state.err;
-    const city = this.state.city;
-    if(!err && city){
 
-        return content = (
-     weather.map((maps, i) => (
+
+
+        return weather.map((maps, i) => (
 
         <div className="cards" key={i}>
-        <h5 className="card-header">
+        <h6 className="card-header">
         <a data-toggle="collapse" href={`#/${i}`}  >
         <i className="fa fa-chevron-down pull-right"></i> Date: {maps.dt_txt}
         </a>
-        </h5>
+        </h6>
 
         <div id={`/${i}`} className="collapse" role="tabpanel" aria-labelledby="heading-example">
         <div className="card-body">
         <p>Temperature: {maps.main.temp} &#176;C</p>
     <p>Pressure: {maps.main.pressure} hPa</p>
     <p>Humidity: {maps.main.humidity} %</p>
-    <p>Cloudy:{maps.weather.main} , {maps.weather.description}</p>
     <p>Percentage of cloud cover: {maps.clouds.all} %</p>
     <p>Wind speed: {maps.wind.speed} mph</p>
     </div>
@@ -88,13 +84,9 @@ super();
     </div>
     )
     )
-    )
-        }else {
-    <div className="citySearch">
-            We don't find {city}
-            </div>
-    }
-}
+
+
+};
 
     render() {
         const { city } = this.state;
@@ -108,7 +100,7 @@ super();
             <div className="cityResult">City: {city} </div>
             <div>
 
-            <div className="container wrap 5">
+            <div className="container">
 
                 <div id="accordion" role="tablist" aria-multiselectable="true">
                     {this.weatherMapMethod()}

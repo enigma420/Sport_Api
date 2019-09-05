@@ -13,15 +13,23 @@ class Dashboard extends Component {
 
     render() {
         const { teams } = this.props.team;
+
+        //Counter of teams
+        let CountOfTeams = 0;
+       for(let i = 0 ; i < teams.length ; i++){
+           CountOfTeams++;
+       }
+
         return (
         <div className="dashboard">
             <div className="teamboard">
 
                 <h2 className="TEAM_LEAD">Your Teams:</h2>
-                <br />
+                <hr />
+                <br /><h4>Amount of Teams: {CountOfTeams}</h4>
                 <CreateTeamButton/>
-
                 <br />
+
                 <hr />
                 {teams.map(team => (
                     <TeamItem key={team.id} team={team}/>

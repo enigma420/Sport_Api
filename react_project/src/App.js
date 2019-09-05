@@ -22,6 +22,10 @@ import {SET_CURRENT_USER} from "./actions/types";
 import {logout} from "./actions/securityActions"
 import Profile from "./components/UserManagement/Profile";
 import WeatherApi from "./components/API-additives/Weather/WeatherApi";
+import MemoryGame from "./games/MemoryGame";
+import GallowsGame from "./games/GallowsGame";
+import Example from "./games/Example";
+import Contact from "./components/UserManagement/Contact";
 
 
 const jwtToken = localStorage.jwtToken;
@@ -47,6 +51,7 @@ function App() {
       <Router>
           <div className="App">
               <Header/>
+
               {
                   //Public Routes
               }
@@ -60,7 +65,10 @@ function App() {
               <Route exact path={["/dashboard","/createTeam","/editTeam/:id","/eventBoard/:id","/addEvent/:id","/updateEvent/:eventslog_id/:pt_id"]} component={Sidebar}/>
               <Switch>
               <Route exact path="/weather" component={WeatherApi}/>
+              {/*<Route exact path="/games/memory-game" component={MemoryGame}/>*/}
+              {/*<Route exact path="/games/gallows-game" component={Example}/>*/}
               <Route exact path="/profile" component={Profile}/>
+              <Route exact path="/contact" component={Contact}/>
               <Route exact path="/dashboard" component={Dashboard}/>
               <Route exact path="/createTeam" component={CreateTeam}/>
               <Route exact path="/editTeam/:id" component={EditTeam}/>
