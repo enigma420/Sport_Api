@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 
 class Gallows extends Component {
-
+    rollWord = () => {
+        var words = ['Rock and Roll', 'Paper and key', 'Scissors and Knife' , 'Blunt Master' , 'Squn' , 'Mozdzi Najebany'];
+        var word;
+        return word = words[Math.floor(Math.random() * words.length - 1)];
+    }
     constructor(){
         super();
         this.state = {
-            password: "siemano kurwa".toUpperCase(),
+            password: this.rollWord().toUpperCase(),
             passwordLen: 0,
             playerPasswordMatch: [],
             amountOfMissed: 0,
@@ -22,7 +26,7 @@ class Gallows extends Component {
             alphabeth: this.state.letters.map((letter, i) => {
                 return <div>
                     <div className="litera" onClick={() => this.checkLetterFunc(i)} id={"lit"+i}>{this.state.letters[i]}</div>
-                    {(i+1)%7 === 0 ? <div style={{clear:'both'}}/>: null}
+                    {(i+1)%6 === 0 ? <div style={{clear:'both'}}/>: null}
                 </div>
 
             })
@@ -91,15 +95,20 @@ class Gallows extends Component {
             document.getElementById(element).style.color = "#00C000";
             document.getElementById(element).style.border = "3px solid#00C000";
             document.getElementById(element).style.cursor = "default";
+
+
         } else{
             let element = "lit" + number;
             document.getElementById(element).style.background = "#330000";
             document.getElementById(element).style.color = "#C00000";
             document.getElementById(element).style.border = "3px solid #C00000";
             document.getElementById(element).style.cursor = "default";
-            document.getElementById(element).setAttribute("onclick",";");
+            document.getElementById(element).style.display = "none";
+
+
             //skucha
             this.addNewMissed();
+
             let obraz = "img/s" + this.state.amountOfMissed + ".jpg";
             document.getElementById("szubienica").innerHTML = '<img src="'+obraz+'" alt="" />';
         }
@@ -115,8 +124,15 @@ class Gallows extends Component {
             document.getElementById("alfabet").innerHTML = "PRZEGRALES ZYCIE <br> Password: "+ this.state.password +'<br>' +
                 '<span class="reset" onClick="location.reload()">JESZCZE RAZ?</span>'
     };
+    //
+    // questAboutTypeOfTheme = () => {
+    //     return(
+    //     <div>Which theme you choose?</div>
+    // )
+    // }
 
     startGame = () => {
+        // this.questAboutTypeOfTheme();
         this.prepareVariables();
         this.writeAlphabeth();
     };
@@ -127,7 +143,8 @@ class Gallows extends Component {
         return (
             <div>
                 <title>Szubienica</title>
-                <button onClick={this.startGame}>START</button>
+
+                <button onClick={this.startGame} className="typeOfTeam">START</button>
                 <div id="pojemnik">
                     <div id="plansza">{this.state.playerPasswordMatch}</div>
                     <div id="szubienica">

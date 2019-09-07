@@ -75,13 +75,13 @@ super();
         <div id={`/${i}`} className="collapse" role="tabpanel" aria-labelledby="heading-example">
         <div className="card-body">
         <p>Temperature: {maps.main.temp} &#176;C</p>
-    <p>Pressure: {maps.main.pressure} hPa</p>
-    <p>Humidity: {maps.main.humidity} %</p>
-    <p>Percentage of cloud cover: {maps.clouds.all} %</p>
-    <p>Wind speed: {maps.wind.speed} mph</p>
-    </div>
-    </div>
-    </div>
+        <p>Pressure: {maps.main.pressure} hPa</p>
+        <p>Humidity: {maps.main.humidity} %</p>
+        <p>Percentage of cloud cover: {maps.clouds.all} %</p>
+        <p>Wind speed: {maps.wind.speed} mph</p>
+        </div>
+        </div>
+        </div>
     )
     )
 
