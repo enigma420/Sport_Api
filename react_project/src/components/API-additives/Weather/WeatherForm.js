@@ -4,7 +4,7 @@ const WeatherForm = props => {
     return(
         <form>
             <input
-                    className="searchCity"
+                   className="searchCity"
                    value={props.value}
                    onChange={props.change}
                    placeholder="Enter City..."/>
