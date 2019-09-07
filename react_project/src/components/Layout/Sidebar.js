@@ -66,10 +66,10 @@ class Sidebar extends Component {
                             </a>
                         </li>
                         <li>
-                            <a href="/about_us">
+                            <a href="/info_center">
                                 <i  id="sideBarIcons" className="fa fa-info fa-2x"></i>
                                 <span className="nav-text">
-    About us
+    Information Center
     </span>
                             </a>
                         </li>
