@@ -25,7 +25,7 @@ import WeatherApi from "./components/API-additives/Weather/WeatherApi";
 import Contact from "./components/UserManagement/Contact";
 import Gallows from "./games/Gallows";
 import Memory from "./games/Memory";
-import CityApi from "./components/API-additives/City/CityApi";
+import CountryApi from "./components/API-additives/City/CountryApi";
 
 
 const jwtToken = localStorage.jwtToken;
@@ -65,7 +65,7 @@ function App() {
               <Route exact path={["/dashboard","/createTeam","/editTeam/:id","/eventBoard/:id","/addEvent/:id","/updateEvent/:eventslog_id/:pt_id"]} component={Sidebar}/>
               <Switch>
               <Route exact path="/weather" component={WeatherApi}/>
-              <Route exact path="/city" component={CityApi}/>
+              <Route exact path="/city" component={CountryApi}/>
               <Route exact path="/games" component={Memory}/>
               {/*<Route exact path="/games/gallows-game" component={Example}/>*/}
               <Route exact path="/profile" component={Profile}/>

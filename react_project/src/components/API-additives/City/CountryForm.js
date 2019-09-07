@@ -1,13 +1,13 @@
 import React from 'react';
 
-const CityForm = props => {
+const CountryForm = props => {
     return(
         <form>
             <input
-                className="searchCity"
+                className="searchC   "
                 value={props.value}
                 onChange={props.change}
-                placeholder="Enter City..."/>
+                placeholder="Enter Country/Code-Country"/>
         </form>
     )
 };
