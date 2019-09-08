@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Result = props => {
-    const{err,year,date,fact} = props.fact;
+    const{err,year,date,factYear} = props.fact;
 
     let content = null;
     // console.log("RESULT err: ", err, " word: ", word, " fromLang: ", fromLang, " toLang: ", toLang );
@@ -15,7 +15,7 @@ const Result = props => {
                 <h4 style={{color:'black'}}>Every 7 seconds the fact changes</h4>
                 <h2><b>Year: {year}</b></h2>
                 <h3><b>Date: {date}</b></h3>
-                <h1><b>Fact: {fact}</b></h1>
+                <h1><b>Fact: {factYear}</b></h1>
 
 
             </div>
@@ -27,7 +27,7 @@ const Result = props => {
 
     return(
         <div className="result">
-            {err ? `We don't have in db ${fact}` : content}
+            {err ? `We don't have in db ${factYear}` : content}
         </div>
     )
 };

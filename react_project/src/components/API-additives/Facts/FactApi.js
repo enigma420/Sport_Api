@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
-import Result from "../Facts/FactResult";
+import Result from "../Facts/FactYearResult";
+import Results from "../Facts/FactMonthAndDayResult";
 
 class FactApi extends Component {
     constructor() {
         super();
         this.state = {
+            valueMonth: '1',
+            valueDay: '1',
+            dateYear:'',
+            factMonthAndDay:'',
             valueYear: '2019',
-            fact:'',
+            factYear:'',
             date:'',
             err: false
         };
@@ -20,10 +25,12 @@ class FactApi extends Component {
 
     componentDidMount() {
         // Call this function so that it fetch first time right after mounting the component
-        this.getApiResponse();
+        this.getYearApiResponse();
+        this.getMonthAndDayApiResponse();
 
         // set Interval
-        this.interval = setInterval(this.getApiResponse, 7000);
+        this.interval = setInterval(this.getYearApiResponse, 7000);
+        this.interval = setInterval(this.getMonthAndDayApiResponse, 7000);
     }
 
     componentWillUnmount() {
@@ -33,7 +40,42 @@ class FactApi extends Component {
 
 
 
-    getApiResponse = () => {
+    getMonthAndDayApiResponse = () => {
+
+        fetch(`https://numbersapi.p.rapidapi.com/${this.state.valueMonth}/${this.state.valueDay}/date?fragment=true&json=true`, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "numbersapi.p.rapidapi.com",
+                "x-rapidapi-key": "7c0501c546msh09c18d73d2cc4bep17fb82jsnd91a54a80822"
+            }
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response
+                }
+                throw Error("Fail")
+            })
+            .then(response => response.json())
+            .then(data => {
+                this.setState(prevState => ({
+                    err: false,
+                    month: prevState.valueMonth,
+                    day: prevState.valueDay,
+                    monthFactYear: data.year,
+                    factMonthAndDay: data.text
+                }));
+                console.log("data:" , data)
+            })
+            .catch(err => {
+                this.setState(prevState => ({
+                    err: true,
+                    month: prevState.valueMonth,
+                    day: prevState.valueDay,
+                }));
+            });
+    }
+
+    getYearApiResponse = () => {
 
         fetch(`https://numbersapi.p.rapidapi.com/${this.state.valueYear}/year?fragment=true&json=true`, {
             "method": "GET",
@@ -54,7 +96,7 @@ class FactApi extends Component {
                         err: false,
                         year: prevState.valueYear,
                         date: data.date,
-                        fact: data.text
+                        factYear: data.text
                     }));
                 console.log("data:" , data)
                 })
@@ -66,8 +108,61 @@ class FactApi extends Component {
                 });
         }
 
+    allMonthAndDayOptions = () => {
+        return (
+            <div>
+            <select name="valueMonth" value={this.state.valueMonth} onChange={ this.handleInputChange}>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+            <select name="valueDay" value={this.state.valueDay} onChange={ this.handleInputChange}>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+            </div>
+    )
+    }
 
-    allCurrencyOptions = () => {
+    allYearOptions = () => {
         return (
             <select name="valueYear" value={this.state.valueYear} onChange={ this.handleInputChange}>
                 <option value="2019">2019</option>
@@ -193,10 +288,14 @@ class FactApi extends Component {
         return (
             <div>
                 <form>
-                    {this.allCurrencyOptions()}
+                    {this.allYearOptions()}
                 </form>
                 <Result fact={this.state}/>
 
+                <form>
+                    {this.allMonthAndDayOptions()}
+                </form>
+                <Results factMonthAndDay={this.state}/>
             </div>
         );
     }
