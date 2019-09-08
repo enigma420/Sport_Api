@@ -326,9 +326,19 @@ form{
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
+.cityApiResult{
+  width: 100%;
+  font-size: 159px;
+  text-align: center;
+  color: wheat ;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
 .searchCity{
   text-align: center;
-  margin-left: 45%;
+  margin-left: 5%;
+  width: 150px;
+  height: 25px;
 }
 
 .container2{

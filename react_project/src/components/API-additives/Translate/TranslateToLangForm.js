@@ -1,15 +1,15 @@
 import React from 'react';
 
-const CityForm = props => {
+const TranslateToLangForm = props => {
     return(
         <form>
             <input
                 className="searchCity"
-                value={props.value}
+                value={props.toLang}
                 onChange={props.change}
-                placeholder="Enter City..."/>
+                placeholder="To lang..."/>
         </form>
     )
 };
 
-export default WeatherForm;
+export default TranslateToLangForm;

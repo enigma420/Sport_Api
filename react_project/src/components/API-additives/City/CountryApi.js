@@ -1,15 +1,22 @@
 import React, {Component} from 'react';
 import WeatherForm from "../Weather/WeatherForm";
-import Result from "./CityResult";
+import Result from "./CountryResult";
 
-class CityApi extends Component {
+class CountryApi extends Component {
     constructor() {
         super();
         this.state = {
             value: '',
-            city: '',
+            country: '',
             details: [],
-            err: false
+            population: 0,
+            err: false,
+            capital: '',
+            region: '',
+            subregion:'',
+            area:0,
+            currencies:'',
+            nameOfCountry:''
         };
     }
 
@@ -25,10 +32,10 @@ class CityApi extends Component {
 
         if (prevState.value !== this.state.value) {
 
-            fetch(`https://devru-latitude-longitude-find-v1.p.rapidapi.com/latlon.php?location=${this.state.value}`, {
+            fetch(`https://restcountries-v1.p.rapidapi.com/name/${this.state.value}`, {
                 "method": "GET",
                 "headers": {
-                    "x-rapidapi-host": "devru-latitude-longitude-find-v1.p.rapidapi.com",
+                    "x-rapidapi-host": "restcountries-v1.p.rapidapi.com",
                     "x-rapidapi-key": "7c0501c546msh09c18d73d2cc4bep17fb82jsnd91a54a80822"
                 }
             })
@@ -42,8 +49,15 @@ class CityApi extends Component {
                 .then(data => {
                     this.setState(prevState => ({
                         err: false,
-                        details: data.population,
-                        city: prevState.value
+                        population: data[0].population,
+                        capital: data[0].capital,
+                        region: data[0].region,
+                        subregion: data[0].subregion,
+                        area: data[0].area,
+                        currencies: data[0].currencies,
+                        nameOfCountry: data[0].name,
+
+                        country: prevState.value
                     }));
                     console.log("data:" , data);
                 })
@@ -51,14 +65,13 @@ class CityApi extends Component {
                     console.log(err);
                     this.setState(prevState => ({
                         err: true,
-                        city: prevState.value
+                        country: prevState.value
                     }))
                 });
         }
     }
 
     render() {
-        const {city} = this.state;
         return (
             <div>
                 <WeatherForm
@@ -66,11 +79,11 @@ class CityApi extends Component {
                     change={this.handleInputChange}
                     //submit={this.handleCitySubmit}
                 />
-                <Result city={this.state}/>
+                <Result city={this.state} style={{position: 'center'}}/>
 
             </div>
         );
     }
 }
 
-export default CityApi;
+export default CountryApi;
