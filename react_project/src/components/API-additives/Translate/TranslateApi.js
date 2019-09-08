@@ -5,9 +5,9 @@ class TranslateApi extends Component {
     constructor() {
         super();
         this.state = {
-            value1: 'en',
-            value2: 'pl',
-            value3: '',
+            valueFromLang: 'en',
+            valueToLang: 'pl',
+            valueInputWord: '',
             word: '',
             fromLang: '',
             toLang: '',
@@ -22,13 +22,13 @@ class TranslateApi extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log("DID UPDATE value1 len: ", this.state.value1, " value2 len: ", this.state.value2, " vslur3 len: ", this.state.value3);
-        if (this.state.value1.length === 0 && this.state.value2.length === 0 && this.state.value3.length === 0) return;
+        // console.log("DID UPDATE value1 len: ", this.state.valueFromLang, " value2 len: ", this.state.valueToLang, " vslur3 len: ", this.state.valueInputWord);
+        if (this.state.valueFromLang.length === 0 && this.state.valueToLang.length === 0 && this.state.valueInputWord.length === 0) return;
 
-        console.log("DID UPDATE PREV value1: ", prevState.value1, this.state.value1, " value2: ", prevState.value2, this.state.value2, " vslur3: ", prevState.value3, this.state.value3);
-        if (prevState.value1 !== this.state.value1 || prevState.value2 !== this.state.value2 || prevState.value3 !== this.state.value3) {
+        // console.log("DID UPDATE PREV value1: ", prevState.valueFromLang, this.state.valueFromLang, " value2: ", prevState.valueToLang, this.state.valueToLang, " vslur3: ", prevState.valueInputWord, this.state.valueInputWord);
+        if (prevState.valueFromLang !== this.state.valueFromLang || prevState.valueToLang !== this.state.valueToLang || prevState.valueInputWord !== this.state.valueInputWord) {
 
-            fetch(`https://systran-systran-platform-for-language-processing-v1.p.rapidapi.com/translation/text/translate?source=${this.state.value1}&target=${this.state.value2}&input=%${this.state.value3}`, {
+            fetch(`https://systran-systran-platform-for-language-processing-v1.p.rapidapi.com/translation/text/translate?source=${this.state.valueFromLang}&target=${this.state.valueToLang}&input=%${this.state.valueInputWord}`, {
                 "method": "GET",
                 "headers": {
                     "x-rapidapi-host": "systran-systran-platform-for-language-processing-v1.p.rapidapi.com",
@@ -45,23 +45,22 @@ class TranslateApi extends Component {
                 .then(data => {
                     this.setState(prevState => ({
                         err: false,
-                        fromLang: prevState.value1,
-                        toLang: prevState.value2,
-                        word: prevState.value3,
+                        fromLang: prevState.valueFromLang,
+                        toLang: prevState.valueToLang,
+                        word: prevState.valueInputWord,
                         output: data.outputs[0].output
                     }));
-                    console.log("UPDATE 1 err: ", false, " word: ", prevState.value3, " fromLang: ", prevState.value1, " toLang: ", prevState.value2, " output: ", data.outputs[0].output );
-                    console.log("data:" , data);
+                    // console.log("UPDATE 1 err: ", false, " word: ", prevState.valueInputWord, " fromLang: ", prevState.valueFromLang, " toLang: ", prevState.valueToLang, " output: ", data.outputs[0].output );
                 })
                 .catch(err => {
-                    console.log(err);
+                    // console.log(err);
                     this.setState(prevState => ({
                         err: true,
-                        word: prevState.value3,
-                        fromLang: prevState.value1,
-                        toLang: prevState.value2,
+                        fromLang: prevState.valueFromLang,
+                        toLang: prevState.valueToLang,
+                        word: prevState.valueInputWord,
                     }));
-                    console.log("UPDATE 2 err: ", true, " word: ", prevState.value3, " fromLang: ", prevState.value1, " toLang: ", prevState.value2 );
+                    // console.log("UPDATE 2 err: ", true, " word: ", prevState.valueInputWord, " fromLang: ", prevState.valueFromLang, " toLang: ", prevState.valueToLang );
                 });
         }
     }
@@ -70,13 +69,13 @@ class TranslateApi extends Component {
         return (
             <div>
                 <form>
-                    <select name="value1" value={this.state.value1} onChange={ this.handleInputChange1}>
+                    <select name="valueFromLang" value={this.state.valueFromLang} onChange={ this.handleInputChange1}>
                         <option value="en">English</option>
                         <option value="pl">Polski</option>
                         <option value="de">Deutsch</option>
                         <option value="fr">French</option>
                     </select>
-                    <select name="value2" value={this.state.value2} onChange={this.handleInputChange1}>
+                    <select name="valueToLang" value={this.state.valueToLang} onChange={this.handleInputChange1}>
                         <option value="en">English</option>
                         <option value="pl">Polski</option>
                         <option value="de">Deutsch</option>
@@ -84,8 +83,8 @@ class TranslateApi extends Component {
                     </select>
                     <input
                         className="searchCity"
-                        value={this.state.value3}
-                        name="value3"
+                        value={this.state.valueInputWord}
+                        name="valueInputWord"
                         onChange={this.handleInputChange1}
                         placeholder="Enter Sentence..."/>
 
