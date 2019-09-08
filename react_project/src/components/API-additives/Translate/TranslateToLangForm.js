@@ -1,15 +1,15 @@
 import React from 'react';
 
-const CountryForm = props => {
+const TranslateToLangForm = props => {
     return(
         <form>
             <input
                 className="searchCity"
-                value={props.value}
+                value={props.toLang}
                 onChange={props.change}
-                placeholder="Enter Country/Code-Country"/>
+                placeholder="To lang..."/>
         </form>
     )
 };
 
-export default CountryForm;
+export default TranslateToLangForm;

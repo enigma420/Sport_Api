@@ -26,6 +26,7 @@ import Contact from "./components/UserManagement/Contact";
 import Gallows from "./games/Gallows";
 import Memory from "./games/Memory";
 import CountryApi from "./components/API-additives/City/CountryApi";
+import TranslateApi from "./components/API-additives/Translate/TranslateApi";
 
 
 const jwtToken = localStorage.jwtToken;
@@ -66,6 +67,7 @@ function App() {
               <Switch>
               <Route exact path="/weather" component={WeatherApi}/>
               <Route exact path="/city" component={CountryApi}/>
+              <Route exact path="/translate" component={TranslateApi}/>
               <Route exact path="/games" component={Memory}/>
               {/*<Route exact path="/games/gallows-game" component={Example}/>*/}
               <Route exact path="/profile" component={Profile}/>
