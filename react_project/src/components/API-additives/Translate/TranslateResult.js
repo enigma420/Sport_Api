@@ -4,7 +4,7 @@ const Result = props => {
     const{err,word,output,fromLang,toLang} = props.word;
 
     let content = null;
-    console.log("RESULT err: ", err, " word: ", word, " fromLang: ", fromLang, " toLang: ", toLang );
+    // console.log("RESULT err: ", err, " word: ", word, " fromLang: ", fromLang, " toLang: ", toLang );
 
     if(!err && word && fromLang && toLang){
 
