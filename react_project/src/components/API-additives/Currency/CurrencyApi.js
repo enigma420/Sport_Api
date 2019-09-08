@@ -9,7 +9,7 @@ class CurrencyApi extends Component {
             valueFromCurrency: 'EUR',
             valueToCurrency: 'USD',
             err: false,
-            output:''
+            rate:''
         };
 
     }
@@ -19,9 +19,21 @@ class CurrencyApi extends Component {
         });
     }
 
+    componentDidMount() {
+        // Call this function so that it fetch first time right after mounting the component
+        this.getApiResponse();
+
+        // set Interval
+        this.interval = setInterval(this.getApiResponse, 5000);
+    }
+
+    componentWillUnmount() {
+        // Clear the interval right before component unmount
+        clearInterval(this.interval);
+    }
 
 
-    componentDidUpdate(prevProps, prevState) {
+    getApiResponse = () => {
 
             fetch(`https://currency-exchange.p.rapidapi.com/exchange?q=${this.state.valueAmount}&from=${this.state.valueFromCurrency}&to=${this.state.valueToCurrency}`, {
                 "method": "GET",
@@ -43,7 +55,7 @@ class CurrencyApi extends Component {
                         amount: prevState.valueAmount,
                         fromCurrency: prevState.valueFromCurrency,
                         toCurrency: prevState.valueToCurrency,
-                        output: data
+                        rate: data
                     }));
                     console.log("data: " , data)
                     // console.log("UPDATE 1 err: ", false, " word: ", prevState.valueInputWord, " fromLang: ", prevState.valueFromLang, " toLang: ", prevState.valueToLang, " output: ", data.outputs[0].output );

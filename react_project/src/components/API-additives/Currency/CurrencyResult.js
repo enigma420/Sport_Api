@@ -1,23 +1,22 @@
 import React from 'react';
 
 const Result = props => {
-    const{err,amount,fromCurrency,toCurrency,output} = props.currency;
+    const{err,amount,fromCurrency,toCurrency,rate} = props.currency;
 
     let content = null;
 
 
-    if(!err && amount && fromCurrency && toCurrency && output) {
+    if(!err && amount && fromCurrency && toCurrency && rate) {
 
-const converter = amount * output;
+const converter = amount * rate;
 
-        console.log("RESULT err: ", err, " fromCurr: ", fromCurrency, " toCurr: ", toCurrency, " amount: ", amount , "output:",output , "converter:", converter);
+        console.log("RESULT err: ", err, " fromCurr: ", fromCurrency, " toCurr: ", toCurrency, " amount: ", amount , "rate:",rate , "converter:", converter);
         content = (
             <div className="cityApiResult">
-                <h1><b>{fromCurrency}</b></h1>
-                <h1><b>{toCurrency}</b></h1>
-                <h5><b>Amount: {amount}</b></h5>
-                <h5><b>Output: {converter}</b></h5>
-                <h5><b>Output: {output}</b></h5>
+                <h1><b>{fromCurrency}/{toCurrency}</b></h1>
+                <h5><b>Amount to Exchange: {amount}</b></h5>
+                <h5><b>Amount after Exchange: {converter}</b></h5>
+                <h5><b>Rate: {rate}</b></h5>
             </div>
         )
     }
