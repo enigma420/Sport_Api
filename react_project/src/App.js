@@ -28,6 +28,7 @@ import Memory from "./games/Memory";
 import CountryApi from "./components/API-additives/City/CountryApi";
 import TranslateApi from "./components/API-additives/Translate/TranslateApi";
 import CurrencyApi from "./components/API-additives/Currency/CurrencyApi";
+import FactApi from "./components/API-additives/Facts/FactApi";
 
 
 const jwtToken = localStorage.jwtToken;
@@ -70,6 +71,7 @@ function App() {
               <Route exact path="/city" component={CountryApi}/>
               <Route exact path="/translate" component={TranslateApi}/>
               <Route exact path="/currency" component={CurrencyApi}/>
+              <Route exact path="/facts" component={FactApi}/>
               <Route exact path="/games" component={Memory}/>
               {/*<Route exact path="/games/gallows-game" component={Example}/>*/}
               <Route exact path="/profile" component={Profile}/>
