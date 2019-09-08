@@ -15,7 +15,7 @@ class TranslateApi extends Component {
         };
     }
 
-    handleInputChange1 = (e) => {
+    handleInputChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         });
@@ -69,13 +69,13 @@ class TranslateApi extends Component {
         return (
             <div>
                 <form>
-                    <select name="valueFromLang" value={this.state.valueFromLang} onChange={ this.handleInputChange1}>
+                    <select name="valueFromLang" value={this.state.valueFromLang} onChange={ this.handleInputChange}>
                         <option value="en">English</option>
                         <option value="pl">Polski</option>
                         <option value="de">Deutsch</option>
                         <option value="fr">French</option>
                     </select>
-                    <select name="valueToLang" value={this.state.valueToLang} onChange={this.handleInputChange1}>
+                    <select name="valueToLang" value={this.state.valueToLang} onChange={this.handleInputChange}>
                         <option value="en">English</option>
                         <option value="pl">Polski</option>
                         <option value="de">Deutsch</option>
@@ -85,7 +85,7 @@ class TranslateApi extends Component {
                         className="searchCity"
                         value={this.state.valueInputWord}
                         name="valueInputWord"
-                        onChange={this.handleInputChange1}
+                        onChange={this.handleInputChange}
                         placeholder="Enter Sentence..."/>
 
                 </form>
