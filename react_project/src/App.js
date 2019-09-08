@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./components/Dashboard";
 import CreateTeam from "./components/Team/CreateTeam";
 import { BrowserRouter as Router,Route,Switch } from "react-router-dom";
+import {LocalizeProvider} from "react-localize-redux";
 import {Provider} from "react-redux";
 import store from "./store";
 import EditTeam from "./components/Team/EditTeam";
@@ -29,7 +30,7 @@ import CountryApi from "./components/API-additives/City/CountryApi";
 import TranslateApi from "./components/API-additives/Translate/TranslateApi";
 import CurrencyApi from "./components/API-additives/Currency/CurrencyApi";
 import FactApi from "./components/API-additives/Facts/FactApi";
-
+import Main from "/src/Main";
 
 const jwtToken = localStorage.jwtToken;
 
@@ -50,6 +51,7 @@ if(jwtToken){
 
 function App() {
   return (
+      <LocalizeProvider>
    <Provider store={store}>
       <Router>
           <div className="App">
@@ -58,6 +60,7 @@ function App() {
               {
                   //Public Routes
               }
+              <Route path="/" component={Main} />
               <Route exact path="/" component={Landing} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
@@ -87,6 +90,7 @@ function App() {
           </div>
       </Router>
    </Provider>
+      </LocalizeProvider>
   );
 }
 
