@@ -17,20 +17,9 @@ class TranslateApi extends Component {
 
     handleInputChange1 = (e) => {
         this.setState({
-            value1:e.target.value
+            [e.target.name]: e.target.value
         });
     }
-    handleInputChange2 = (e) => {
-        this.setState({
-            value2:e.target.value
-        });
-    }
-    handleInputChange3 = (e) => {
-        this.setState({
-            value3:e.target.value
-        });
-    }
-
 
     componentDidUpdate(prevProps, prevState) {
         console.log("DID UPDATE value1 len: ", this.state.value1, " value2 len: ", this.state.value2, " vslur3 len: ", this.state.value3);
@@ -81,13 +70,13 @@ class TranslateApi extends Component {
         return (
             <div>
                 <form>
-                    <select value={this.state.value1} onChange={this.handleInputChange1}>
+                    <select name="value1" value={this.state.value1} onChange={ this.handleInputChange1}>
                         <option value="en">English</option>
                         <option value="pl">Polski</option>
                         <option value="de">Deutsch</option>
                         <option value="fr">French</option>
                     </select>
-                    <select value={this.state.value2} onChange={this.handleInputChange2}>
+                    <select name="value2" value={this.state.value2} onChange={this.handleInputChange1}>
                         <option value="en">English</option>
                         <option value="pl">Polski</option>
                         <option value="de">Deutsch</option>
@@ -96,7 +85,8 @@ class TranslateApi extends Component {
                     <input
                         className="searchCity"
                         value={this.state.value3}
-                        onChange={this.handleInputChange3}
+                        name="value3"
+                        onChange={this.handleInputChange1}
                         placeholder="Enter Sentence..."/>
 
                 </form>
