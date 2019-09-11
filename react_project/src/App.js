@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component , Suspense} from 'react';
 import './App.css';
 import Header from "./components/Layout/Header";
 import Footer from "./components/Layout/Footer";
@@ -6,7 +6,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./components/Dashboard";
 import CreateTeam from "./components/Team/CreateTeam";
 import { BrowserRouter as Router,Route,Switch } from "react-router-dom";
-import {LocalizeProvider} from "react-localize-redux";
 import {Provider} from "react-redux";
 import store from "./store";
 import EditTeam from "./components/Team/EditTeam";
@@ -30,9 +29,12 @@ import CountryApi from "./components/API-additives/City/CountryApi";
 import TranslateApi from "./components/API-additives/Translate/TranslateApi";
 import CurrencyApi from "./components/API-additives/Currency/CurrencyApi";
 import FactApi from "./components/API-additives/Facts/FactApi";
-import Main from "/src/Main";
+import { useTranslation, withTranslation, Trans } from 'react-i18next';
+
 
 const jwtToken = localStorage.jwtToken;
+
+//JWT
 
 if(jwtToken){
     setJWTToken(jwtToken);
@@ -48,50 +50,83 @@ if(jwtToken){
         window.location.href = "/";
     }
 }
+function MyComponent() {
+    return (
+        <Trans i18nKey="description.part1">
+            To get started, edit <code>src/App.js</code> and save to reload.
+        </Trans>
+    );
+}
+// use hoc for class based components
 
-function App() {
+const Welcome = withTranslation()(MyComponent);
+
+// page uses the hook
+function Page() {
+    const { t, i18n } = useTranslation();
+
+    const changeLanguage = lng => {
+        i18n.changeLanguage(lng);
+    };
+    return (
+        <div className="App">
+            <div className="App-header">
+                <Welcome/>
+                <button onClick={() => changeLanguage('pl')}>pl</button>
+                <button onClick={() => changeLanguage('en')}>en</button>
+            </div>
+                <Provider store={store}>
+                    <Router>
+                        <div className="App">
+
+                            <Header/>
+                            {
+                                //Public Routes
+                            }
+                            <Route exact path="/" component={Landing} />
+                            <Route exact path="/register" component={Register} />
+                            <Route exact path="/login" component={Login} />
+                            <Footer/>
+                            {
+                                //Private Routes
+                            }
+                            <Route exact path={["/dashboard","/createTeam","/editTeam/:id","/eventBoard/:id","/addEvent/:id","/updateEvent/:eventslog_id/:pt_id"]} component={Sidebar}/>
+                            <Switch>
+                                <Route exact path="/weather" component={WeatherApi}/>
+                                <Route exact path="/city" component={CountryApi}/>
+                                <Route exact path="/translate" component={TranslateApi}/>
+                                <Route exact path="/currency" component={CurrencyApi}/>
+                                <Route exact path="/facts" component={FactApi}/>
+                                <Route exact path="/games" component={Memory}/>
+                                {/*<Route exact path="/games/gallows-game" component={Example}/>*/}
+                                <Route exact path="/profile" component={Profile}/>
+                                <Route exact path="/game" component={Gallows}/>
+                                <Route exact path="/contact" component={Contact}/>
+                                <Route exact path="/dashboard" component={Dashboard}/>
+                                <Route exact path="/createTeam" component={CreateTeam}/>
+                                <Route exact path="/editTeam/:id" component={EditTeam}/>
+                                <Route exact path="/eventBoard/:id" component={EventBoard}/>
+                                <Route exact path="/addEvent/:id" component={AddEvent}/>
+                                <Route exact path="/updateEvent/:eventslog_id/:pt_id" component={UpdateEvent}/>
+                            </Switch>
+                        </div>
+                    </Router>
+                </Provider>
+        </div>
+    );
+}
+const Loader = () => (
+    <div className="App">
+        <div>loading...</div>
+    </div>
+);
+
+export default function App() {
   return (
-      <LocalizeProvider>
-   <Provider store={store}>
-      <Router>
-          <div className="App">
-              <Header/>
-
-              {
-                  //Public Routes
-              }
-              <Route path="/" component={Main} />
-              <Route exact path="/" component={Landing} />
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/login" component={Login} />
-              <Footer/>
-              {
-                  //Private Routes
-              }
-              <Route exact path={["/dashboard","/createTeam","/editTeam/:id","/eventBoard/:id","/addEvent/:id","/updateEvent/:eventslog_id/:pt_id"]} component={Sidebar}/>
-              <Switch>
-              <Route exact path="/weather" component={WeatherApi}/>
-              <Route exact path="/city" component={CountryApi}/>
-              <Route exact path="/translate" component={TranslateApi}/>
-              <Route exact path="/currency" component={CurrencyApi}/>
-              <Route exact path="/facts" component={FactApi}/>
-              <Route exact path="/games" component={Memory}/>
-              {/*<Route exact path="/games/gallows-game" component={Example}/>*/}
-              <Route exact path="/profile" component={Profile}/>
-              <Route exact path="/game" component={Gallows}/>
-              <Route exact path="/contact" component={Contact}/>
-              <Route exact path="/dashboard" component={Dashboard}/>
-              <Route exact path="/createTeam" component={CreateTeam}/>
-              <Route exact path="/editTeam/:id" component={EditTeam}/>
-              <Route exact path="/eventBoard/:id" component={EventBoard}/>
-              <Route exact path="/addEvent/:id" component={AddEvent}/>
-              <Route exact path="/updateEvent/:eventslog_id/:pt_id" component={UpdateEvent}/>
-              </Switch>
-          </div>
-      </Router>
-   </Provider>
-      </LocalizeProvider>
+      <Suspense fallback={<Loader />}>
+          <Page />
+      </Suspense>
   );
 }
 
-export default App;
+

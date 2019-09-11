@@ -4,11 +4,12 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import { logout } from "../../actions/securityActions";
 import {Link} from "react-router-dom";
+import {Trans, translate, useTranslation, withTranslation} from 'react-i18next';
 
-class Header extends Component
-
-
-{
+class Header extends Component {
+    constructor(props){
+        super(props)
+    }
     logout(){
         this.props.logout();
         window.location.href = "/";
@@ -23,6 +24,7 @@ class Header extends Component
 
 
     render() {
+        const { t, i18n } = this.props;
         const { validToken , user } = this.props.security;
         const now = new Date();
 
@@ -90,7 +92,6 @@ class Header extends Component
                         <a className="" href="https://www.timeanddate.com/worldclock/">
                             <div className="clock">
                                 <i className="fa fa-clock-o">&nbsp;{date.format(new Date(), 'YYYY/MM/DD HH:mm:ss') }</i>
-
                             </div>
                         </a>
                     </li>
@@ -98,7 +99,10 @@ class Header extends Component
                         <Link id="signUp" className="nav-link" to="/register">
                             <i className="fa fa-check-square">
                                 &nbsp;
-                                Sign Up
+                                <Trans i18nKey="header.signUp">
+                                    Sign Up
+                                </Trans>
+
                             </i>
                         </Link>
                     </li>
@@ -107,7 +111,9 @@ class Header extends Component
                         <Link id="login" className="nav-link" to="/login">
                             <i id="loginIcon" className="fa fa-sign-in">
                                 &nbsp;
+                                <Trans i18nKey="header.login">
                                 Login
+                                </Trans>
                             </i>
                     </Link>
                     </li>
