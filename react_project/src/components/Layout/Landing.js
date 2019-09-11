@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-
 class Landing extends Component {
 
     componentDidMount() {
@@ -13,13 +12,14 @@ class Landing extends Component {
 
     render() {
         return (
+
             <div className="landing">
                 <div className=" landing-inner text-dark">
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12 text-center">
                                 <h2 className="display-5 font-weight-bold">
-                                    Our community combines by sport and drugs
+                                    hello
                                 </h2>
                                 <hr/>
                                 <div id="myCarousel" className="carousel slide" data-ride="carousel">
