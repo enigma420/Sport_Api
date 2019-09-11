@@ -37,9 +37,7 @@ class Header extends Component {
                         </a>
                     </li>
                 </ul>
-
                 <ul className="navbar-nav mr-auto">
-
                     <li>
                         <div className="container h-100">
                             <div className="d-flex justify-content-center h-100">
@@ -69,7 +67,7 @@ class Header extends Component {
                         >
                             <i className="fa fa-sign-out">
                                 &nbsp;
-                            Logout
+                                <Trans i18nKey="header.logout"/>
                             </i>
                         </Link>
                     </li>
@@ -99,10 +97,7 @@ class Header extends Component {
                         <Link id="signUp" className="nav-link" to="/register">
                             <i className="fa fa-check-square">
                                 &nbsp;
-                                <Trans i18nKey="header.signUp">
-                                    Sign Up
-                                </Trans>
-
+                                <Trans i18nKey="header.signUp"/>
                             </i>
                         </Link>
                     </li>
@@ -111,9 +106,7 @@ class Header extends Component {
                         <Link id="login" className="nav-link" to="/login">
                             <i id="loginIcon" className="fa fa-sign-in">
                                 &nbsp;
-                                <Trans i18nKey="header.login">
-                                Login
-                                </Trans>
+                                <Trans i18nKey="header.login"/>
                             </i>
                     </Link>
                     </li>

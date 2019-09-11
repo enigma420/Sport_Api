@@ -4,6 +4,7 @@ import classnames from "classnames";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import { getEvent, updateEvent} from "../../../actions/eventslogActions";
+import {Trans} from "react-i18next";
 
 class UpdateEvent extends Component {
 constructor(){
@@ -113,17 +114,23 @@ constructor(){
         return (
                 <div className="dashboard">
                     <Link to={`/eventBoard/${this.state.teamIdentifier}`} >
-                        <div id="back">Back to Event Board</div>
+                        <div id="back">
+                            <Trans i18nKey="editEvent.back"/>
+                        </div>
                     </Link>
                 <div className="container2">
                     <div className="row">
                         <div className="col-md-8 m-auto">
 
-                            <h6 className="TEAM_LEAD">Edit Event</h6>
+                            <h6 className="TEAM_LEAD">
+                                <Trans i18nKey="editEvent.editEvent"/>
+                            </h6>
                             <hr/>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
-                                    <h5>Event name:</h5>
+                                    <h5>
+                                        <Trans i18nKey="editEvent.eventName"/>
+                                    </h5>
                                     <input
                                         type="text"
                                         className={classnames("form-control form-control-lg" , {
@@ -141,7 +148,9 @@ constructor(){
                                     )}
                                 </div>
                                 <div className="form-group">
-                                    <h5>Description:</h5>
+                                    <h5>
+                                        <Trans i18nKey="editEvent.description"/>
+                                    </h5>
                                     <textarea
                                         className="form-control form-control-lg"
                                         rows="3"
@@ -153,7 +162,9 @@ constructor(){
                                 </div>
                                 <div className="form-group row">
                                     <label htmlFor="example-number-input"
-                                           className="col-3 col-form-label">Place</label>
+                                           className="col-3 col-form-label">
+                                        <Trans i18nKey="editEvent.place"/>
+                                    </label>
                                     <div className="col-3">
                                     <textarea
                                         className={classnames("form-control form-control-lg" , {
@@ -171,7 +182,9 @@ constructor(){
                                         )}
                                     </div>
                                     <label htmlFor="example-number-input"
-                                           className="col-3 col-form-label">Cost</label>
+                                           className="col-3 col-form-label">
+                                        <Trans i18nKey="editEvent.cost"/>
+                                    </label>
                                     <div className="col-2">
                                         <input
                                             className={classnames("form-control form-control-lg" , {
@@ -192,7 +205,9 @@ constructor(){
                                 </div>
                                 <div className="form-group row">
                                     <label htmlFor="example-number-input"
-                                           className="col-3 col-form-label">Start Date</label>
+                                           className="col-3 col-form-label">
+                                        <Trans i18nKey="editEvent.eventStart"/>
+                                    </label>
                                     <div className="col-3">
                                         <input
                                             type="datetime-local"
@@ -210,7 +225,9 @@ constructor(){
                                         )}
                                     </div>
                                     <label htmlFor="example-number-input"
-                                           className="col-3 col-form-label">End Date</label>
+                                           className="col-3 col-form-label">
+                                        <Trans i18nKey="editEvent.eventEnd"/>
+                                    </label>
                                     <div className="col-3">
                                         <input
                                             type="datetime-local"
@@ -230,7 +247,9 @@ constructor(){
                                 </div>
                                 <div className="form-group row">
                                     <label htmlFor="example-number-input"
-                                           className="col-3 col-form-label">Minimal Members</label>
+                                           className="col-3 col-form-label">
+                                        <Trans i18nKey="editEvent.minMembers"/>
+                                    </label>
                                     <div className="col-3">
                                         <input
                                             className={classnames("form-control form-control-lg" , {
@@ -249,7 +268,9 @@ constructor(){
                                         )}
                                     </div>
                                     <label htmlFor="example-number-input"
-                                           className="col-3 col-form-label">Maximal Members</label>
+                                           className="col-3 col-form-label">
+                                        <Trans i18nKey="editEvent.maxMembers"/>
+                                    </label>
                                     <div className="col-3">
                                         <input
                                             className={classnames("form-control form-control-lg" , {
@@ -297,7 +318,9 @@ constructor(){
                                     </div>
                                 </div>
                                 <div className="form-group">
-                                    <h5>Required Equipment:</h5>
+                                    <h5>
+                                        <Trans i18nKey="editEvent.requiredEq"/>
+                                    </h5>
                                     <textarea
                                         className="form-control form-control-lg "
                                         rows="3"
@@ -307,10 +330,12 @@ constructor(){
                                         onChange={this.onChange}
                                     />
                                 </div>
-                                <input
+                                <button
                                     type="submit"
                                     className="btn btn-primary btn-block mt-4"
-                                />
+                                >
+                                    <Trans i18nKey="editEvent.edit"/>
+                                </button>
                             </form>
                         </div>
                     </div>

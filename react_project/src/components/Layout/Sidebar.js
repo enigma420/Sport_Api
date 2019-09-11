@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {logout} from "../../actions/securityActions";
+import {Trans} from "react-i18next";
 
 class Sidebar extends Component {
 
@@ -17,7 +18,7 @@ class Sidebar extends Component {
                             <a href="/dashboard">
                                 <i  id="sideBarIcons" className="fa fa-home fa-2x"></i>
                                 <span className="nav-text">
-    Dashboard
+    <Trans i18nKey="sidebar.dashboard"/>
     </span>
                             </a>
                         </li>
@@ -25,7 +26,7 @@ class Sidebar extends Component {
                             <a href="/profile">
                                 <i id="sideBarIcons" className="fa fa-smile-o fa-2x"></i>
                                 <span className="nav-text">
-    Profile
+    <Trans i18nKey="sidebar.profile"/>
     </span>
                             </a>
 
@@ -34,7 +35,7 @@ class Sidebar extends Component {
                             <a href="/friends">
                                 <i  id="sideBarIcons" className="fa fa-users fa-2x"></i>
                                 <span className="nav-text">
-    Friends
+    <Trans i18nKey="sidebar.friends"/>
     </span>
                             </a>
 
@@ -43,7 +44,7 @@ class Sidebar extends Component {
                             <a href="/dashboard">
                                 <i  id="sideBarIcons" className="fa fa-tasks "></i>
                                 <span className="nav-text">
-    Teams
+    <Trans i18nKey="sidebar.teams"/>
     </span>
                             </a>
 
@@ -52,7 +53,7 @@ class Sidebar extends Component {
                             <a href="/calendar">
                                 <i  id="sideBarIcons" className="fa fa-calendar fa-2x"></i>
                                 <span className="nav-text">
-    Events Calendar
+    <Trans i18nKey="sidebar.eventsCalendar"/>
     </span>
                             </a>
                         </li>
@@ -61,7 +62,7 @@ class Sidebar extends Component {
                             <a href="/weather">
                                 <i  id="sideBarIcons" className="fa fa-cloud fa-x"></i>
                                 <span className="nav-text">
-    Check Weather
+    <Trans i18nKey="sidebar.checkWeather"/>
     </span>
                             </a>
                         </li>
@@ -69,7 +70,7 @@ class Sidebar extends Component {
                             <a href="/info_center">
                                 <i  id="sideBarIcons" className="fa fa-info fa-2x"></i>
                                 <span className="nav-text">
-    Information Center
+    <Trans i18nKey="sidebar.infoCenter"/>
     </span>
                             </a>
                         </li>
@@ -77,7 +78,7 @@ class Sidebar extends Component {
                             <a href="/contact">
                                 <i  id="sideBarIcons" className="fa fa-phone fa-2x"></i>
                                 <span className="nav-text">
-    Contact
+    <Trans i18nKey="sidebar.contact"/>
     </span>
                             </a>
                         </li>
@@ -88,7 +89,7 @@ class Sidebar extends Component {
                             <a href="/">
                                 <i  id="sideBarIcons" className="fa fa-power-off fa-2x"></i>
                                 <span className="nav-text">
-    Logout
+    <Trans i18nKey="sidebar.logout"/>
     </span>
                             </a>
                         </li>

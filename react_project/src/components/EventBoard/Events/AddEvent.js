@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import classnames from "classnames";
 import {addEvent} from "../../../actions/eventslogActions";
 import PropTypes from "prop-types";
+import {Trans} from "react-i18next";
 
 class AddEvent extends Component {
     constructor(props){
@@ -70,17 +71,23 @@ class AddEvent extends Component {
         return (
                 <div className="dashboard">
                     <Link to={`/eventBoard/${id}`} >
-                        <div id="back">Back to Event Board</div>
+                        <div id="back">
+                            <Trans i18nKey="createEvent.back"/>
+                        </div>
                     </Link>
                 <div className="container2">
 
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h1 className="TEAM_LEAD">Create Event</h1>
+                            <h1 className="TEAM_LEAD">
+                                <Trans i18nKey="createEvent.createEvent"/>
+                            </h1>
                             <hr/>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
-                                    <h5>Event name</h5>
+                                    <h5>
+                                        <Trans i18nKey="createEvent.eventName"/>
+                                    </h5>
                                     <input
                                         type="text"
                                         className={classnames("form-control form-control-lg" , {
@@ -98,7 +105,9 @@ class AddEvent extends Component {
                                     )}
                                 </div>
                                 <div className="form-group">
-                                    <h5>Description</h5>
+                                    <h5>
+                                        <Trans i18nKey="createEvent.description"/>
+                                    </h5>
                                 <textarea
                                         className="form-control form-control-lg"
                                         rows="3"
@@ -110,7 +119,9 @@ class AddEvent extends Component {
                                 </div>
                                 <div className="form-group row">
                                     <label htmlFor="example-number-input"
-                                           className="col-3 col-form-label">Place</label>
+                                           className="col-3 col-form-label">
+                                        <Trans i18nKey="createEvent.place"/>
+                                    </label>
                                     <div className="col-3">
                                     <textarea
                                     className={classnames("form-control form-control-lg" , {
@@ -128,7 +139,9 @@ class AddEvent extends Component {
                                         )}
                                     </div>
                                     <label htmlFor="example-number-input"
-                                           className="col-3 col-form-label">Cost</label>
+                                           className="col-3 col-form-label">
+                                        <Trans i18nKey="createEvent.cost"/>
+                                    </label>
                                     <div className="col-2">
                                         <input
                                             className={classnames("form-control form-control-lg" , {
@@ -149,7 +162,9 @@ class AddEvent extends Component {
                                 </div>
                                 <div className="form-group row">
                                     <label htmlFor="example-number-input"
-                                           className="col-3 col-form-label">Start Date</label>
+                                           className="col-3 col-form-label">
+                                        <Trans i18nKey="createEvent.eventStart"/>
+                                    </label>
                                     <div className="col-3">
                                     <input
                                         type="datetime-local"
@@ -167,7 +182,9 @@ class AddEvent extends Component {
                                         )}
                                 </div>
                                 <label htmlFor="example-number-input"
-                                       className="col-3 col-form-label">End Date</label>
+                                       className="col-3 col-form-label">
+                                    <Trans i18nKey="createEvent.eventEnd"/>
+                                </label>
                                 <div className="col-3">
                                     <input
                                         type="datetime-local"
@@ -187,7 +204,9 @@ class AddEvent extends Component {
                                 </div>
                                 <div className="form-group row">
                                     <label htmlFor="example-number-input"
-                                           className="col-3 col-form-label">Minimal Members</label>
+                                           className="col-3 col-form-label">
+                                        <Trans i18nKey="createEvent.minMembers"/>
+                                    </label>
                                     <div className="col-3">
                                         <input
                                             className={classnames("form-control form-control-lg" , {
@@ -206,7 +225,9 @@ class AddEvent extends Component {
                                         )}
                                     </div>
                                     <label htmlFor="example-number-input"
-                                           className="col-3 col-form-label">Maximal Members</label>
+                                           className="col-3 col-form-label">
+                                        <Trans i18nKey="createEvent.maxMembers"/>
+                                    </label>
                                     <div className="col-3">
                                         <input
                                             className={classnames("form-control form-control-lg" , {
@@ -254,7 +275,9 @@ class AddEvent extends Component {
                                 </div>
                                 </div>
                                 <div className="form-group">
-                                    <h5>Required Equipment</h5>
+                                    <h5>
+                                        <Trans i18nKey="createEvent.requiredEq"/>
+                                    </h5>
                                     <textarea
                                         className="form-control form-control-lg "
                                         rows="3"
@@ -264,11 +287,13 @@ class AddEvent extends Component {
                                         onChange={this.onChange}
                                     />
                                 </div>
-                                <input
+                                <button
                                     type="submit"
                                     className="btn btn-success btn-block mt-4"
                                     value="Create"
-                                />
+                                >
+                                    <Trans i18nKey="createEvent.create"/>
+                                </button>
                             </form>
                         </div>
                     </div>

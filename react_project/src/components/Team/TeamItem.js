@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {deleteTeam} from "../../actions/teamActions";
+import {Trans} from "react-i18next";
 
 
 class TeamItem extends Component {
@@ -22,7 +23,9 @@ class TeamItem extends Component {
                                 <div className="containero">
                                     <button className="teamInfo btn btn-primary" data-toggle="modal"
                                             data-target="#myModal">
-                                        <h5>Team Information</h5>
+                                        <h5>
+                                            <Trans i18nKey="teamItem.teamInfo"/>
+                                        </h5>
                                     </button>
                                     <div className="modal" id="myModal">
                                         <div className="modal-dialog">
@@ -67,18 +70,24 @@ class TeamItem extends Component {
                                 <text className="nameOfType">{team.typeOfSport}</text>
                                 </li>
                                 <Link to={`/eventBoard/${team.teamIdentifier}`}>
-                                        <i className="fa fa-flag-checkered h3">&nbsp;Events</i>
+                                        <i className="fa fa-flag-checkered h3">&nbsp;
+                                            <Trans i18nKey="teamItem.events"/>
+                                        </i>
                                 </Link>
                             </div>
                         </div>
                         <div className="col-2">
                             <ul className="list-group">
                                 <div className="dropup">
-                                    <button className="dropbtn ">Options</button>
+                                    <button className="dropbtn ">
+                                        <Trans i18nKey="teamItem.options"/>
+                                    </button>
                                     <div className="dropup-content">
                                         <Link to={`/editTeam/${team.teamIdentifier}`}>
                                             <li className=" delete teamMenu">
-                                                <text className="fa btn-group-lg fa-minus-circle ">Edit Team</text>
+                                                <text className="fa btn-group-lg fa-minus-circle ">
+                                                    <Trans i18nKey="teamItem.editTeam"/>
+                                                </text>
                                             </li>
                                         </Link>
                                         <a href="#">
@@ -87,7 +96,9 @@ class TeamItem extends Component {
                                                     this,
                                                     team.teamIdentifier
                                                 )}>
-                                                <i className="fa fa-minus-circle pr-1">Delete Team</i>
+                                                <i className="fa fa-minus-circle pr-1">
+                                                    <Trans i18nKey="teamItem.deleteTeam"/>
+                                                </i>
                                             </li>
                                         </a>
                                     </div>

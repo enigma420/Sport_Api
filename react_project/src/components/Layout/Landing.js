@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import {Trans} from "react-i18next";
 class Landing extends Component {
 
     componentDidMount() {
@@ -19,7 +20,7 @@ class Landing extends Component {
                         <div className="row">
                             <div className="col-md-12 text-center">
                                 <h2 className="display-5 font-weight-bold">
-                                    hello
+                                    <Trans i18nKey="landing.intro"/>
                                 </h2>
                                 <hr/>
                                 <div id="myCarousel" className="carousel slide" data-ride="carousel">
@@ -57,7 +58,7 @@ class Landing extends Component {
                                 </div>
                                 <hr/>
                                 <p className="lead font-weight-bolder">
-                                    Create your account to join active projects or start your own
+                                    <Trans i18nKey="landing.intro-info"/>
                                 </p>
                                 <hr />
                             </div>

@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import { createTeam } from "../../actions/teamActions";
 import classnames from "classnames";
 import {Link} from "react-router-dom";
+import {Trans} from "react-i18next";
 
 class CreateTeam extends Component {
     constructor() {
@@ -56,17 +57,23 @@ class CreateTeam extends Component {
         return (
             <div className="dashboard">
                 <Link to="/dashboard">
-                    <div id="back">Back to Dashboard</div>
+                    <div id="back">
+                        <Trans i18nKey="createTeam.back"/>
+                    </div>
                 </Link>
                 <div className="container2">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h6 className="TEAM_LEAD">Create Team</h6>
+                            <h6 className="TEAM_LEAD">
+                                <Trans i18nKey="createTeam.createTeam"/>
+                            </h6>
                             <hr/>
 
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
-                                    <h5>Team Name:</h5>
+                                    <h5>
+                                        <Trans i18nKey="createTeam.teamName"/>
+                                    </h5>
                                     <input
                                         type="text"
                                         className={classnames("form-control form-control-lg" , {
@@ -85,7 +92,9 @@ class CreateTeam extends Component {
 
                                 </div>
                                 <div className="form-group">
-                                    <h5>Team ID:</h5>
+                                    <h5>
+                                        <Trans i18nKey="createTeam.teamId"/>
+                                    </h5>
                                     <input
                                         type="text"
                                         className={classnames("form-control form-control-lg", {
@@ -103,7 +112,9 @@ class CreateTeam extends Component {
                                     )}
                                 </div>
                                 <div className="form-group">
-                                    <h5>Description:</h5>
+                                    <h5>
+                                        <Trans i18nKey="createTeam.description"/>
+                                    </h5>
                    <textarea
                        type="text"
                        className={classnames("form-control form-control-lg" , {
@@ -122,7 +133,9 @@ class CreateTeam extends Component {
 
                                 </div>
                                 <div className="form-group">
-                                    <h5>Team Leader:</h5>
+                                    <h5>
+                                        <Trans i18nKey="createTeam.teamLeader"/>
+                                    </h5>
                                     <input
                                         type="text"
                                         className={classnames("form-control form-control-lg", {
@@ -141,7 +154,9 @@ class CreateTeam extends Component {
 
                          </div>
                          <div className="form-group">
-                             <h5>Type of Sport:</h5>
+                             <h5>
+                                 <Trans i18nKey="createTeam.typeOfSport"/>
+                             </h5>
                                 <input
                                     type="text"
                                     className={classnames("form-control form-control-lg" , {
@@ -158,10 +173,9 @@ class CreateTeam extends Component {
                                     </div>
                                 )}
                         </div>
-                        <input
-                            type="submit"
-                            className="btn btn-primary btn-block "
-                        ></input>
+                        <button type="submit" className="btn btn-primary btn-block ">
+                            <Trans i18nKey="createTeam.create"/>
+                        </button>
                     </form>
                 </div>
             </div>

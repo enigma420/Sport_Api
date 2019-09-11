@@ -4,6 +4,7 @@ import {deleteEvent} from "../../../actions/eventslogActions";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import {Trans} from "react-i18next";
 
 
 class Event extends Component {
@@ -79,19 +80,28 @@ class Event extends Component {
                     <div className="eventer">{event.nameOfEvent}</div>
                 </div>
                 <div className="list-group">
-                    <h5>Place:</h5>
+                    <h5>
+                        <Trans i18nKey="event.place"/>
+                    </h5>
                     <li className="list-group-item">{event.place}</li>
-                    <h5>Start Date:</h5>
+                    <h5>
+                        <Trans i18nKey="event.eventStart"/>
+                    </h5>
                     <li className="list-group-item">{event.startDate}</li>
-                    <h5>End Date:</h5>
+                    <h5>
+                        <Trans i18nKey="event.eventEnd"/>
+                    </h5>
                     <li className="list-group-item">{event.endDate}</li>
                 </div>
 
 
 
                     <div className="allInfo">
-                        <Button color="primary" onClick={this.toggle} style={{ marginLeft:'1rem' , marginBottom: '2rem' , marginTop: '1rem' }} className="info">All Information:</Button>
-                        Current state: {this.state.status}
+                        <Button color="primary" onClick={this.toggle} style={{ marginLeft:'1rem' , marginBottom: '2rem' , marginTop: '1rem' }} className="info">
+                            <Trans i18nKey="event.allInfo"/>
+                        </Button>
+                        <Trans i18nKey="event.allInfoCurrentState"/>
+                         {this.state.status}
                         <Collapse
                             isOpen={this.state.collapse}
                             onEntering={this.onEntering}
@@ -102,21 +112,37 @@ class Event extends Component {
                             <Card>
                                 <CardBody>
                                     <ul className=" list-group">
-                                        <h5>Cost:</h5>
+                                        <h5>
+                                            <Trans i18nKey="event.cost"/>
+                                        </h5>
                                         <li className="list-group-item">{event.cost+"zł"}</li>
-                                        <h5>Min Members:</h5>
+                                        <h5>
+                                            <Trans i18nKey="event.minMembers"/>
+                                        </h5>
                                         <li className="list-group-item">{event.minNumberOfMembers}</li>
-                                        <h5>Max Members:</h5>
+                                        <h5>
+                                            <Trans i18nKey="event.maxMembers"/>
+                                        </h5>
                                         <li className="list-group-item">{event.maxNumberOfMembers}</li>
-                                        <h5>Priority:</h5>
+                                        <h5>
+                                            <Trans i18nKey="event.priority"/>
+                                        </h5>
                                         <li className="list-group-item">{priorityString}</li>
-                                        <h5>Status:</h5>
+                                        <h5>
+                                            <Trans i18nKey="event.status"/>
+                                        </h5>
                                         <li className="list-group-item">{event.status}</li>
-                                        <h5>Event ID:</h5>
+                                        <h5>
+                                            <Trans i18nKey="event.eventId"/>
+                                        </h5>
                                         <li className="list-group-item">{event.teamIdentifier}</li>
-                                        <h5>Required Equipment:</h5>
+                                        <h5>
+                                            <Trans i18nKey="event.requiredEq"/>
+                                        </h5>
                                         <li className="list-group-item">{event.requiredEquipment}</li>
-                                        <h5>Description:</h5>
+                                        <h5>
+                                            <Trans i18nKey="event.description"/>
+                                        </h5>
                                         <li className="list-group-item">{event.description}</li>
                                     </ul>
                                 </CardBody>
@@ -128,7 +154,7 @@ class Event extends Component {
                         event.teamSequence}
                         }`}
                           className="view btn btn-success ">
-                        Modify
+                        <Trans i18nKey="event.editButton"/>
                     </Link>
 
                     <button
@@ -139,7 +165,7 @@ class Event extends Component {
                             event.teamSequence
                         )}
                     >
-                        Delete
+                        <Trans i18nKey="event.deleteButton"/>
                     </button>
                 </div>
                 </div>
