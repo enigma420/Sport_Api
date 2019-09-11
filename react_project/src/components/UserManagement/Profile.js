@@ -3,25 +3,25 @@ import React, {Component} from 'react';
 class Profile extends Component {
     render() {
         return (
-                <div className="container" >
-                    <div className="profile-head">
-                        <div className="col-md- col-sm-4 col-xs-12">
-                            <img src="http://www.newlifefamilychiropractic.net/wp-content/uploads/2014/07/300x300.gif"
-                                 className="img-responsive" alt={"ba"}/>
-                            <h6>Vijayan Karuppaiah</h6>
-                            <div className="container">
+            <div className="container" >
+                <div className="profile-head">
+                    <div className="col-md- col-sm-4 col-xs-12">
+                        <img src="http://www.newlifefamilychiropractic.net/wp-content/uploads/2014/07/300x300.gif"
+                             className="img-responsive" alt={"ba"}/>
+                        <h6>Vijayan Karuppaiah</h6>
+                        <div className="container">
                 <span className="btn btn-default uplod-file">
                         Upload Photo <input type="file"/>
                 </span>
-                            </div>
-                        </div>
-
-                        <div className="col-md-5 col-sm-5 col-xs-12">
-                            <h5>Vijayan Karuppaiah</h5>
-                            <p>Content Designer / Content Engineer </p>
-
                         </div>
                     </div>
+
+                    <div className="col-md-5 col-sm-5 col-xs-12">
+                        <h5>Vijayan Karuppaiah</h5>
+                        <p>Content Designer / Content Engineer </p>
+
+                    </div>
+                </div>
 
 
                 <br/>
@@ -173,7 +173,7 @@ class Profile extends Component {
                                         </div>
                                         <p style={{align:'right'}}>
                                             <button type="button" className="btn btn-default btn-sm">
-                                                 Edit
+                                                Edit
                                             </button>
                                         </p>
                                         <table className="table bio-table">
@@ -262,7 +262,7 @@ class Profile extends Component {
                                         </div>
                                         <p style={{align:'right'}}>
                                             <button type="button" className="btn btn-default btn-sm">
-                                                 Edit
+                                                Edit
                                             </button>
                                         </p>
                                         <table className="table bio-table">
@@ -317,7 +317,7 @@ class Profile extends Component {
                                         </div>
                                         <p style={{align:'right'}}>
                                             <button type="button" className="btn btn-default btn-sm">
-                                                 Edit
+                                                Edit
                                             </button>
                                         </p>
                                         <table className="table bio-table">
@@ -398,7 +398,7 @@ class Profile extends Component {
                                         </div>
                                         <p style={{align:'right'}}>
                                             <button type="button" className="btn btn-default btn-sm">
-                                                 Edit
+                                                Edit
                                             </button>
                                         </p>
                                         <div className="row">
@@ -513,7 +513,7 @@ class Profile extends Component {
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
         );
     }
 }
