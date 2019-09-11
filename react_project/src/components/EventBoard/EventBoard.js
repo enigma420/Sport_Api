@@ -4,6 +4,7 @@ import Eventslog from "./Eventslog";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import { getEventslog} from "../../actions/eventslogActions";
+import {Trans} from "react-i18next";
 
 
 class EventBoard extends Component {
@@ -48,7 +49,7 @@ class EventBoard extends Component {
                 } else {
                     return (
                         <div className="alert alert-info text-center" role="alert">
-                            No Events on this board
+                            <Trans i18nKey="eventBoard.noEventsOnBoard"/>
                         </div>
                     );
                 }
@@ -62,11 +63,15 @@ class EventBoard extends Component {
         return (
             <div className="dashboard">
             <div className="eventboard">
-                <h2 className="TEAM_LEAD">Your Events:</h2>
+                <h2 className="TEAM_LEAD">
+                    <Trans i18nKey="eventBoard.events"/>
+                </h2>
                 <br />
                 <React.Fragment>
                     <Link to={`/addEvent/${id}`} className="btn btn-lg btn-primary">
-                        <i className="fas fa-plus-circle">&nbsp;Create Event</i>
+                        <i className="fas fa-plus-circle">&nbsp;
+                            <Trans i18nKey="eventBoard.createEvent"/>
+                        </i>
                     </Link>
                 </React.Fragment>
                 <br />

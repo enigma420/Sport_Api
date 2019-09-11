@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Trans} from "react-i18next";
 
 class Footer extends Component {
     render() {
@@ -9,7 +10,9 @@ class Footer extends Component {
                 <div className="container ">
                     <p className="navbar-text pull-left" className="copywriter">©CopyWriter -> 2019 Simple App
                         <a href="http://tinyurl.com/tbvalid"  className="copywriter"> HTML 5</a>
-                        <h4> Author: Dominik Nowak </h4>
+                        <h4>
+                            <Trans i18nKey="footer"/>
+                        </h4>
                     </p>
                 </div>
                 </ul>

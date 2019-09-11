@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import classnames from "classnames";
 import {Link} from "react-router-dom";
+import {Trans} from "react-i18next";
 
 class EditTeam extends Component {
 constructor(){
@@ -83,17 +84,23 @@ this.setState({
         return (
             <div className="dashboard">
                 <Link to="/dashboard">
-                    <div id="back">Back to Dashboard</div>
+                    <div id="back">
+                        <Trans i18nKey="editTeam.back"/>
+                    </div>
                 </Link>
                 <div className="container2">
 
                         <div className="row">
                             <div className="col-md-8 m-auto">
-                                <h1 className="TEAM_LEAD">Modify Team</h1>
+                                <h1 className="TEAM_LEAD">
+                                    <Trans i18nKey="editTeam.editTeam"/>
+                                </h1>
                                 <hr/>
                                 <form onSubmit={this.onSubmit}>
                                     <div className="form-group">
-                                        <h5>Team Name:</h5>
+                                        <h5>
+                                            <Trans i18nKey="editTeam.teamName"/>
+                                        </h5>
                                         <input
                                             type="text"
                                             className={classnames("form-control form-control-lg" , {
@@ -111,7 +118,9 @@ this.setState({
                                         )}
                                     </div>
                                     <div className="form-group">
-                                        <h5>Team Identifier:</h5>
+                                        <h5>
+                                            <Trans i18nKey="editTeam.teamId"/>
+                                        </h5>
                                         <input
                                             type="text"
                                             className="form-control form-control-lg"
@@ -122,7 +131,9 @@ this.setState({
                                         />
                                     </div>
                                     <div className="form-group">
-                                        <h5>Description:</h5>
+                                        <h5>
+                                            <Trans i18nKey="editTeam.description"/>
+                                        </h5>
                                         <textarea
                                             className={classnames("form-control form-control-lg" , {
                                               "is-invalid": errors.description
@@ -139,7 +150,9 @@ this.setState({
                                         )}
                                     </div>
                                     <div className="form-group">
-                                        <h5>Team Leader:</h5>
+                                        <h5>
+                                            <Trans i18nKey="editTeam.teamLeader"/>
+                                        </h5>
                                         <input
                                             type="text"
                                             className={classnames("form-control form-control-lg", {
@@ -157,7 +170,9 @@ this.setState({
                                         )}
                                     </div>
                                     <div className="form-group">
-                                        <h5>Type of Sport:</h5>
+                                        <h5>
+                                            <Trans i18nKey="editTeam.typeOfSport"/>
+                                        </h5>
                                         <input
                                             type="text"
                                             className={classnames("form-control form-control-lg" , {
@@ -174,11 +189,13 @@ this.setState({
                                             </div>
                                         )}
                                     </div>
-                                    <input
+                                    <button
                                         type="submit"
                                         className="btn btn-success btn-block mt-4"
                                         value="Modify"
-                                    />
+                                    >
+                                        <Trans i18nKey="editTeam.edit"/>
+                                    </button>
                                 </form>
                             </div>
                         </div>

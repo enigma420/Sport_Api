@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Event from "./Events/Event";
+import {Trans} from "react-i18next";
 
 class Eventslog extends Component {
     render() {
@@ -39,13 +40,21 @@ class Eventslog extends Component {
 
         return (
             <div className="container">
-                <h2 align="center">Amount of all Events: {totalEvents}</h2>
+                <h2 align="center">
+                    <Trans i18nKey="eventslog.amountOfEvents"/>
+                    {totalEvents}
+                </h2>
                 <div className="row">
                     <div className="col-md-4 border-right">
                         <div className="card text-center mb-2">
                             <div className="card-header bg-secondary text-white">
-                                <h3>In Past </h3>
-                                <p>Amount of Events: {countPastEvents}</p>
+                                <h3>
+                                    <Trans i18nKey="eventslog.past"/>
+                                </h3>
+                                <p>
+                                    <Trans i18nKey="eventslog.amountOfEachEvents"/>
+                                    {countPastEvents}
+                                </p>
                             </div>
                         </div>
                         {inPast}
@@ -53,8 +62,13 @@ class Eventslog extends Component {
                     <div className="col-md-4">
                         <div className="card text-center mb-2">
                             <div className="card-header bg-success text-white">
-                                <h3>Today</h3>
-                                <p>Amount of Events: {countTodayEvents}</p>
+                                <h3>
+                                    <Trans i18nKey="eventslog.today"/>
+                                </h3>
+                                <p>
+                                    <Trans i18nKey="eventslog.amountOfEachEvents"/>
+                                    {countTodayEvents}
+                                </p>
                             </div>
                         </div>
                         {today}
@@ -62,8 +76,13 @@ class Eventslog extends Component {
                     <div className="col-md-4 border-left">
                         <div className="card text-center mb-2">
                             <div className="card-header bg-primary text-white">
-                                <h3>In Future</h3>
-                                <p>Amount of Events: {countFutureEvents}</p>
+                                <h3>
+                                    <Trans i18nKey="eventslog.future"/>
+                                </h3>
+                                <p>
+                                    <Trans i18nKey="eventslog.amountOfEachEvents"/>
+                                    {countFutureEvents}
+                                </p>
                             </div>
                         </div>
                         {inFuture}

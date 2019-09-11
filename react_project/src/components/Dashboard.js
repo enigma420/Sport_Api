@@ -4,6 +4,7 @@ import TeamItem from "./Team/TeamItem";
 import { connect } from "react-redux";
 import { getTeams } from "../actions/teamActions";
 import PropTypes from "prop-types";
+import {Trans, useTranslation} from "react-i18next";
 
 class Dashboard extends Component {
 
@@ -24,9 +25,14 @@ class Dashboard extends Component {
         <div className="dashboard">
             <div className="teamboard">
 
-                <h2 className="TEAM_LEAD">Your Teams:</h2>
+                <h2 className="TEAM_LEAD">
+                    <Trans i18nKey="dashboard.teams"/>
+                </h2>
                 <hr />
-                <br /><h4>Amount of Teams: {CountOfTeams}</h4>
+                <br /><h4>
+                <Trans i18nKey="dashboard.amountOfTeams"/>
+                {CountOfTeams}
+                </h4>
                 <CreateTeamButton/>
                 <br />
 

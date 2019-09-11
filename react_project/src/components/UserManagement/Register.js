@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import classnames from "classnames";
 import {Link} from "react-router-dom";
+import {Trans, useTranslation} from "react-i18next";
 
 class Register extends Component {
     constructor(){
@@ -52,14 +53,20 @@ class Register extends Component {
         return (
             <div className="dashboard">
                 <Link to="/">
-                    <div id="back">Back to Welcome Page</div>
+                    <div id="back">
+                        <Trans i18nKey="register.back"/>
+                    </div>
                 </Link>
                 <div className="container2">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h1 className="TEAM_LEAD">Sign Up</h1>
+                            <h1 className="TEAM_LEAD">
+                                <Trans i18nKey="header.signUp"/>
+                            </h1>
                             <hr/>
-                            <p className="lead text-center">Create your Account</p>
+                            <p className="lead text-center">
+                                <Trans i18nKey="register.info"/>
+                            </p>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
                                     <input
@@ -121,8 +128,10 @@ class Register extends Component {
                                         <div className="invalid-feedback">{errors.confirmPassword}</div>
                                     )}
                                 </div>
-                                <input type="submit" className="btn btn-success btn-block mt-4 col-auto" value="Create Account"/>
-                            </form>
+                                <button type="submit" className="btn btn-success btn-block mt-4 col-auto" value="Create Account">
+                                    <Trans i18nKey="register.create"/>
+                                </button>
+                                </form>
                         </div>
                     </div>
                 </div>

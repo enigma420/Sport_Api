@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import classnames from "classnames";
 import {login} from "../../actions/securityActions";
 import {Link} from "react-router-dom";
+import {Trans} from "react-i18next";
 
 class Login extends Component {
     constructor(){
@@ -53,12 +54,16 @@ class Login extends Component {
             <div className="login">
             <div className="dashboard">
                     <Link to="/">
-                        <div id="back">Back to Welcome Page</div>
+                        <div id="back">
+                            <Trans i18nKey="login.back"/>
+                        </div>
                     </Link>
                     <div className="container2">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h1 className="TEAM_LEAD">Login</h1>
+                            <h1 className="TEAM_LEAD">
+                                <Trans i18nKey="login.login"/>
+                            </h1>
                         <hr/>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
@@ -91,7 +96,9 @@ class Login extends Component {
                                         <div className="invalid-feedback">{errors.password}</div>
                                     )}
                                 </div>
-                                <input type="submit" className="btn btn-success btn-block mt-4" value="Sign in" />
+                                <button type="submit" className="btn btn-success btn-block mt-4" value="Sign in" >
+                                    <Trans i18nKey="login.create"/>
+                                </button>
                             </form>
                         </div>
                     </div>
