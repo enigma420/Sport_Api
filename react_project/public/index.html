@@ -27,7 +27,12 @@
     <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext"
           rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lobster&amp;subset=latin-ext" rel="stylesheet">
-
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.1.0/email.min.js"></script>
+    <script type="text/javascript">
+      (function(){
+        emailjs.init("%REACT_APP_EMAILJS_USERID%");
+      })();
+    </script>
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
       <meta

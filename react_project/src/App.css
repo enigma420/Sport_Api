@@ -1,3 +1,11 @@
+.apiCards{
+  background-color: white;
+}
+.apiCards:hover{
+transform: scale(1.04);
+    box-shadow: 0px 25px 35px 0px rgba(0,0,0.5,0.8);
+}
+
 .icons a {
     padding: 8px;
 }
@@ -331,6 +339,17 @@ button{
 
 .demo-icon{
 text-underline-style: none
+}
+
+.apicenterboard{
+
+    margin-left: 70px;
+    margin-right: 70px;
+    background-image: linear-gradient(to right, lightslategrey 0%, #92fe9d 100%);
+    border-right: 3px solid seagreen;
+    border-left: 3px solid seagreen;
+    border-bottom: 2px solid seagreen;
+    border-top: 1px solid seagreen;
 }
 
 .teamboard{
