@@ -1,0 +1,137 @@
+{
+  "header": {
+    "signUp": "Rejestracja",
+    "login": "Logowanie",
+    "logout": "Wyloguj"
+  },
+  "register": {
+    "back": "Cofnij do Strony Głównej",
+    "signUp": "Rejestracja",
+    "info": "Utwórz swoje konto",
+    "create": "Utwórz konto",
+    "fullName": "Nazwa Użytkownika",
+    "email": "Adres Email (Nazwa Użytkownika)",
+    "password": "Hasło",
+    "confirmPassword": "Potwierdź Hasło"
+  },
+  "login": {
+    "back": "Cofnij do Strony Głównej",
+    "login": "Logowanie",
+    "create": "Zaloguj się"
+  },
+  "landing": {
+    "intro": "Witamy w naszej aplikacji ,która jednoczy wysportowanych świrów",
+    "intro-info": "Utwórz konto i dołącz do nas"
+  },
+  "dashboard": {
+    "teams": "Twoje Drużyny:",
+    "amountOfTeams": "Liczba drużyn: "
+  },
+  "createTeamButton": "Utwórz Drużyne",
+  "createTeam": {
+    "back": "Cofnij do Tablicy Drużyn",
+    "createTeam": "Utwórz Drużyne",
+    "teamName": "Nazwa drużyny:",
+    "teamId": "Identyfikator Drużyny:",
+    "description": "Opis:",
+    "teamLeader": "Lider Zespołu:",
+    "typeOfSport": "Rodzaj Sportu:",
+    "create": "Utwórz"
+  },
+  "teamItem": {
+    "teamInfo": "Informacje",
+    "events": "Wydarzenia",
+    "options": "Opcje",
+    "editTeam": "Zmodyfikuj drużyne",
+    "deleteTeam": "Usuń drużyne"
+  },
+  "editTeam": {
+  "back": "Cofnij do Tablicy Drużyn",
+  "editTeam": "Edytuj Drużyne",
+  "teamName": "Nazwa drużyny:",
+  "teamId": "Identyfikator Drużyny:",
+  "description": "Opis:",
+  "teamLeader": "Lider Zespołu:",
+  "typeOfSport": "Rodzaj Sportu:",
+  "edit": "Edytuj"
+},
+  "sidebar": {
+    "dashboard": "Tablica",
+    "profile": "Profil",
+    "friends": "Znajomi",
+    "teams": "Drużyny",
+    "eventsCalendar": "Kalendarz Wydarzeń",
+    "checkWeather": "Sprawdź Pogodę",
+    "infoCenter": "Centrum Informacji",
+    "contact": "Kontakt",
+    "logout": "Wyloguj"
+  },
+  "footer": "Wykonanie: Dominik Nowak",
+  "eventBoard": {
+    "events": "Twoje Wydarzenia:",
+    "createEvent": "Utwórz Wydarzenie",
+    "noEventsOnBoard": "Obecnie nie posiadasz żadnych Wydarzeń"
+  },
+  "createEvent": {
+    "back": "Cofnij do Tablicy Wydarzeń",
+    "createEvent": "Utwórz Wydarzenie",
+    "eventName": "Nazwa Wydarzenia:",
+    "description": "Opis:",
+    "place": "Lokalizacja:",
+    "cost": "Koszt:",
+    "eventStart": "Rozpoczęcie Wydarzenia:",
+    "eventEnd": "Zakończenie Wydarzenia:",
+    "minMembers": "Min. ilość uczestników",
+    "maxMembers": "Max. ilość uczestników",
+    "requiredEq": "Wymagany Sprzęt:",
+    "create": "Utwórz"
+  },
+  "eventslog": {
+    "amountOfEvents": "Ilość Wydarzeń: ",
+    "past": "Przeszłość",
+    "today": "Dzisiaj",
+    "future": "Przyszłość",
+    "amountOfEachEvents": "Ilość Wydarzeń: "
+  },
+  "editEvent": {
+    "back": "Cofnij do Tablicy Wydarzeń",
+    "editEvent": "Edytuj Wydarzenie",
+    "eventName": "Nazwa Wydarzenia:",
+    "description": "Opis:",
+    "place": "Lokalizacja:",
+    "cost": "Koszt:",
+    "eventStart": "Rozpoczęcie Wydarzenia:",
+    "eventEnd": "Zakończenie Wydarzenia:",
+    "minMembers": "Min. ilość uczestników",
+    "maxMembers": "Max. ilość uczestników",
+    "requiredEq": "Wymagany Sprzęt:",
+    "edit": "Edytuj"
+  },
+  "event": {
+    "eventName": "Nazwa Wydarzenia:",
+    "description": "Opis:",
+    "place": "Lokalizacja:",
+    "cost": "Koszt:",
+    "eventStart": "Rozpoczęcie:",
+    "eventEnd": "Zakończenie:",
+    "minMembers": "Min. ilość uczestników:",
+    "maxMembers": "Max. ilość uczestników:",
+    "requiredEq": "Required Equipment:",
+    "priority:": "Priority:",
+    "status": "Status:",
+    "eventId": "Event ID:",
+    "editButton": "Edit",
+    "deleteButton": "Delete",
+    "allInfo": "All Information:",
+    "allInfoCurrentState": "Current state: "
+  },
+  "contact": {
+    "firstName": "Imię:",
+    "lastName": "Nazwisko:",
+    "email": "Email:",
+    "message": "Wiadomość:",
+    "submit": "Wyślij",
+    "contactUs": "Skontaktuj się z nami",
+    "contactGreeting": "Uwielbiamy utrzymywać z Tobą relacje!"
+  }
+}

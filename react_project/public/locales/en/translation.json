@@ -1,0 +1,137 @@
+{
+  "header": {
+    "signUp": "Sign Up",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "register": {
+    "back": "Back to Welcome Page",
+    "signUp": "Sign Up",
+    "info": "Create Your Account",
+    "create": "Create Account",
+    "fullName": "Full Name",
+    "email": "Email Address (Username)",
+    "password": "Password",
+    "confirmPassword": "Confirm Password"
+  },
+  "login": {
+    "back": "Back to Welcome Page",
+    "login": "Login",
+    "create": "Log-in"
+  },
+  "landing": {
+    "intro": "Welcome to our application that unites athletic freaks",
+    "intro-info": "Create your account to join us"
+  },
+  "dashboard": {
+    "teams": "Your Teams:",
+    "amountOfTeams": "Amount of Teams: "
+  },
+  "createTeamButton": "Create Team",
+  "createTeam": {
+    "back": "Back to Dashboard",
+    "createTeam": "Create Team",
+    "teamName": "Team Name:",
+    "teamId": "Team ID:",
+    "description": "Description:",
+    "teamLeader": "Team Leader:",
+    "typeOfSport": "Type of Sport:",
+    "create": "Create"
+  },
+  "teamItem": {
+    "teamInfo": "Team Information",
+    "events": "Events",
+    "options": "Options",
+    "editTeam": "Edit Team",
+    "deleteTeam": "Delete Team"
+  },
+  "editTeam": {
+    "back": "Back to Dashboard",
+    "editTeam": "Edit Team",
+    "teamName": "Team Name:",
+    "teamId": "Team ID:",
+    "description": "Description:",
+    "teamLeader": "Team Leader:",
+    "typeOfSport": "Type of Sport:",
+    "edit": "Edit"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "friends": "Friends",
+    "teams": "Teams",
+    "eventsCalendar": "Events Calendar",
+    "checkWeather": "Check Weather",
+    "infoCenter": "Information Center",
+    "contact": "Contact",
+    "logout": "Logout"
+  },
+  "footer": "Produced by: Dominik Nowak",
+  "eventBoard": {
+    "events": "Your Events:",
+    "createEvent": "Create Event",
+    "noEventsOnBoard": "You currently have no Events"
+  },
+  "createEvent": {
+    "back": "Back to Event Board",
+    "createEvent": "Create Event",
+    "eventName": "Event Name:",
+    "description": "Description:",
+    "place": "Localization:",
+    "cost": "Cost:",
+    "eventStart": "Event Start:",
+    "eventEnd": "Event End:",
+    "minMembers": "Minimal Members:",
+    "maxMembers": "Maximal Members:",
+    "requiredEq": "Required Equipment:",
+    "create": "Create"
+  },
+  "eventslog": {
+    "amountOfEvents": "Amount of Events: ",
+    "past": "Past",
+    "today": "Today",
+    "future": "Future",
+    "amountOfEachEvents": "Amount of Events: "
+  },
+  "editEvent": {
+    "back": "Back to Event Board",
+    "editEvent": "Edit Event",
+    "eventName": "Event Name:",
+    "description": "Description:",
+    "place": "Localization:",
+    "cost": "Cost:",
+    "eventStart": "Event Start:",
+    "eventEnd": "Event End:",
+    "minMembers": "Minimal Members:",
+    "maxMembers": "Maximal Members:",
+    "requiredEq": "Required Equipment:",
+    "edit": "Edit"
+  },
+  "event": {
+    "eventName": "Event Name:",
+    "description": "Description:",
+    "place": "Localization:",
+    "cost": "Cost:",
+    "eventStart": "Event Start:",
+    "eventEnd": "Event End:",
+    "minMembers": "Minimal Members:",
+    "maxMembers": "Maximal Members:",
+    "requiredEq": "Required Equipment:",
+    "priority:": "Priority:",
+    "status": "Status:",
+    "eventId": "Event ID:",
+    "editButton": "Edit",
+    "deleteButton": "Delete",
+    "allInfo": "All Information:",
+    "allInfoCurrentState": "Current state: "
+  },
+  "contact": {
+    "firstName": "First Name:",
+    "lastName": "Last Name:",
+    "email": "Email:",
+    "message": "Message:",
+    "submit": "Send",
+    "contactUs": "Contact Us",
+    "contactGreeting": "We love having relationships with you !"
+  }
+}

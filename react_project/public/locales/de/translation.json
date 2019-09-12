@@ -1,0 +1,137 @@
+{
+  "header": {
+    "signUp": "Anmelden",
+    "login": "Anmeldung",
+    "logout": "Ausloggen"
+  },
+  "register": {
+    "back": "zurück zur Startseite",
+    "signUp": "Anmelden",
+    "info": "Erstelle deinen Account",
+    "create": "Benutzerkonto anlegen",
+    "fullName": "vollständiger Name",
+    "email": "E-Mail-Adresse (Benutzername)",
+    "password": "Passwort",
+    "confirmPassword": "Passwort bestätigen"
+  },
+  "login": {
+    "back": "zurück zur Startseite",
+    "login": "Anmeldung",
+    "create": "Anmeldung"
+  },
+  "landing": {
+    "intro": "Willkommen zu unserer Anwendung, die sportliche Freaks vereint",
+    "intro-info": "Erstellen Sie Ihr Konto, um sich uns anzuschließen"
+  },
+  "dashboard": {
+    "teams": "Ihre Teams:",
+    "amountOfTeams": "Anzahl der Teams:"
+  },
+  "createTeamButton": "Team erstellen",
+  "createTeam": {
+    "back": "Zurück zum Dashboard",
+    "createTeam": "Team erstellen",
+    "teamName": "Teamname:",
+    "teamId": "Team ID:",
+    "description": "Beschreibung:",
+    "teamLeader": "Gruppenleiter:",
+    "typeOfSport": "Art des Sports:",
+    "create": "Erstellen"
+  },
+  "teamItem": {
+    "teamInfo": "Mannschaftsinformationen",
+    "events": "Veranstaltungen",
+    "options": "Optionen",
+    "editTeam": "Team bearbeiten",
+    "deleteTeam": "Team löschen"
+  },
+  "editTeam": {
+    "back": "Zurück zum Dashboard",
+    "editTeam": "Team bearbeiten",
+    "teamName": "Teamname:",
+    "teamId": "Team ID:",
+    "description": "Beschreibung:",
+    "teamLeader": "Gruppenleiter:",
+    "typeOfSport": "Art des Sports:",
+    "edit": "Bearbeiten"
+  },
+  "sidebar": {
+    "dashboard": "Instrumententafel",
+    "profile": "Profil",
+    "friends": "Freunde",
+    "teams": "Mannschaften",
+    "eventsCalendar": "Veranstaltungskalender",
+    "checkWeather": "Überprüfen Sie das Wetter",
+    "infoCenter": "Informationszentrum",
+    "contact": "Kontakt",
+    "logout": "Ausloggen"
+  },
+  "footer": "Produziert von: Dominik Nowak",
+  "eventBoard": {
+    "events": "Ihre Veranstaltungen:",
+    "createEvent": "Ereignis erstellen",
+    "noEventsOnBoard": "Sie haben derzeit keine Veranstaltungen"
+  },
+  "createEvent": {
+    "back": "Zurück zum Event Board",
+    "createEvent": "Ereignis erstellen",
+    "eventName": "Veranstaltungsname:",
+    "description": "Beschreibung:",
+    "place": "Lokalisierung:",
+    "cost": "Kosten:",
+    "eventStart": "Veranstaltungsbeginn:",
+    "eventEnd": "Veranstaltungsende:",
+    "minMembers": "Minimale Mitglieder:",
+    "maxMembers": "Maximale Mitglieder:",
+    "requiredEq": "Benötigte Ausrüstung:",
+    "create": "Erstellen"
+  },
+  "eventslog": {
+    "amountOfEvents": "Anzahl der Ereignisse: ",
+    "past": "Vergangenheit",
+    "today": "Heute",
+    "future": "Zukunft",
+    "amountOfEachEvents": "Anzahl der Ereignisse: "
+  },
+  "editEvent": {
+    "back": "Zurück zum Event Board",
+    "editEvent": "Ereignis bearbeiten",
+    "eventName": "Veranstaltungsname:",
+    "description": "Beschreibung:",
+    "place": "Lokalisierung:",
+    "cost": "Kosten:",
+    "eventStart": "Veranstaltungsbeginn:",
+    "eventEnd": "Veranstaltungsende:",
+    "minMembers": "Minimale Mitglieder:",
+    "maxMembers": "Maximale Mitglieder:",
+    "requiredEq": "Benötigte Ausrüstung:",
+    "edit": "Bearbeiten"
+  },
+  "event": {
+    "eventName": "Veranstaltungsname:",
+    "description": "Beschreibung:",
+    "place": "Lokalisierung:",
+    "cost": "Kosten:",
+    "eventStart": "Veranstaltungsbeginn:",
+    "eventEnd": "Veranstaltungsende:",
+    "minMembers": "Minimale Mitglieder:",
+    "maxMembers": "Maximale Mitglieder:",
+    "requiredEq": "Benötigte Ausrüstung:",
+    "priority:": "Priorität:",
+    "status": "Status:",
+    "eventId": "Ereignis-ID:",
+    "editButton": "Bearbeiten",
+    "deleteButton": "Löschen",
+    "allInfo": "Alle Informationen:",
+    "allInfoCurrentState": "Aktuellen Zustand: "
+  },
+  "contact": {
+    "firstName": "Vorname:",
+    "lastName": "Nachname:",
+    "email": "Email:",
+    "message": "Botschaft:",
+    "submit": "Senden",
+    "contactUs": "Kontaktiere uns",
+    "contactGreeting": "Wir lieben es, Beziehungen mit Ihnen zu haben!"
+  }
+}

@@ -85,12 +85,17 @@ function Page() {
 
     // }
     function onSelectFlag(countryLang) {
-        if(countryLang === "GB"){
-            changeLanguage('en')
+        switch(countryLang){
+            case "GB":
+                changeLanguage('en');
+            case "PL":
+                changeLanguage('pl');
+            case "DE":
+                changeLanguage('de')
+
+
         }
-        if(countryLang === "PL"){
-            changeLanguage('pl')
-        }
+
     }
     function chooseLanguage() {
         return( <ReactFlagsSelect
