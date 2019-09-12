@@ -27,6 +27,7 @@ class Dashboard extends Component {
 
                 <h2 className="TEAM_LEAD">
                     <Trans i18nKey="dashboard.teams"/>
+
                 </h2>
                 <hr />
                 <br /><h4>
