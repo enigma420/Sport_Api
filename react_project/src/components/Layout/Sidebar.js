@@ -16,7 +16,7 @@ class Sidebar extends Component {
                         <div className="PROFILE_LEAD">{user.fullName}</div>
                         <li>
                             <a href="/dashboard">
-                                <i  id="sideBarIcons" className="fa fa-home fa-2x"></i>
+                                <i  id="sideBarIcons" className="fa fa-flag-germany fa-2x"></i>
                                 <span className="nav-text">
     <Trans i18nKey="sidebar.dashboard"/>
     </span>

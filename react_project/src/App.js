@@ -30,7 +30,7 @@ import TranslateApi from "./components/API-additives/Translate/TranslateApi";
 import CurrencyApi from "./components/API-additives/Currency/CurrencyApi";
 import FactApi from "./components/API-additives/Facts/FactApi";
 import { useTranslation, withTranslation, Trans } from 'react-i18next';
-
+import ReactFlagsSelect from 'react-flags-select';
 
 const jwtToken = localStorage.jwtToken;
 
@@ -52,14 +52,16 @@ if(jwtToken){
 }
 function MyComponent() {
     return (
-        <Trans i18nKey="description.part1">
-            To get started, edit <code>src/App.js</code> and save to reload.
-        </Trans>
+        <div/>
     );
 }
 // use hoc for class based components
 
 const Welcome = withTranslation()(MyComponent);
+
+let languages = () => {
+
+}
 
 // page uses the hook
 function Page() {
@@ -68,13 +70,44 @@ function Page() {
     const changeLanguage = lng => {
         i18n.changeLanguage(lng);
     };
+
+    const {country} = ""
+
+    // function onSelectFlag(country){
+    //     if(country === "GB"){
+    //         changeLanguage('en')
+    //     }
+    //     if(country === "PL"){
+    //         changeLanguage('pl')
+    //     }
+    //
+
+
+    // }
+    function onSelectFlag(countryLang) {
+        if(countryLang === "GB"){
+            changeLanguage('en')
+        }
+        if(countryLang === "PL"){
+            changeLanguage('pl')
+        }
+    }
+    function chooseLanguage() {
+        return( <ReactFlagsSelect
+            className="flag-select"
+            countries={["GB","DE","PL"]}
+            customLabels={{"GB": " EN","DE": " DE","PL":" PL"}}
+            placeholder="Languages:"
+            alignOptions="left"
+            selectedSize={12}
+            optionsSize={12}
+            defaultCountry="GB"
+            onSelect={onSelectFlag}
+        />)
+    }
     return (
         <div className="App">
-            <div className="App-header">
-                <Welcome/>
-                <button onClick={() => changeLanguage('pl')}>pl</button>
-                <button onClick={() => changeLanguage('en')}>en</button>
-            </div>
+            {chooseLanguage()}
                 <Provider store={store}>
                     <Router>
                         <div className="App">

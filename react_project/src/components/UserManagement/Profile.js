@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class Profile extends Component {
     render() {
         return (
-            <div className="container" >
+            <div className="container" style={{marginTop:'20px' , marginBottom:'120px'}} >
                 <div className="profile-head">
                     <div className="col-md- col-sm-4 col-xs-12">
                         <img src="http://www.newlifefamilychiropractic.net/wp-content/uploads/2014/07/300x300.gif"
