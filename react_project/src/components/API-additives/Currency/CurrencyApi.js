@@ -101,21 +101,27 @@ allCurrencyOptions = (name,value,onChange) => {
 
     render() {
         return (
-            <div>
+            <div className="container"style={{position: 'relative', display: 'block'}} >
+                <div className="list-group-currency" style={{ position: 'relative',border:'5px wheat solid' , boxShadow:'0px 12px 25px 0px rgba(0.3,0.5,0.5,0.5)'}}>
+                    <div className="list-group-item" style={{position: 'relative' , backgroundColor:"powderblue" , height:'100px'}}>
                 <form>
+                    <div className="card-columns">
+                   From: {this.allCurrencyOptions("valueFromCurrency",this.state.valueFromCurrency,this.handleInputChange)}
+                   <div/>
+                   To: {this.allCurrencyOptions("valueToCurrency",this.state.valueToCurrency,this.handleInputChange)}
 
-                    {this.allCurrencyOptions("valueFromCurrency",this.state.valueFromCurrency,this.handleInputChange)}
-                    {this.allCurrencyOptions("valueToCurrency",this.state.valueToCurrency,this.handleInputChange)}
-                    <input
+                   <input
                         className="searchCity"
                         value={this.state.valueAmount}
                         name="valueAmount"
                         onChange={this.handleInputChange}
-                        placeholder="Enter Sentence..."/>
-
+                        placeholder="Amount"/>
+                    </div>
                 </form>
-                <Result currency={this.state}/>
+                    </div>
+                        <Result  className="card-columns" currency={this.state}/>
 
+                    </div>
             </div>
         );
     }
