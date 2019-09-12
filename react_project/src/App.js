@@ -31,6 +31,9 @@ import CurrencyApi from "./components/API-additives/Currency/CurrencyApi";
 import FactApi from "./components/API-additives/Facts/FactApi";
 import { useTranslation, withTranslation, Trans } from 'react-i18next';
 import ReactFlagsSelect from 'react-flags-select';
+import ApiCenter from "./components/API-additives/ApiCenter";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from 'react-loader-spinner'
 
 const jwtToken = localStorage.jwtToken;
 
@@ -71,31 +74,16 @@ function Page() {
         i18n.changeLanguage(lng);
     };
 
-    const {country} = ""
-
-    // function onSelectFlag(country){
-    //     if(country === "GB"){
-    //         changeLanguage('en')
-    //     }
-    //     if(country === "PL"){
-    //         changeLanguage('pl')
-    //     }
-    //
-
-
-    // }
     function onSelectFlag(countryLang) {
-        switch(countryLang){
-            case "GB":
-                changeLanguage('en');
-            case "PL":
-                changeLanguage('pl');
-            case "DE":
-                changeLanguage('de')
-
-
+        if(countryLang === "GB"){
+            changeLanguage('en')
         }
-
+        if(countryLang === "PL"){
+            changeLanguage('pl')
+        }
+        if(countryLang === "DE"){
+            changeLanguage('de')
+        }
     }
     function chooseLanguage() {
         return( <ReactFlagsSelect
@@ -131,11 +119,12 @@ function Page() {
                             <Route exact path={["/dashboard","/createTeam","/editTeam/:id","/eventBoard/:id","/addEvent/:id","/updateEvent/:eventslog_id/:pt_id"]} component={Sidebar}/>
                             <Switch>
                                 <Route exact path="/weather" component={WeatherApi}/>
-                                <Route exact path="/city" component={CountryApi}/>
+                                <Route exact path="/country" component={CountryApi}/>
                                 <Route exact path="/translate" component={TranslateApi}/>
                                 <Route exact path="/currency" component={CurrencyApi}/>
                                 <Route exact path="/facts" component={FactApi}/>
                                 <Route exact path="/games" component={Memory}/>
+                                <Route exact path="/info_center" component={ApiCenter}/>
                                 {/*<Route exact path="/games/gallows-game" component={Example}/>*/}
                                 <Route exact path="/profile" component={Profile}/>
                                 <Route exact path="/game" component={Gallows}/>
@@ -153,15 +142,17 @@ function Page() {
         </div>
     );
 }
-const Loader = () => (
-    <div className="App">
-        <div>loading...</div>
-    </div>
-);
 
 export default function App() {
   return (
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader
+          type="Hearts"
+          color="red"
+          height={100}
+          width={100}
+          timeout={3000} //3 secs
+
+      />}>
           <Page />
       </Suspense>
   );
