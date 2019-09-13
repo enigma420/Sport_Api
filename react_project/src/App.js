@@ -145,14 +145,16 @@ function Page() {
 
 export default function App() {
   return (
-      <Suspense fallback={<Loader
+      <Suspense fallback={
+          <Loader
+          className="loading"
           type="Hearts"
           color="red"
-          height={100}
-          width={100}
+          height={300}
+          width={300}
           timeout={3000} //3 secs
-
-      />}>
+          />
+      }>
           <Page />
       </Suspense>
   );

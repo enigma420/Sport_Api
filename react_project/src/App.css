@@ -1,5 +1,10 @@
+
+
 .apiCards{
   background-color: white;
+}
+.loading{
+  margin: 250px;
 }
 
 .apiCards:hover{
@@ -401,6 +406,8 @@ form{
 .searchCity{
   text-align: center;
   margin-left: 5%;
+  left: 50%;
+  top: 50%;
   width: 150px;
   height: 25px;
 }
@@ -655,6 +662,10 @@ li{
 .list-group{
   margin: 5px;
   border: 1px dotted seagreen;
+}
+
+list-group-country{
+  border: 1px solid grey;
 }
 
 .clock{
