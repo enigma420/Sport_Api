@@ -12,10 +12,9 @@ const Results = props => {
 
         content = (
             <div className="cityApiResult">
-                <h4 style={{color:'black'}}>Every 7 seconds the fact changes</h4>
-                <h2><b>Year: {monthFactYear}</b></h2>
-                <h3><b>Date: {month}.{day}</b></h3>
-                <h1><b>Fact: {factMonthAndDay}</b></h1>
+                <h3><b>Year: {monthFactYear}</b></h3>
+                <h4><b>Date: {month}.{day}</b></h4>
+                <h2><b>Fact: {factMonthAndDay}</b></h2>
 
 
             </div>
