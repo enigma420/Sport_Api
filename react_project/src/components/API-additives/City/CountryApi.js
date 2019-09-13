@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import WeatherForm from "../Weather/WeatherForm";
 import Result from "./CountryResult";
+import CountryForm from "./CountryForm";
 
 class CountryApi extends Component {
     constructor() {
@@ -15,8 +15,9 @@ class CountryApi extends Component {
             region: '',
             subregion:'',
             area:0,
-            currencies:'',
-            nameOfCountry:''
+            currencies:[],
+            nameOfCountry:'',
+            items:[]
         };
     }
 
@@ -54,9 +55,8 @@ class CountryApi extends Component {
                         region: data[0].region,
                         subregion: data[0].subregion,
                         area: data[0].area,
-                        currencies: data[0].currencies,
+                        items: data[0].currencies.map(item => <tr>{item}</tr> ),
                         nameOfCountry: data[0].name,
-
                         country: prevState.value
                     }));
                     console.log("data:" , data);
@@ -70,17 +70,24 @@ class CountryApi extends Component {
                 });
         }
     }
-
     render() {
-        return (
-            <div>
-                <WeatherForm
-                    value={this.state.value}
-                    change={this.handleInputChange}
-                    //submit={this.handleCitySubmit}
-                />
-                <Result city={this.state} style={{position: 'center'}}/>
 
+        return (
+
+            <div>
+
+                <div className="container"style={{position: 'relative', display: 'block' , height:'550px'}} >
+                <div className="list-group-country" style={{ position: 'relative',borderRight:'4px seagreen solid' ,borderLeft:'4px seagreen solid' ,borderTop:'4px seagreen solid' ,borderBottom:'3px seagreen solid' , boxShadow:'0px 0px 8px 3px rgba(0.3,0.5,0.5,0.5)' , borderRadius:'15px'}}>
+                    <b>
+                        <CountryForm
+                            value={this.state.value}
+                            change={this.handleInputChange}
+
+                        />
+                    </b>
+                </div>
+                    <Result city={this.state} style={{position: 'center'}}/>
+            </div>
             </div>
         );
     }

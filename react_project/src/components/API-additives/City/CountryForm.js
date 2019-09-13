@@ -2,13 +2,16 @@ import React from 'react';
 
 const CountryForm = props => {
     return(
-        <form>
+        <form className="searchCountry" style={{textAlignVertical: "center",textAlign: "center", margin:'30px'}}>
             <input
-                className="searchCity"
-                value={props.value}
-                onChange={props.change}
-                placeholder="Enter Country/Code-Country"/>
+
+            value={props.value}
+            onChange={props.change}
+            placeholder="Enter Country..."
+            style={{textAlign:'center'}}
+        />
         </form>
+
     )
 };
 
