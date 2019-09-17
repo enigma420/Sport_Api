@@ -1,4 +1,12 @@
+.collapseItems{
+  -moz-column-count: 4; /* Firefox */
+  column-width: 10px;
+  -webkit-column-break-inside: avoid;
+}
 
+.collapse.show {
+  visibility: visible;
+}
 
 .apiCards{
   background-color: white;

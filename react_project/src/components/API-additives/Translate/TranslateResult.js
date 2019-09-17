@@ -10,11 +10,13 @@ const Result = props => {
 
 
         content = (
-            <div className="cityApiResult">
+            <div className="list-group-item" style={{backgroundColor:"powderblue" , position:'relative'}}>
+                <div className="cityApiResult">
                 <h1>Your sentence: <b>{word}</b></h1>
                 <h1>Output: <b>{output}</b></h1>
                 <h5><b>from language: {fromLang}</b></h5>
                 <h5><b>to language: {toLang}</b></h5>
+                </div>
 
 
             </div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const WeatherForm = props => {
     return(
-        <form>
+        <form className="searchCountry" style={{textAlignVertical: "center",textAlign: "center",marginRight:'40px'}}>
             <input
                    className="searchCity"
                    value={props.value}
