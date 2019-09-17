@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import WeatherForm from "./WeatherForm";
-import WeatherResult from "./WeatherResult";
+import ListGroupCollapse from "./ListGroupCollapse";
+import Container from "reactstrap/es/Container";
+import {Collapse} from "reactstrap";
+
 //API access key:
 const APIKey = '3bd17fcc0af94c30566296526e1f3429';
 
@@ -10,12 +13,12 @@ constructor() {
 super();
     this.state = {
         value: '',
-        date: [],
         city: '',
-        temp: [],
         weather: [],
+        detectedCityParameters: [],
         err: false,
     };
+
 }
 
     handleInputChange = (e) => {
@@ -42,6 +45,7 @@ super();
                     this.setState(prevState => ({
                         err: false,
                         weather: data.list,
+                        detectedCityParameters: data.city,
                         city: prevState.value,
                     }));
                 // console.log("data.list:", data.list);
@@ -58,54 +62,64 @@ super();
 
     }
 
-    weatherMapMethod = () => {
-    const weather = this.state.weather;
+    getWeatherParameters = () => {
+    const weatherParameters = this.state.weather;
 
+        return (
 
+            <div style={{ marginRight:'10px' , marginLeft:'10px' , backgroundColor:'lightskyblue' , borderRadius:'20px'}}>
 
-        return weather.map((maps, i) => (
+                {Object.keys(weatherParameters).map((key, index) =>
+                    <ListGroupCollapse key={index} parameters={weatherParameters[key]}/>
+                )}
+            </div>
+            )
+    };
 
-        <div className="cards" key={i}>
-        <h6 className="card-header">
-        <a data-toggle="collapse" href={`#/${i}`}  >
-        <i className="fa fa-chevron-down pull-right"></i> Date: {maps.dt_txt}
-        </a>
-        </h6>
+    getCityParameters = () => {
+        const city = this.state.city;
+        const error = this.state.err;
+        const cityParameters = this.state.detectedCityParameters;
+        let content = null;
 
-        <div id={`/${i}`} className="collapse" role="tabpanel" aria-labelledby="heading-example">
-        <div className="card-body">
-        <p>Temperature: {maps.main.temp} &#176;C</p>
-        <p>Pressure: {maps.main.pressure} hPa</p>
-        <p>Humidity: {maps.main.humidity} %</p>
-        <p>Percentage of cloud cover: {maps.clouds.all} %</p>
-        <p>Wind speed: {maps.wind.speed} mph</p>
-        </div>
-        </div>
-        </div>
-    )
-    )
+        if (!error && city) {
 
+            content = (
+                <div className="list-group-country" style={{ marginTop:'10px' , marginRight:'180px' , marginLeft:'180px' , backgroundColor:'lightskyblue' , borderRadius:'20px' , border:'5px solid seagreen' , padding:'1px'}}>
+                    <div className="cityApiResult" >
+                        <h2><b>Detected City: {cityParameters.name}</b></h2>
+                        <hr/>
+                        <h3><b>Country Code: {cityParameters.country}</b></h3>
+                        <h4><b>Population: {cityParameters.population}</b></h4>
+                        <h4><b>TimeZone: {cityParameters.timezone}</b></h4>
+                        <h4><b>Sunrise: {cityParameters.sunrise}</b></h4>
+                        <h4><b>Sunset: {cityParameters.sunset}</b></h4>
+                        <hr/>
+                    </div>
+                </div>
+            )
+        }
 
-};
+        return (
+            <div className="result">
+                {error ? `We don't find anything` : content}
+            </div>
+        )
+    }
 
     render() {
-        const { city } = this.state;
         return (
-            <div>
+            <div className="container" style={{position:"fixed"}}>
             <WeatherForm
     value={this.state.value}
     change={this.handleInputChange}
     //submit={this.handleCitySubmit}
     />
-            <div className="cityResult">City: {city} </div>
+            {this.getCityParameters()}
             <div>
 
-            <div className="container">
-
-                <div id="accordion" role="tablist" aria-multiselectable="true">
-                    {this.weatherMapMethod()}
-                </div>
-                {/*<WeatherResult weather={this.state}/>*/}
+                <div className="collapseItems list-group-country" style={{ marginRight:'5px' , marginLeft:'5px' , backgroundColor:'lightskyblue' , borderRadius:'20px' , border:'5px solid seagreen' }}>
+                    {this.getWeatherParameters()}
             </div>
             </div>
             </div>

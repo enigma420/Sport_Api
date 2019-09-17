@@ -28,11 +28,11 @@ class TranslateApi extends Component {
         // console.log("DID UPDATE PREV value1: ", prevState.valueFromLang, this.state.valueFromLang, " value2: ", prevState.valueToLang, this.state.valueToLang, " vslur3: ", prevState.valueInputWord, this.state.valueInputWord);
         if (prevState.valueFromLang !== this.state.valueFromLang || prevState.valueToLang !== this.state.valueToLang || prevState.valueInputWord !== this.state.valueInputWord) {
 
-            fetch(`https://systran-systran-platform-for-language-processing-v1.p.rapidapi.com/translation/text/translate?source=${this.state.valueFromLang}&target=${this.state.valueToLang}&input=%${this.state.valueInputWord}`, {
+            fetch(`https://systran-systran-platform-for-language-processing-v1.p.rapidapi.com/translation/text/translate?key=d5c8fb8f-cf89-43a3-9e84-7ced027f529c&source=${this.state.valueFromLang}&target=${this.state.valueToLang}&input=%${this.state.valueInputWord}`, {
                 "method": "GET",
                 "headers": {
                     "x-rapidapi-host": "systran-systran-platform-for-language-processing-v1.p.rapidapi.com",
-                    "x-rapidapi-key": "7c0501c546msh09c18d73d2cc4bep17fb82jsnd91a54a80822"
+
                 }
             })
                 .then(response => {
