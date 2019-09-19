@@ -46,7 +46,7 @@ class Eventslog extends Component {
                 </h2>
                 <div className="row">
                     <div className="col-md-4 border-right">
-                        <div className="card text-center mb-2">
+                        <div className="cards text-center mb-2" style={{minWidth:'100%'}}>
                             <div className="card-header bg-secondary text-white">
                                 <h3>
                                     <Trans i18nKey="eventslog.past"/>
@@ -60,7 +60,7 @@ class Eventslog extends Component {
                         {inPast}
                     </div>
                     <div className="col-md-4">
-                        <div className="card text-center mb-2">
+                        <div className="cards text-center ">
                             <div className="card-header bg-success text-white">
                                 <h3>
                                     <Trans i18nKey="eventslog.today"/>
@@ -74,7 +74,7 @@ class Eventslog extends Component {
                         {today}
                     </div>
                     <div className="col-md-4 border-left">
-                        <div className="card text-center mb-2">
+                        <div className="cards text-center mb-2">
                             <div className="card-header bg-primary text-white">
                                 <h3>
                                     <Trans i18nKey="eventslog.future"/>

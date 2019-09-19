@@ -5,6 +5,7 @@ import Container from "reactstrap/es/Container";
 import {Collapse} from "reactstrap";
 import NumberFormat from 'react-number-format';
 import moment from 'moment'
+const { getCode, getName } = require('country-list');
 
 //API access key:
 const APIKey = '3bd17fcc0af94c30566296526e1f3429';
@@ -25,9 +26,15 @@ super();
 
     handleInputChange = (e) => {
         this.setState({
-            value:e.target.value
+            value: e.target.value
         })
     };
+
+    handleCitySubmit = (e) => {
+        this.setState({
+            value:e.target.value
+        })
+    }
 
     componentDidUpdate(prevProps, prevState) {
 
@@ -229,7 +236,7 @@ super();
     };
 
     changeTimeStampIntoDateTime = (timeStamp) => {
-        return <span>{timeStamp.moment().format('lll')}</span>
+        return <span>{moment(timeStamp).format('lll')}</span>
     };
 
     getCityParameters = () => {
@@ -246,6 +253,7 @@ super();
                         <h2><b>Detected City: {cityParameters.name}</b></h2>
                         <hr/>
                         <h3><b>Country Code: {cityParameters.country}</b></h3>
+                        <h3><b>Country Name: {getName(cityParameters.country)}</b></h3>
                         <h4><b>Population: <NumberFormat value={cityParameters.population} displayType={'text'} thousandSeparator={true}/>
 
                         </b></h4>
@@ -269,9 +277,9 @@ super();
         return (
             <div style={{ minHeight:'80%' , marginBottom:'8%'}}>
             <WeatherForm
-    value={this.state.value}
-    change={this.handleInputChange}
-    //submit={this.handleCitySubmit}
+            value={this.state.value}
+            change={this.handleInputChange}
+            submit={this.handleCitySubmit}
     />
             {this.getCityParameters()}
             <div>

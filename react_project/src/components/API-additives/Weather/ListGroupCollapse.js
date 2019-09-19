@@ -1,5 +1,6 @@
 import React from 'react';
 import { ListGroupItem, Collapse } from 'reactstrap';
+import moment from 'moment'
 
 class ListGroupCollapse extends React.Component {
     constructor(props) {
@@ -18,13 +19,17 @@ class ListGroupCollapse extends React.Component {
         return Math.round(n*factor)/factor
     }
 
+    changeTimeStampIntoDateTime = (timeStamp) => {
+        return <span>{moment(timeStamp).format('lll')}</span>
+    };
+
     render() {
         const weatherParameters = this.props.parameters;
         return (
 
             <ListGroupItem style={{backgroundColor:'wheat' , borderRadius:'10px' , border:'3px solid black' , margin:'5px' ,  pageBreakInside: 'avoid' , minWidth:'155px' , maxHeight:'280px' }}>
                     <p onClick={this.toggle}>
-                        <h4><b>{weatherParameters.dt_txt}</b></h4>
+                        <div style={{fontSize:'11px'}}>{this.changeTimeStampIntoDateTime(weatherParameters.dt_txt)}</div>
 
                     </p>
 

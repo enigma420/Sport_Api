@@ -8,6 +8,7 @@ const WeatherForm = props => {
                    value={props.value}
                    onChange={props.change}
                    placeholder="Enter City..."/>
+                   <button>Search</button>
         </form>
     )
 };
