@@ -5,7 +5,7 @@ class ApiCenter extends Component {
     CurrencyApi(){
         return(
             <div className="apiCards" style={{width:'30%' , border:'2px blue solid' , borderRadius:'5px', marginTop:'5px'}}>
-                <a href="/currency">
+                <a href="/info_center/currency">
                     <img className="card-img-top" src="../../currency.jpg" alt="Card image cap" style={{height:'150px' , border:'3px salmon solid' , borderRadius:'5px' }}/>
                     <div className="card-body" style={{padding:'35px'}}>
                         <p className="card-text"><h3 style={{fontWeight:'bolder'}}>API Currency Exchange</h3><hr style={{backgroundColor:'red'}}/>
@@ -18,7 +18,7 @@ class ApiCenter extends Component {
     FactsApi(){
         return(
             <div className="apiCards" style={{width:'30%' , border:'2px blue solid' , borderRadius:'5px' , marginLeft:'21px', marginTop:'5px'}}>
-                <a href="/facts">
+                <a href="/info_center/facts">
                     <img className="card-img-top" src="../../facts.gif" alt="Card image cap" style={{height:'150px' , border:'3px salmon solid' , borderRadius:'5px'}}/>
                     <div className="card-body" style={{padding:'35px'}}>
                         <p className="card-text"><h3 style={{fontWeight:'bolder'}}>API Facts</h3><hr style={{backgroundColor:'red'}}/>
@@ -31,7 +31,7 @@ class ApiCenter extends Component {
     TranslateApi(){
         return(
             <div className="apiCards" style={{width:'30%',  border:'2px blue solid' , borderRadius:'5px' , marginLeft:'21px', marginTop:'5px'}}>
-                <a href="/translate">
+                <a href="/info_center/translate">
                     <img className="card-img-top" src="../../translator.jpg" alt="Card image cap" style={{height:'150px' , border:'3px salmon solid' , borderRadius:'5px' }}/>
                     <div className="card-body" style={{padding:'35px'}}>
                         <p className="card-text"><h3 style={{fontWeight:'bolder'}}>API Translate</h3><hr style={{backgroundColor:'red'}}/>
@@ -44,7 +44,7 @@ class ApiCenter extends Component {
     CountryApi(){
         return(
             <div className="apiCards" style={{width:'30%' , border:'2px blue solid' , borderRadius:'5px', marginTop:'5px' , marginBottom:'5px'}}>
-                <a href="/country">
+                <a href="/info_center/country">
                     <img className="card-img-top" src="../../country.png" alt="Card image cap" style={{height:'150px' ,border:'3px salmon solid' , borderRadius:'5px' }}/>
                     <div className="card-body" style={{padding:'35px'}}>
                         <p className="card-text"><h3 style={{fontWeight:'bolder'}}>API Country</h3><hr style={{backgroundColor:'red'}}/>
@@ -57,7 +57,7 @@ class ApiCenter extends Component {
     WeatherCurrencyApi(){
         return(
             <div className="apiCards" style={{width:'30%',  border:'2px blue solid' , borderRadius:'5px' , marginLeft:'21px' , marginTop:'5px' , marginBottom:'5px'}}>
-                <a href="/weather">
+                <a href="/info_center/weather">
                     <img className="card-img-top" src="../../weat.png" alt="Card image cap" style={{height:'150px' , border:'3px salmon solid' , borderRadius:'5px' }}/>
                     <div className="card-body" style={{padding:'35px'}}>
                         <p className="card-text"><h3 style={{fontWeight:'bolder'}}>API Weather</h3><hr style={{backgroundColor:'red'}}/>
@@ -70,7 +70,7 @@ class ApiCenter extends Component {
     NotExistApi(){
         return(
             <div className="apiCards" style={{width:'30%' , border:'2px blue solid' , borderRadius:'5px' , marginLeft:'21px', marginTop:'5px' , marginBottom:'5px'}}>
-                <a href="/xxx">
+                <a href="/info_center/xxx">
                     <img className="card-img-top" src="logo.png" alt="Card image cap" style={{height:'150px' ,border:'3px salmon solid' , borderRadius:'5px' }}/>
                     <div className="card-body" style={{padding:'35px'}}>
                         <p className="card-text"><h3 style={{fontWeight:'bolder'}}>API XXX</h3><hr style={{backgroundColor:'red'}}/>

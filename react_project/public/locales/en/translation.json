@@ -117,13 +117,13 @@
     "minMembers": "Minimal Members:",
     "maxMembers": "Maximal Members:",
     "requiredEq": "Required Equipment:",
-    "priority:": "Priority:",
+    "priot:": "Priority:",
     "status": "Status:",
     "eventId": "Event ID:",
     "editButton": "Edit",
     "deleteButton": "Delete",
     "allInfo": "All Information:",
-    "allInfoCurrentState": "Current state: "
+    "allInfoCurrentState": "\u00a0\u00a0\u00a0\u00a0Current state: "
   },
   "contact": {
     "firstName": "First Name:",

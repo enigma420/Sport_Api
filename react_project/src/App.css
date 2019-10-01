@@ -38,9 +38,7 @@ transform: scale(1.04);
     height: 30px;
     border-bottom: 3px dotted black;
 }
-.flag-options{
-    border: 1px black solid;
-}
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -87,7 +85,6 @@ body,html{
 }
 
 .card-header:hover{
-  transform: scale(1.05);
   filter: brightness(133%);
 }
 
@@ -662,7 +659,7 @@ li{
 }
 
 .list-group-item{
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   text-align: center;
 }

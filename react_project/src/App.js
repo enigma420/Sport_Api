@@ -116,15 +116,15 @@ function Page() {
                             {
                                 //Private Routes
                             }
-                            <Route exact path={["/dashboard","/createTeam","/editTeam/:id","/eventBoard/:id","/addEvent/:id","/updateEvent/:eventslog_id/:pt_id"]} component={Sidebar}/>
+                            <Route exact path={["/info_center","/dashboard","/createTeam","/editTeam/:id","/eventBoard/:id","/addEvent/:id","/updateEvent/:eventslog_id/:pt_id"]} component={Sidebar}/>
                             <Switch>
-                                <Route exact path="/weather" component={WeatherApi}/>
-                                <Route exact path="/country" component={CountryApi}/>
-                                <Route exact path="/translate" component={TranslateApi}/>
-                                <Route exact path="/currency" component={CurrencyApi}/>
-                                <Route exact path="/facts" component={FactApi}/>
-                                <Route exact path="/games" component={Memory}/>
                                 <Route exact path="/info_center" component={ApiCenter}/>
+                                <Route exact path="/info_center/weather" component={WeatherApi}/>
+                                <Route exact path="/info_center/country" component={CountryApi}/>
+                                <Route exact path="/info_center/translate" component={TranslateApi}/>
+                                <Route exact path="/info_center/currency" component={CurrencyApi}/>
+                                <Route exact path="/info_center/facts" component={FactApi}/>
+                                <Route exact path="/games" component={Memory}/>
                                 {/*<Route exact path="/games/gallows-game" component={Example}/>*/}
                                 <Route exact path="/profile" component={Profile}/>
                                 <Route exact path="/game" component={Gallows}/>

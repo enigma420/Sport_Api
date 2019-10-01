@@ -1,0 +1,50 @@
+import React, {Component} from 'react';
+import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {deleteTeam} from "../../actions/teamActions";
+import {Trans} from "react-i18next";
+
+
+class TeamItemSidebar extends Component {
+    onDeleteClick = id => {
+        this.props.deleteTeam(id);
+    };
+
+    render() {
+        const { team } = this.props;
+        return (
+            <span>
+                <div className="nameOfTeam" style={{textAlign:'center'}}>{team.nameOfTeam}</div>
+
+                <a href="#" style={{width:'10px'}}>
+                    <li className=" delete teamMenu h4"
+                        onClick={this.onDeleteClick.bind(
+                            this,
+                            team.teamIdentifier
+                        )}>
+                        <i className="fa fa-minus-circle">
+                            <Trans i18nKey="teamItem.deleteTeam"/>
+                        </i>
+                    </li>
+                </a>
+
+
+                <Link to={`/eventBoard/${team.teamIdentifier}`}>
+                    <i className="fa fa-flag-checkered h3" style={{position:'center'}}>&nbsp;
+                        <Trans i18nKey="teamItem.events"/>
+                    </i>
+                </Link>
+
+                <hr style={{backgroundColor:'lightskyblue'}}/>
+            </span>
+        );
+    }
+}
+
+
+TeamItemSidebar.propTypes = {
+    deleteTeam: PropTypes.func.isRequired
+};
+
+export default connect(null,{deleteTeam})(TeamItemSidebar);

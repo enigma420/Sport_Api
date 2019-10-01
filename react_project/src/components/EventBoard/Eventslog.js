@@ -40,14 +40,15 @@ class Eventslog extends Component {
 
         return (
             <div className="container">
-                <h2 align="center">
+                <h2 style={{textAlign:'center'}}>
                     <Trans i18nKey="eventslog.amountOfEvents"/>
                     {totalEvents}
                 </h2>
+                <hr/>
                 <div className="row">
                     <div className="col-md-4 border-right">
-                        <div className="cards text-center mb-2" style={{minWidth:'100%'}}>
-                            <div className="card-header bg-secondary text-white">
+                        <div className="cards text-center mb-2" style={{borderRadius:'10px'}}>
+                            <div className="card-header bg-secondary text-white" style={{width:'100%' , borderRadius:'5px'}}>
                                 <h3>
                                     <Trans i18nKey="eventslog.past"/>
                                 </h3>
@@ -60,8 +61,8 @@ class Eventslog extends Component {
                         {inPast}
                     </div>
                     <div className="col-md-4">
-                        <div className="cards text-center ">
-                            <div className="card-header bg-success text-white">
+                        <div className="cards text-center " style={{borderRadius:'10px'}}>
+                            <div className="card-header bg-success text-white" style={{width:'100%' , borderRadius:'5px'}}>
                                 <h3>
                                     <Trans i18nKey="eventslog.today"/>
                                 </h3>
@@ -74,8 +75,8 @@ class Eventslog extends Component {
                         {today}
                     </div>
                     <div className="col-md-4 border-left">
-                        <div className="cards text-center mb-2">
-                            <div className="card-header bg-primary text-white">
+                        <div className="cards text-center mb-2" style={{borderRadius:'10px'}}>
+                            <div className="card-header bg-primary text-white" style={{width:'100%' , borderRadius:'5px'}}>
                                 <h3>
                                     <Trans i18nKey="eventslog.future"/>
                                 </h3>

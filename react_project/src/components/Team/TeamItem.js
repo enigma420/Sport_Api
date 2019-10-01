@@ -19,7 +19,7 @@ class TeamItem extends Component {
                 <div className="card card-body teamItem mb-6">
                         <div className="row">
                             <div className="col-3 border-3">
-                            <text className="nameOfTeam">{team.nameOfTeam}</text>
+                            <text className="nameOfTeam" style={{textAlign:'center'}}>{team.nameOfTeam}</text>
                                 <div className="containero">
                                     <button className="teamInfo btn btn-primary" data-toggle="modal"
                                             data-target="#myModal">
@@ -27,8 +27,8 @@ class TeamItem extends Component {
                                             <Trans i18nKey="teamItem.teamInfo"/>
                                         </h5>
                                     </button>
-                                    <div className="modal" id="myModal">
-                                        <div className="modal-dialog">
+                                    <div className="modal" tabIndex="-1" role="dialog" >
+                                        <div className="modal-dialog" role="document">
                                             <div className="modal-content">
                                                 <div className="modal-header">
                                                     <h4 className="modal-title text-center">Information about Team</h4>

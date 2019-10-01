@@ -3,11 +3,19 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {logout} from "../../actions/securityActions";
 import {Trans} from "react-i18next";
+import {getTeams} from "../../actions/teamActions";
+import TeamItemSidebar from "../Team/TeamItemSidebar";
 
 class Sidebar extends Component {
 
+    componentDidMount() {
+        this.props.getTeams();
+    }
+
     render() {
         const { user } = this.props.security;
+        const { teams } = this.props.team;
+
         return (
             <div id="mySidenav" className="sidenav">
                 <nav className="main-menu bg-info">
@@ -62,7 +70,19 @@ class Sidebar extends Component {
                             <a href="/weather">
                                 <i  id="sideBarIcons" className="fa fa-cloud fa-x"></i>
                                 <span className="nav-text">
-    <Trans i18nKey="sidebar.checkWeather"/>
+    <div className="btn-group dropright">
+  <button type="button"  data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+    Dropright
+  </button>
+  <div className="dropdown-menu">
+      <div>
+          {teams.map(team => (
+              <TeamItemSidebar key={team.id} team={team}/>
+          ))}
+      </div>
+  </div>
+</div>
     </span>
                             </a>
                         </li>
@@ -102,11 +122,14 @@ class Sidebar extends Component {
 
 Sidebar.propTypes = {
     logout: PropTypes.func.isRequired,
-    security: PropTypes.object.isRequired
+    security: PropTypes.object.isRequired,
+    team: PropTypes.object.isRequired,
+    getTeams: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-    security: state.security
+    security: state.security,
+    team: state.team
 });
 
-export default connect(mapStateToProps,{logout})(Sidebar);
+export default connect(mapStateToProps,{logout,getTeams})(Sidebar);

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
 import {Trans} from "react-i18next";
-
+import moment from 'moment'
 
 class Event extends Component {
     /* for expand text */
@@ -48,6 +48,10 @@ class Event extends Component {
         this.props.deleteEvent(eventslog_id,pt_id);
     }
 
+    changeTimeStampIntoDateTime = (timeStamp) => {
+        return <span>{moment(timeStamp).format('lll')}</span>
+    };
+
     render() {
         const{ event } = this.props;
 
@@ -75,11 +79,11 @@ class Event extends Component {
         }
 
         return (
-            <div className={`card mb-2 bg-muted ${disabl}`}>
-                <div className={`card-header text-primary text-center ${priorityClass}`}>
+            <div className={`card mb-2 bg-muted ${disabl}`} style={{borderRadius:'20px' , border:'3px solid cornflowerblue' , marginTop:'5px'}}>
+                <div className={`card-header text-primary text-center ${priorityClass}`} style={{width:'100%' , borderRadius:'10px' , border:'3px solid cornflowerblue'}}>
                     <div className="eventer">{event.nameOfEvent}</div>
                 </div>
-                <div className="list-group">
+                <div className="list-group" style={{textAlign:'center'}}>
                     <h5>
                         <Trans i18nKey="event.place"/>
                     </h5>
@@ -87,20 +91,22 @@ class Event extends Component {
                     <h5>
                         <Trans i18nKey="event.eventStart"/>
                     </h5>
-                    <li className="list-group-item">{event.startDate}</li>
+                    <li className="list-group-item">{this.changeTimeStampIntoDateTime(event.startDate)}</li>
                     <h5>
                         <Trans i18nKey="event.eventEnd"/>
                     </h5>
-                    <li className="list-group-item">{event.endDate}</li>
+                    <li className="list-group-item">{this.changeTimeStampIntoDateTime(event.endDate)}</li>
                 </div>
 
 
 
-                    <div className="allInfo">
-                        <Button color="primary" onClick={this.toggle} style={{ marginLeft:'1rem' , marginBottom: '2rem' , marginTop: '1rem' }} className="info">
+                    <div className="allInfo" style={{margin:'5px'}}>
+                        <Button color="primary" onClick={this.toggle} style={{ marginLeft:'3rem' , marginBottom: '1rem' , marginTop: '1rem' }} className="info">
                             <Trans i18nKey="event.allInfo"/>
                         </Button>
+
                         <Trans i18nKey="event.allInfoCurrentState"/>
+                        &nbsp;
                          {this.state.status}
                         <Collapse
                             isOpen={this.state.collapse}
@@ -111,7 +117,7 @@ class Event extends Component {
                         >
                             <Card>
                                 <CardBody>
-                                    <ul className=" list-group">
+                                    <ul className=" list-group" style={{textAlign:'center'}}>
                                         <h5>
                                             <Trans i18nKey="event.cost"/>
                                         </h5>
@@ -125,7 +131,7 @@ class Event extends Component {
                                         </h5>
                                         <li className="list-group-item">{event.maxNumberOfMembers}</li>
                                         <h5>
-                                            <Trans i18nKey="event.priority"/>
+                                            <Trans i18nKey="event.priot"/>
                                         </h5>
                                         <li className="list-group-item">{priorityString}</li>
                                         <h5>
@@ -149,7 +155,7 @@ class Event extends Component {
                             </Card>
                         </Collapse>
                     </div>
-                <div className="row">
+                <div className="row" style={{marginLeft:'5%'}}>
                     <Link to={`/updateEvent/${event.teamIdentifier}/${
                         event.teamSequence}
                         }`}

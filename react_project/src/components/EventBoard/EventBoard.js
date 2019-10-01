@@ -62,7 +62,7 @@ class EventBoard extends Component {
 
         return (
             <div className="dashboard">
-            <div className="eventboard">
+            <div className="eventboard"  style={{borderRadius:'8px'}}>
                 <h2 className="TEAM_LEAD">
                     <Trans i18nKey="eventBoard.events"/>
                 </h2>
