@@ -4,9 +4,42 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {deleteTeam} from "../../actions/teamActions";
 import {Trans} from "react-i18next";
+import {Button, Card, CardBody, Collapse} from "reactstrap";
 
 
 class TeamItem extends Component {
+    /* for expand text */
+    constructor(props) {
+        super(props);
+        this.onEntering = this.onEntering.bind(this);
+        this.onEntered = this.onEntered.bind(this);
+        this.onExiting = this.onExiting.bind(this);
+        this.onExited = this.onExited.bind(this);
+        this.toggle = this.toggle.bind(this);
+        this.state = { collapse: false, status: 'Closed' };
+    }
+
+    onEntering() {
+        this.setState({ status: 'Opening...' });
+    }
+
+    onEntered() {
+        this.setState({ status: 'Opened' });
+    }
+
+    onExiting() {
+        this.setState({ status: 'Closing...' });
+    }
+
+    onExited() {
+        this.setState({ status: 'Closed' });
+    }
+
+    toggle() {
+        this.setState(state => ({ collapse: !state.collapse }));
+    }
+
+
     onDeleteClick = id => {
         this.props.deleteTeam(id);
     };
@@ -21,47 +54,17 @@ class TeamItem extends Component {
                             <div className="col-3 border-3">
                             <text className="nameOfTeam" style={{textAlign:'center'}}>{team.nameOfTeam}</text>
                                 <div className="containero">
-                                    <button className="teamInfo btn btn-primary" data-toggle="modal"
-                                            data-target="#myModal">
-                                        <h5>
-                                            <Trans i18nKey="teamItem.teamInfo"/>
-                                        </h5>
-                                    </button>
-                                    <div className="modal" tabIndex="-1" role="dialog" >
-                                        <div className="modal-dialog" role="document">
-                                            <div className="modal-content">
-                                                <div className="modal-header">
-                                                    <h4 className="modal-title text-center">Information about Team</h4>
-                                                </div>
-                                                <div className="modal-body">
-                                                    <ul className="list-group">
-                                                        <h4>Team Name:</h4>
-                                                        <li className="list-group-item">{team.nameOfTeam}</li>
-                                                        <h4>Team ID:</h4>
-                                                        <li className="list-group-item">{team.teamIdentifier}</li>
-                                                        <h4>Leader Name:</h4>
-                                                        <li className="list-group-item">{team.nameOfTeamLeader}</li>
-                                                        <h4>Type of Sport:</h4>
-                                                        <li className="list-group-item">{team.typeOfSport}</li>
-                                                        <h4>Creational Date:</h4>
-                                                        <li className="list-group-item">{team.dateOfCreationTeam}</li>
-                                                        <h4>Description:</h4>
-                                                        <li className="list-group-item">{team.description}</li>
-                                                    </ul>
-                                                    </div>
+                                    {/*<button className="teamInfo btn btn-primary" data-toggle="modal"*/}
+                                    {/*        data-target="#myModal">*/}
+                                    {/*    <h5>*/}
+                                    {/*        <Trans i18nKey="teamItem.teamInfo"/>*/}
+                                    {/*    </h5>*/}
+                                    {/*</button>*/}
 
-                                                <div className="modal-footer">
-                                                    <button type="button" className="btn btn-primary"
-                                                            data-dismiss="modal">Close
-                                                    </button>
-                                                </div>
 
-                                            </div>
-                                        </div>
                                     </div>
 
                                 </div>
-                            </div>
 
 
                         <div className="col-7 border-3">
@@ -74,12 +77,44 @@ class TeamItem extends Component {
                                             <Trans i18nKey="teamItem.events"/>
                                         </i>
                                 </Link>
+                                <Button color="primary" onClick={this.toggle} style={{ marginLeft:'3rem' , marginBottom: '1rem' , marginTop: '1rem' }} className="info">
+                                    <Trans i18nKey="event.allInfo"/>
+                                </Button>
+
+                                <Trans i18nKey="event.allInfoCurrentState"/>
+                                &nbsp;
+                                {this.state.status}
+                                <Collapse
+                                    isOpen={this.state.collapse}
+                                    onEntering={this.onEntering}
+                                    onEntered={this.onEntered}
+                                    onExiting={this.onExiting}
+                                    onExited={this.onExited}
+                                >
+                                    <Card>
+                                        <CardBody>
+                                            <ul className="list-group">
+                                                <h4>Team Name:</h4>
+                                                <li className="list-group-item">{team.nameOfTeam}</li>
+                                                <h4>Team ID:</h4>
+                                                <li className="list-group-item">{team.teamIdentifier}</li>
+                                                <h4>Leader Name:</h4>
+                                                <li className="list-group-item">{team.nameOfTeamLeader}</li>
+                                                <h4>Type of Sport:</h4>
+                                                <li className="list-group-item">{team.typeOfSport}</li>
+                                                <h4>Creational Date:</h4>
+                                                <li className="list-group-item">{team.dateOfCreationTeam}</li>
+                                                <h4>Description:</h4>
+                                                <li className="list-group-item">{team.description}</li>
+                                            </ul>
+                                        </CardBody>
+                                    </Card>
+                                </Collapse>
                             </div>
                         </div>
                         <div className="col-2">
-                            <ul className="list-group">
-                                <div className="dropup">
-                                    <button className="dropbtn ">
+                                <div className="dropup" style={{width:'100%' , height:'100%'}}>
+                                    <button className="dropbtn" style={{width:'100%' , height:'100%'}}>
                                         <Trans i18nKey="teamItem.options"/>
                                     </button>
                                     <div className="dropup-content">
@@ -103,7 +138,6 @@ class TeamItem extends Component {
                                         </a>
                                     </div>
                                 </div>
-                            </ul>
                         </div>
                         </div>
                 </div>

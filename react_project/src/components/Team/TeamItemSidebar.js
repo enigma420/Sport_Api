@@ -14,10 +14,9 @@ class TeamItemSidebar extends Component {
     render() {
         const { team } = this.props;
         return (
-            <span>
-                <div className="nameOfTeam" style={{textAlign:'center'}}>{team.nameOfTeam}</div>
-
-                <a href="#" style={{width:'10px'}}>
+            <div style={{backgroundColor:'orange' , borderRadius:'5px' , border:'3px solid black' , marginBottom:'3px'}}>
+                <div className="nameOfTeam" style={{textAlign:'center' , backgroundColor:'orangered'}}>{team.nameOfTeam}</div>
+                <a href="#" style={{width:'100px'}}>
                     <li className=" delete teamMenu h4"
                         onClick={this.onDeleteClick.bind(
                             this,
@@ -29,15 +28,16 @@ class TeamItemSidebar extends Component {
                     </li>
                 </a>
 
-
                 <Link to={`/eventBoard/${team.teamIdentifier}`}>
-                    <i className="fa fa-flag-checkered h3" style={{position:'center'}}>&nbsp;
+                    <li className="delete teamMenu h4">
+                    <i className=" fa fa-flag-checkered" >&nbsp;
                         <Trans i18nKey="teamItem.events"/>
                     </i>
+                        </li>
                 </Link>
 
                 <hr style={{backgroundColor:'lightskyblue'}}/>
-            </span>
+            </div>
         );
     }
 }

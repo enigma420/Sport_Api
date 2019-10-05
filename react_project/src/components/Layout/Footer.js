@@ -6,8 +6,7 @@ class Footer extends Component {
         return (
 <div>
             <div className="footer">
-                <ul>
-                <div className="container ">
+                <div className="container" style={{height:'25px'}}>
                     <p className="navbar-text pull-left" className="copywriter">©CopyWriter -> 2019 Simple App
                         <a href="http://tinyurl.com/tbvalid"  className="copywriter"> HTML 5</a>
                         <h5>
@@ -15,18 +14,15 @@ class Footer extends Component {
                         </h5>
                     </p>
                 </div>
-                </ul>
-                <ul>
-                    <div className="icons">
-                <a href="http://www.skype.com" className="demo-icon icon-skype"></a>
-                <a href="http://www.twitter.com" className="demo-icon icon-twitter"></a>
-                <a href="http://www.facebook.com" className="demo-icon icon-facebook-rect"></a>
-                <a href="http://www.google.com" className="demo-icon icon-googleplus-rect"></a>
-                <a href="http://www.booking.com" className="demo-icon icon-vkontakte-rect"></a>
-                <a href="http://www.linkedin.com" className="demo-icon icon-linkedin-rect"></a>
-                <a href="http://www.youtube.com" className="demo-icon icon-youtube"></a>
+                    <div className="icons" style={{width:'100%' , height:'30px'}}>
+                <a href="http://www.skype.com" className="demo-icon icon-skype"/>
+                <a href="http://www.twitter.com" className="demo-icon icon-twitter"/>
+                <a href="http://www.facebook.com" className="demo-icon icon-facebook-rect"/>
+                <a href="http://www.google.com" className="demo-icon icon-googleplus-rect"/>
+                <a href="http://www.booking.com" className="demo-icon icon-vkontakte-rect"/>
+                <a href="http://www.linkedin.com" className="demo-icon icon-linkedin-rect"/>
+                <a href="http://www.youtube.com" className="demo-icon icon-youtube"/>
                     </div>
-                </ul>
                 </div>
 </div>
         );

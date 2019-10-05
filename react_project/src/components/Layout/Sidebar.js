@@ -67,15 +67,14 @@ class Sidebar extends Component {
                         </li>
 
                         <li>
-                            <a href="/weather">
+                            <a href="#" >
                                 <i  id="sideBarIcons" className="fa fa-cloud fa-x"></i>
-                                <span className="nav-text">
-    <div className="btn-group dropright">
-  <button type="button"  data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
+    <div className=" dropright">
+  <span className="nav-text"  data-toggle="dropdown"
+          aria-expanded="false" style={{height:'36px' , width:'189.5px'}}>
     Dropright
-  </button>
-  <div className="dropdown-menu">
+  </span>
+  <div className="dropdown-menu" style={{border:'2px solid seagreen' , borderRadius:'5px' , backgroundColor:'wheat' , overflow:'scroll' , maxHeight:'150px'}}>
       <div>
           {teams.map(team => (
               <TeamItemSidebar key={team.id} team={team}/>
@@ -83,7 +82,6 @@ class Sidebar extends Component {
       </div>
   </div>
 </div>
-    </span>
                             </a>
                         </li>
                         <li>
@@ -106,12 +104,15 @@ class Sidebar extends Component {
 
                     <ul className="logout">
                         <li>
+                            <hr style={{backgroundColor:'black'}}/>
                             <a href="/">
                                 <i  id="sideBarIcons" className="fa fa-power-off fa-2x"></i>
                                 <span className="nav-text">
     <Trans i18nKey="sidebar.logout"/>
     </span>
                             </a>
+                            <hr style={{backgroundColor:'black'}}/>
+
                         </li>
                     </ul>
                 </nav>
