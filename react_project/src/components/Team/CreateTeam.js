@@ -61,7 +61,6 @@ class CreateTeam extends Component {
                         <Trans i18nKey="createTeam.back"/>
                     </div>
                 </Link>
-            <button>siema</button>
                 <div className="container2">
                     <div className="row">
                         <div className="col-md-8 m-auto">

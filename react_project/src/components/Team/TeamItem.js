@@ -54,32 +54,25 @@ class TeamItem extends Component {
                             <div className="col-3 border-3">
                             <text className="nameOfTeam" style={{textAlign:'center'}}>{team.nameOfTeam}</text>
                                 <div className="containero">
-                                    {/*<button className="teamInfo btn btn-primary" data-toggle="modal"*/}
-                                    {/*        data-target="#myModal">*/}
-                                    {/*    <h5>*/}
-                                    {/*        <Trans i18nKey="teamItem.teamInfo"/>*/}
-                                    {/*    </h5>*/}
-                                    {/*</button>*/}
-
-
                                     </div>
-
                                 </div>
-
-
                         <div className="col-7 border-3">
                             <div className="border-1">
                                 <li>
                                 <text className="nameOfType">{team.typeOfSport}</text>
                                 </li>
+                                <li>
                                 <Link to={`/eventBoard/${team.teamIdentifier}`}>
                                         <i className="fa fa-flag-checkered h3">&nbsp;
                                             <Trans i18nKey="teamItem.events"/>
                                         </i>
                                 </Link>
-                                <Button color="primary" onClick={this.toggle} style={{ marginLeft:'3rem' , marginBottom: '1rem' , marginTop: '1rem' }} className="info">
+                                </li>
+                                <li>
+                                <Button color="primary" onClick={this.toggle} style={{marginBottom: '1rem' , marginTop: '1rem' }} className="info">
                                     <Trans i18nKey="event.allInfo"/>
                                 </Button>
+                                </li>
 
                                 <Trans i18nKey="event.allInfoCurrentState"/>
                                 &nbsp;
@@ -113,8 +106,8 @@ class TeamItem extends Component {
                             </div>
                         </div>
                         <div className="col-2">
-                                <div className="dropup" style={{width:'100%' , height:'100%'}}>
-                                    <button className="dropbtn" style={{width:'100%' , height:'100%'}}>
+                                <div className="dropup " style={{width:'100%' , height:'100%'}}>
+                                    <button className="dropbtn dropright-toggle" style={{width:'100%' , height:'100%'}}>
                                         <Trans i18nKey="teamItem.options"/>
                                     </button>
                                     <div className="dropup-content">
