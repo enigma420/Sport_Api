@@ -3,30 +3,26 @@ import React, {Component} from 'react';
 class Profile extends Component {
     render() {
         return (
-            <div className="container" style={{marginTop:'20px' , marginBottom:'120px'}} >
+            <div className="container" style={{marginTop:'10px' , marginBottom:'100px', border:'8px blue dotted'}} >
                 <div className="profile-head">
                     <div className="col-md- col-sm-4 col-xs-12">
                         <img src="http://www.newlifefamilychiropractic.net/wp-content/uploads/2014/07/300x300.gif"
                              className="img-responsive" alt={"ba"}/>
-                        <h6>Vijayan Karuppaiah</h6>
+                        <h6>Name(Variable)</h6>
                         <div className="container">
-                <span className="btn btn-default uplod-file">
+                <span className="btn btn-default uplod-file" >
                         Upload Photo <input type="file"/>
                 </span>
                         </div>
                     </div>
-
                     <div className="col-md-5 col-sm-5 col-xs-12">
-                        <h5>Vijayan Karuppaiah</h5>
-                        <p>Content Designer / Content Engineer </p>
-
+                        <p>Job Position:</p>
+                        <hr/>
+                        <p>About Yourself:</p>
                     </div>
                 </div>
-
-
                 <br/>
                 <br/>
-
                 <div className="container">
                     <div className="col-sm-8">
                         <div data-spy="scroll" className="tabbable-panel">
@@ -48,7 +44,7 @@ class Profile extends Component {
                                         <a href="#tab_default_5" data-toggle="tab">Address Details</a>
                                     </li>
                                     <li>
-                                        <a href="#tab_default_6" data-toggle="tab">Resume</a>
+                                        <a href="#tab_default_6" data-toggle="tab">My interests</a>
                                     </li>
                                 </ul>
                                 <div className="tab-content">
@@ -65,39 +61,27 @@ class Profile extends Component {
                                             <tbody>
                                             <tr>
                                                 <td>Firstname</td>
-                                                <td>: Vijayan</td>
+                                                <td>VARIABLE</td>
                                             </tr>
                                             <tr>
                                                 <td>Lastname</td>
-                                                <td>: Karuppaiah</td>
+                                                <td>VARIABLE</td>
                                             </tr>
                                             <tr>
                                                 <td>Date of Birthday</td>
-                                                <td>: 6 March 1980</td>
+                                                <td>VARIABLE</td>
                                             </tr>
                                             <tr>
                                                 <td>Gender</td>
-                                                <td>: Male</td>
+                                                <td>VARIABLE</td>
                                             </tr>
                                             <tr>
-                                                <td>Spouse</td>
-                                                <td>: Vijayalakshmi</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Name of Children</td>
-                                                <td>: Darshan</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Father's Name</td>
-                                                <td>: Karuppaiah</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Mother's Name</td>
-                                                <td>: Palani Mayil</td>
+                                                <td>Place of birth:</td>
+                                                <td>VARIABLE</td>
                                             </tr>
                                             <tr>
                                                 <td>Citizenship</td>
-                                                <td>: Indian</td>
+                                                <td>VARIABLE</td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -479,33 +463,32 @@ class Profile extends Component {
 
 
                     <div className="col-sm-4">
-                        <div className="panel panel-default">
+                        <div className="panel panel-default" style={{border:'4px blue solid' , boxShadow: '0px 10px 8px 0px rgba(0,0,0.4,0.5)'}}>
                             <div className="menu_title">
-                                <b>Employee Info</b>
-                                <p>RSI Content Solutions India Pvt. Ltd</p>
+                                <p>User Information</p>
                             </div>
                             <div className="panel-body">
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="form-group">
                                             <label htmlFor="email">Name:</label>
-                                            <p>Vijayan K. </p>
+                                            <p>Variables</p>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="email">Emp ID:</label>
-                                            <p>1020</p>
+                                            <label htmlFor="email">Surname:</label>
+                                            <p>Variables</p>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="email">Data of Joining:</label>
-                                            <p>09-05-2016</p>
+                                            <label htmlFor="email">Date of Joining:</label>
+                                            <p>Variables</p>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="email">Blood Group:</label>
-                                            <p>O+ve</p>
+                                            <label htmlFor="email">Address E-mail:</label>
+                                            <p>Variables</p>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="email">In Case of emergency please contact:</label>
-                                            <p>9500028421</p>
+                                            <label htmlFor="email">Telephone Number:</label>
+                                            <p>Variables</p>
                                         </div>
                                     </div>
                                 </div>
