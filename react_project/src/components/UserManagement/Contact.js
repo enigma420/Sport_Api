@@ -5,11 +5,10 @@ import {Trans} from "react-i18next";
 
 class Contact extends Component {
 
-    render() {
+    contactLayout() {
         return (
-
-            <div className="container contact" >
-                <div className="row">
+            <div className="container contact">
+                <div className="row"  style={{borderRadius:'10px',border:'2px solid black'}}>
                     <div className="col-md-3">
                         <div className="contact-info">
                             <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image"/>
@@ -55,13 +54,13 @@ class Contact extends Component {
                                     <Trans i18nKey="contact.message"/>
                                 </label>
                                 <div className="col-sm-10">
-                                    <textarea className="form-control" rows="5" id="comment"></textarea>
+                                    <textarea className="form-control" rows="5" id="comment"/>
                                 </div>
                             </div>
                             <div className="form-group">
                                 <div className="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" className="btn btn-default">
-                                        <Trans i18nKey="contact.submit"/>
+                                    <button type="submit" className="btn btn-default" style={{float:'right',marginTop:20}}>
+                                        <h3><Trans i18nKey="contact.submit"/></h3>
                                     </button>
                                 </div>
                             </div>
@@ -69,8 +68,18 @@ class Contact extends Component {
                     </div>
                 </div>
             </div>
+        )
+    }
 
-    );
+    render() {
+        return (
+
+            <>
+                {this.contactLayout()}
+            </>
+
+
+        );
     }
 }
 

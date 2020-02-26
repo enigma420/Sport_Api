@@ -56,16 +56,16 @@
 }
  
 .icon-search:before { content: '\e800'; } /* '' */
-.icon-twitter:before { content: '\e801'; font-size: 20px; color:dodgerblue} /* '' */
-.icon-asl:before { content: '\e802'; font-size: 50px;} /* '' */
-.icon-user:before { content: '\e803'; font-size: 50px;} /* '' */
-.icon-users:before { content: '\e804'; font-size: 50px;} /* '' */
-.icon-key:before { content: '\e805'; font-size: 50px;} /* '' */
-.icon-mail-alt:before { content: '\f0e0'; font-size: 50px;} /* '' */
-.icon-snapchat-ghost:before { content: '\f2ac'; font-size: 50px; color:gold} /* '' */
-.icon-facebook-rect:before { content: '\f301'; font-size: 50px; color: blue} /* '' */
-.icon-googleplus-rect:before { content: '\f309'; font-size: 50px; color:orangered} /* '' */
-.icon-vkontakte-rect:before { content: '\f30a'; font-size: 50px; color:gold} /* '' */
-.icon-skype:before { content: '\f30b';font-size: 50px; color:deepskyblue} /* '' */
-.icon-linkedin-rect:before { content: '\f312';font-size: 50px; color:green } /* '' */
-.icon-youtube:before { content: '\f313';font-size: 50px; color:red } /* '' */
+.icon-twitter:before { content: '\e801'; font-size: 30px; color:dodgerblue} /* '' */
+.icon-asl:before { content: '\e802'; font-size: 30px;} /* '' */
+.icon-user:before { content: '\e803'; font-size: 30px;} /* '' */
+.icon-users:before { content: '\e804'; font-size: 30px;} /* '' */
+.icon-key:before { content: '\e805'; font-size: 30px;} /* '' */
+.icon-mail-alt:before { content: '\f0e0'; font-size: 30px;} /* '' */
+.icon-snapchat-ghost:before { content: '\f2ac'; font-size: 30px; color:gold} /* '' */
+.icon-facebook-rect:before { content: '\f301'; font-size: 30px; color: blue} /* '' */
+.icon-googleplus-rect:before { content: '\f309'; font-size: 30px; color:orangered} /* '' */
+.icon-vkontakte-rect:before { content: '\f30a'; font-size: 30px; color:gold} /* '' */
+.icon-skype:before { content: '\f30b';font-size: 30px; color:deepskyblue} /* '' */
+.icon-linkedin-rect:before { content: '\f312';font-size: 30px; color:green } /* '' */
+.icon-youtube:before { content: '\f313';font-size: 30px; color:red } /* '' */

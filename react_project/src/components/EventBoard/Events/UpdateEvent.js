@@ -6,6 +6,14 @@ import PropTypes from "prop-types";
 import { getEvent, updateEvent} from "../../../actions/eventslogActions";
 import {Trans} from "react-i18next";
 
+const teamLeadStyle = {
+    fontFamily: "'Permanent Marker', cursive",
+    textAlign: "center",
+    color: "#007bff",
+    fontSize: 55,
+    textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"
+};
+
 class UpdateEvent extends Component {
 constructor(){
     super();
@@ -122,7 +130,7 @@ constructor(){
                     <div className="row">
                         <div className="col-md-8 m-auto">
 
-                            <h6 className="TEAM_LEAD">
+                            <h6 style={teamLeadStyle}>
                                 <Trans i18nKey="editEvent.editEvent"/>
                             </h6>
                             <hr/>
@@ -334,7 +342,7 @@ constructor(){
                                     type="submit"
                                     className="btn btn-primary btn-block mt-4"
                                 >
-                                    <Trans i18nKey="editEvent.edit"/>
+                                    <h2><Trans i18nKey="editEvent.edit"/></h2>
                                 </button>
                             </form>
                         </div>

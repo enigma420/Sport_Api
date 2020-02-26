@@ -6,6 +6,14 @@ import {addEvent} from "../../../actions/eventslogActions";
 import PropTypes from "prop-types";
 import {Trans} from "react-i18next";
 
+const teamLeadStyle = {
+    fontFamily: "'Permanent Marker', cursive",
+    textAlign: "center",
+    color: "#007bff",
+    fontSize: 55,
+    textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"
+};
+
 class AddEvent extends Component {
     constructor(props){
         super(props);
@@ -79,7 +87,7 @@ class AddEvent extends Component {
 
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h1 className="TEAM_LEAD">
+                            <h1 style={teamLeadStyle}>
                                 <Trans i18nKey="createEvent.createEvent"/>
                             </h1>
                             <hr/>
@@ -292,7 +300,7 @@ class AddEvent extends Component {
                                     className="btn btn-success btn-block mt-4"
                                     value="Create"
                                 >
-                                    <Trans i18nKey="createEvent.create"/>
+                                    <h2><Trans i18nKey="createEvent.create"/></h2>
                                 </button>
                             </form>
                         </div>

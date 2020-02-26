@@ -6,9 +6,17 @@ import classnames from "classnames";
 import {Link} from "react-router-dom";
 import {Trans} from "react-i18next";
 
+const teamLeadStyle = {
+    fontFamily: "'Permanent Marker', cursive",
+    textAlign: "center",
+    color: "#007bff",
+    fontSize: 55,
+    textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"
+};
+
 class CreateTeam extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             nameOfTeam: "",
@@ -52,10 +60,8 @@ class CreateTeam extends Component {
 
     render() {
         const {errors} = this.state;
-        let CountOfTeams = 0;
-
         return (
-            <div className="dashboard">
+            <div>
                 <Link to="/dashboard">
                     <div id="back">
                         <Trans i18nKey="createTeam.back"/>
@@ -64,7 +70,7 @@ class CreateTeam extends Component {
                 <div className="container2">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h6 className="TEAM_LEAD">
+                            <h6 style={teamLeadStyle}>
                                 <Trans i18nKey="createTeam.createTeam"/>
                             </h6>
                             <hr/>
@@ -116,7 +122,7 @@ class CreateTeam extends Component {
                                         <Trans i18nKey="createTeam.description"/>
                                     </h5>
                    <textarea
-                       type="text"
+
                        className={classnames("form-control form-control-lg" , {
                            "is-invalid": errors.description
                        })}
@@ -173,8 +179,9 @@ class CreateTeam extends Component {
                                     </div>
                                 )}
                         </div>
+                                <br/>
                         <button type="submit" className="btn btn-primary btn-block ">
-                            <Trans i18nKey="createTeam.create"/>
+                            <h2><Trans i18nKey="createTeam.create"/></h2>
                         </button>
                     </form>
                 </div>

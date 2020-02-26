@@ -53,9 +53,7 @@ class TeamItem extends Component {
                         <div className="row">
                             <div className="col-3 border-3">
                             <text className="nameOfTeam" style={{textAlign:'center'}}>{team.nameOfTeam}</text>
-                                <div className="containero">
                                     </div>
-                                </div>
                         <div className="col-7 border-3">
                             <div className="border-1">
                                 <li>
@@ -68,15 +66,17 @@ class TeamItem extends Component {
                                         </i>
                                 </Link>
                                 </li>
+                                <Trans i18nKey="event.allInfoCurrentState"/>
+
+                                {this.state.status}
                                 <li>
+
                                 <Button color="primary" onClick={this.toggle} style={{marginBottom: '1rem' , marginTop: '1rem' }} className="info">
                                     <Trans i18nKey="event.allInfo"/>
                                 </Button>
                                 </li>
 
-                                <Trans i18nKey="event.allInfoCurrentState"/>
-                                &nbsp;
-                                {this.state.status}
+
                                 <Collapse
                                     isOpen={this.state.collapse}
                                     onEntering={this.onEntering}
@@ -119,7 +119,7 @@ class TeamItem extends Component {
                                             </li>
                                         </Link>
                                         <a href="#">
-                                            <li className=" delete teamMenu"
+                                            <li className="delete teamMenu"
                                                 onClick={this.onDeleteClick.bind(
                                                     this,
                                                     team.teamIdentifier
@@ -134,7 +134,6 @@ class TeamItem extends Component {
                         </div>
                         </div>
                 </div>
-
             </div>
             <hr/>
             </div>

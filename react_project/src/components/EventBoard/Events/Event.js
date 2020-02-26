@@ -42,11 +42,7 @@ class Event extends Component {
     toggle() {
         this.setState(state => ({ collapse: !state.collapse }));
     }
-
-    /* end of expand text */
-    onDeleteClick(eventslog_id,pt_id){
-        this.props.deleteEvent(eventslog_id,pt_id);
-    }
+    
 
     changeTimeStampIntoDateTime = (timeStamp) => {
         return <span>{moment(timeStamp).format('lll')}</span>
@@ -156,10 +152,7 @@ class Event extends Component {
                         </Collapse>
                     </div>
                 <div className="row" style={{marginLeft:'5%'}}>
-                    <Link to={`/updateEvent/${event.teamIdentifier}/${
-                        event.teamSequence}
-                        }`}
-                          className="view btn btn-success ">
+                    <Link to={`/updateEvent/${event.teamIdentifier}/${event.teamSequence}`} className="view btn btn-success ">
                         <Trans i18nKey="event.editButton"/>
                     </Link>
 

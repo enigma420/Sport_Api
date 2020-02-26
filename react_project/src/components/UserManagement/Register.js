@@ -4,7 +4,15 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import classnames from "classnames";
 import {Link} from "react-router-dom";
-import {Trans, useTranslation} from "react-i18next";
+import {Trans} from "react-i18next";
+
+const teamLeadStyle = {
+    fontFamily: "'Permanent Marker', cursive",
+    textAlign: "center",
+    color: "#007bff",
+    fontSize: 55,
+    textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"
+};
 
 class Register extends Component {
     constructor(){
@@ -60,7 +68,7 @@ class Register extends Component {
                 <div className="container2">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h1 className="TEAM_LEAD">
+                            <h1 style={teamLeadStyle}>
                                 <Trans i18nKey="header.signUp"/>
                             </h1>
                             <hr/>
@@ -129,7 +137,7 @@ class Register extends Component {
                                     )}
                                 </div>
                                 <button type="submit" className="btn btn-success btn-block mt-4 col-auto" value="Create Account">
-                                    <Trans i18nKey="register.create"/>
+                                    <h2><Trans i18nKey="register.create"/></h2>
                                 </button>
                                 </form>
                         </div>

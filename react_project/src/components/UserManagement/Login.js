@@ -6,6 +6,14 @@ import {login} from "../../actions/securityActions";
 import {Link} from "react-router-dom";
 import {Trans} from "react-i18next";
 
+const teamLeadStyle = {
+    fontFamily: "'Permanent Marker', cursive",
+    textAlign: "center",
+    color: "#007bff",
+    fontSize: 55,
+    textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"
+};
+
 class Login extends Component {
     constructor(){
         super();
@@ -61,7 +69,7 @@ class Login extends Component {
                     <div className="container2">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h1 className="TEAM_LEAD">
+                            <h1 style={teamLeadStyle}>
                                 <Trans i18nKey="login.login"/>
                             </h1>
                         <hr/>
@@ -97,7 +105,7 @@ class Login extends Component {
                                     )}
                                 </div>
                                 <button type="submit" className="btn btn-success btn-block mt-4" value="Sign in" >
-                                    <Trans i18nKey="login.create"/>
+                                    <h2><Trans i18nKey="login.create"/></h2>
                                 </button>
                             </form>
                         </div>

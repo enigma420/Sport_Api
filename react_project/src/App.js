@@ -103,7 +103,7 @@ function Page() {
             {chooseLanguage()}
                 <Provider store={store}>
                     <Router>
-                        <div className="App">
+                        <div>
 
                             <Header/>
                             {
