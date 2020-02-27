@@ -248,7 +248,7 @@ super();
         if (!error && city) {
 
             content = (
-                <div className="list-group-country" style={{ marginTop:'10px' , marginRight:'120px' , marginLeft:'120px' , backgroundColor:'lightskyblue' , borderRadius:'20px' , border:'5px solid seagreen' , padding:'1px'}}>
+                <div className="list-group-country" style={{ marginTop:'10px' , marginRight:'120px' , marginLeft:'120px' , backgroundColor:'lightskyblue' , borderRadius:'20px' , border:'5px solid dodgerblue' , padding:'1px'}}>
                     <div className="cityApiResult" >
                         <h2><b>Detected City: {cityParameters.name}</b></h2>
                         <hr/>

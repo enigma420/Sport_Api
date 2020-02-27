@@ -56,10 +56,123 @@ class CreateTeam extends Component {
         this.props.createTeam(newTeam, this.props.history);
     }
 
+    createTeamForm = () => {
+        const {errors} = this.state;
+        return(
+            <form onSubmit={this.onSubmit}>
+                <div className="form-group">
+                    <h5>
+                        <Trans i18nKey="createTeam.teamName"/>
+                    </h5>
+                    <input
+                        type="text"
+                        className={classnames("form-control form-control-lg" , {
+                            "is-invalid": errors.nameOfTeam
+                        })}
+                        placeholder="Team Name"
+                        name="nameOfTeam"
+                        value={this.state.nameOfTeam}
+                        onChange={this.onChange}
+                    />
+                    {errors.nameOfTeam && (
+                        <div className="invalid-feedback">
+                            {errors.nameOfTeam}
+                        </div>
+                    )}
 
+                </div>
+                <div className="form-group">
+                    <h5>
+                        <Trans i18nKey="createTeam.teamId"/>
+                    </h5>
+                    <input
+                        type="text"
+                        className={classnames("form-control form-control-lg", {
+                            "is-invalid": errors.teamIdentifier
+                        })}
+                        placeholder="Unique Team ID"
+                        name="teamIdentifier"
+                        value={this.state.teamIdentifier}
+                        onChange={this.onChange}
+                    />
+                    {errors.teamIdentifier && (
+                        <div className="invalid-feedback">
+                            {errors.teamIdentifier}
+                        </div>
+                    )}
+                </div>
+                <div className="form-group">
+                    <h5>
+                        <Trans i18nKey="createTeam.description"/>
+                    </h5>
+                    <textarea
+
+                        className={classnames("form-control form-control-lg" , {
+                            "is-invalid": errors.description
+                        })}
+                        placeholder="description"
+                        name="description"
+                        value={this.state.description}
+                        onChange={this.onChange}
+                    />
+                    {errors.description && (
+                        <div className="invalid-feedback">
+                            {errors.description}
+                        </div>
+                    )}
+
+                </div>
+                <div className="form-group">
+                    <h5>
+                        <Trans i18nKey="createTeam.teamLeader"/>
+                    </h5>
+                    <input
+                        type="text"
+                        className={classnames("form-control form-control-lg", {
+                            "is-invalid": errors.nameOfTeamLeader
+                        })}
+                        placeholder="Name of Team Leader"
+                        name="nameOfTeamLeader"
+                        value={this.state.nameOfTeamLeader}
+                        onChange={this.onChange}
+                    />
+                    {errors.nameOfTeamLeader && (
+                        <div className="invalid-feedback">
+                            {errors.nameOfTeamLeader}
+                        </div>
+                    )}
+
+                </div>
+                <div className="form-group">
+                    <h5>
+                        <Trans i18nKey="createTeam.typeOfSport"/>
+                    </h5>
+                    <input
+                        type="text"
+                        className={classnames("form-control form-control-lg" , {
+                            "is-invalid": errors.typeOfSport
+                        })}
+                        placeholder="Type Of Sport"
+                        name="typeOfSport"
+                        value={this.state.typeOfSport}
+                        onChange={this.onChange}
+                    />
+                    {errors.typeOfSport && (
+                        <div className="invalid-feedback">
+                            {errors.typeOfSport}
+                        </div>
+                    )}
+                </div>
+                <br/>
+                <button type="submit" className="btn btn-primary btn-block ">
+                    <h2><Trans i18nKey="createTeam.create"/></h2>
+                </button>
+            </form>
+        )
+    }
 
     render() {
-        const {errors} = this.state;
+
         return (
             <div>
                 <Link to="/dashboard">
@@ -74,116 +187,7 @@ class CreateTeam extends Component {
                                 <Trans i18nKey="createTeam.createTeam"/>
                             </h6>
                             <hr/>
-
-                            <form onSubmit={this.onSubmit}>
-                                <div className="form-group">
-                                    <h5>
-                                        <Trans i18nKey="createTeam.teamName"/>
-                                    </h5>
-                                    <input
-                                        type="text"
-                                        className={classnames("form-control form-control-lg" , {
-                                            "is-invalid": errors.nameOfTeam
-                                        })}
-                                        placeholder="Team Name"
-                                        name="nameOfTeam"
-                                        value={this.state.nameOfTeam}
-                                        onChange={this.onChange}
-                                    />
-                                    {errors.nameOfTeam && (
-                                        <div className="invalid-feedback">
-                                            {errors.nameOfTeam}
-                                        </div>
-                                    )}
-
-                                </div>
-                                <div className="form-group">
-                                    <h5>
-                                        <Trans i18nKey="createTeam.teamId"/>
-                                    </h5>
-                                    <input
-                                        type="text"
-                                        className={classnames("form-control form-control-lg", {
-                                            "is-invalid": errors.teamIdentifier
-                                        })}
-                                        placeholder="Unique Team ID"
-                                        name="teamIdentifier"
-                                        value={this.state.teamIdentifier}
-                                        onChange={this.onChange}
-                                    />
-                                    {errors.teamIdentifier && (
-                                        <div className="invalid-feedback">
-                                            {errors.teamIdentifier}
-                                        </div>
-                                    )}
-                                </div>
-                                <div className="form-group">
-                                    <h5>
-                                        <Trans i18nKey="createTeam.description"/>
-                                    </h5>
-                   <textarea
-
-                       className={classnames("form-control form-control-lg" , {
-                           "is-invalid": errors.description
-                       })}
-                       placeholder="description"
-                       name="description"
-                       value={this.state.description}
-                       onChange={this.onChange}
-                   />
-                                    {errors.description && (
-                                        <div className="invalid-feedback">
-                                            {errors.description}
-                                        </div>
-                                    )}
-
-                                </div>
-                                <div className="form-group">
-                                    <h5>
-                                        <Trans i18nKey="createTeam.teamLeader"/>
-                                    </h5>
-                                    <input
-                                        type="text"
-                                        className={classnames("form-control form-control-lg", {
-                                            "is-invalid": errors.nameOfTeamLeader
-                                        })}
-                                        placeholder="Name of Team Leader"
-                                        name="nameOfTeamLeader"
-                                        value={this.state.nameOfTeamLeader}
-                                        onChange={this.onChange}
-                                    />
-                                    {errors.nameOfTeamLeader && (
-                                        <div className="invalid-feedback">
-                                            {errors.nameOfTeamLeader}
-                                        </div>
-                                    )}
-
-                         </div>
-                         <div className="form-group">
-                             <h5>
-                                 <Trans i18nKey="createTeam.typeOfSport"/>
-                             </h5>
-                                <input
-                                    type="text"
-                                    className={classnames("form-control form-control-lg" , {
-                                        "is-invalid": errors.typeOfSport
-                                    })}
-                                    placeholder="Type Of Sport"
-                                    name="typeOfSport"
-                                    value={this.state.typeOfSport}
-                                    onChange={this.onChange}
-                                />
-                                {errors.typeOfSport && (
-                                    <div className="invalid-feedback">
-                                        {errors.typeOfSport}
-                                    </div>
-                                )}
-                        </div>
-                                <br/>
-                        <button type="submit" className="btn btn-primary btn-block ">
-                            <h2><Trans i18nKey="createTeam.create"/></h2>
-                        </button>
-                    </form>
+                            {this.createTeamForm()}
                 </div>
             </div>
 

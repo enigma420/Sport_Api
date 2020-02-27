@@ -73,10 +73,6 @@ class Landing extends Component {
                                 <hr/>
                                 {this.carouselItem()}
                                 <hr/>
-                                <p className="lead font-weight-bolder">
-                                    <Trans i18nKey="landing.intro-info"/>
-                                </p>
-                                <hr/>
                             </div>
                         </div>
                     </div>

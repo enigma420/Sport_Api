@@ -5,7 +5,7 @@
     "logout": "Logout"
   },
   "register": {
-    "back": "Back to Welcome Page",
+    "back": "Back",
     "signUp": "Sign Up",
     "info": "Create Your Account",
     "create": "Create Account",
@@ -15,7 +15,7 @@
     "confirmPassword": "Confirm Password"
   },
   "login": {
-    "back": "Back to Welcome Page",
+    "back": "Back",
     "login": "Login",
     "create": "Log-in"
   },
@@ -29,7 +29,7 @@
   },
   "createTeamButton": "Create Team",
   "createTeam": {
-    "back": "Back to Dashboard",
+    "back": "Back",
     "createTeam": "Create Team",
     "teamName": "Team Name:",
     "teamId": "Team ID:",
@@ -46,7 +46,7 @@
     "deleteTeam": "Delete Team"
   },
   "editTeam": {
-    "back": "Back to Dashboard",
+    "back": "Back",
     "editTeam": "Edit Team",
     "teamName": "Team Name:",
     "teamId": "Team ID:",
@@ -73,7 +73,7 @@
     "noEventsOnBoard": "You currently have no Events"
   },
   "createEvent": {
-    "back": "Back to Event Board",
+    "back": "Back",
     "createEvent": "Create Event",
     "eventName": "Event Name:",
     "description": "Description:",
@@ -94,7 +94,7 @@
     "amountOfEachEvents": "Amount of Events: "
   },
   "editEvent": {
-    "back": "Back to Event Board",
+    "back": "Back",
     "editEvent": "Edit Event",
     "eventName": "Event Name:",
     "description": "Description:",

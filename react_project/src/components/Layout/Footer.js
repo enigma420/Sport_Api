@@ -7,7 +7,7 @@ const footerStyle = {
     width: "100%",
     height: "5%",
     backgroundColor: "whitesmoke",
-    borderTop: "2px solid seagreen",
+    borderTop: "2px solid dodgerblue",
     zIndex: 1,
     textAlign: 'center',
 };

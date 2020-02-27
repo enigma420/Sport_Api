@@ -9,7 +9,7 @@ import logo from '../../logo.png';
 
 const headerStyle = {
     backgroundColor: "white",
-    borderBottom: "2px solid seagreen",
+    borderBottom: "2px solid dodgerblue",
     padding: 0,
     position: "relative"
 };
@@ -85,19 +85,19 @@ class Header extends Component {
                         </a>
                     </li>
                 </ul>
-                <ul className="navbar-nav mr-auto">
-                    <li>
-                        <div className="h-100">
-                            <div className="d-flex justify-content-center h-100">
-                                <div className="searchbar">
-                                    <input className="search_input" type="text" placeholder="Search..."/>
-                                    <a href="#" className="search_icon"><i
-                                        className="fas fa-search"/></a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                {/*<ul className="navbar-nav mr-auto">*/}
+                {/*    <li>*/}
+                {/*        <div className="h-100">*/}
+                {/*            <div className="d-flex justify-content-center h-100">*/}
+                {/*                <div className="searchbar">*/}
+                {/*                    <input className="search_input" type="text" placeholder="Search..."/>*/}
+                {/*                    <a href="#" className="search_icon"><i*/}
+                {/*                        className="fas fa-search"/></a>*/}
+                {/*                </div>*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*    </li>*/}
+                {/*</ul>*/}
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
                         <a className="" href="https://www.timeanddate.com/worldclock/">

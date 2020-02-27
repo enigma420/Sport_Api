@@ -11,11 +11,12 @@ const teamBoardStyle = {
     marginLeft: 70,
     marginRight: 70,
     filter: "brightness(115%)",
-    backgroundImage: "linear-gradient(to right, lightslategrey 0%, #92fe9d 100%)",
-    borderRight: "3px solid seagreen",
-    borderLeft: "3px solid seagreen",
+    background: "linear-gradient(to bottom right,lightskyblue 85%,lightskyblue 100%,#b0bec5 35%,#b0bec5 65% ) no-repeat",
+    borderRight: "3px solid dodgerblue",
+    borderLeft: "3px solid dodgerblue",
     padding: "0 15px 0 15px",
-    borderBottom: "2px solid seagreen",
+    borderRadius:'10px',
+    borderBottom: "2px solid dodgerblue",
 };
 
 const teamLeadStyle = {

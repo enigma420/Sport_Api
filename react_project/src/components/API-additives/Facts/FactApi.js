@@ -2,6 +2,31 @@ import React, {Component} from 'react';
 import Result from "../Facts/FactYearResult";
 import Results from "../Facts/FactMonthAndDayResult";
 
+const selectStyle = {
+    textAlign: 'center',
+    backgroundColor:'whitesmoke',
+    display: "block",
+    margin: "0 auto",
+    fontWeight:'bolder',
+    fontSize:'16px'
+};
+
+const titleStyle = {
+    color:'black',
+    fontWeight:'bolder',
+    textAlign:'center',
+    fontFamily:'Comic Sans'
+};
+
+const factDesignStyle = {
+    backgroundColor: 'lightskyblue',
+    borderRadius: '30px',
+    border: '5px solid dodgerblue',
+    marginRight: '50px',
+    marginLeft: '50px'
+};
+
+
 class FactApi extends Component {
     constructor() {
         super();
@@ -10,7 +35,7 @@ class FactApi extends Component {
             valueDay: '1',
             dateYear:'',
             factMonthAndDay:'',
-            valueYear: '2019',
+            valueYear: '2020',
             factYear:'',
             date:'',
             err: false
@@ -37,8 +62,6 @@ class FactApi extends Component {
         // Clear the interval right before component unmount
         clearInterval(this.interval);
     }
-
-
 
     getMonthAndDayApiResponse = () => {
 
@@ -110,8 +133,8 @@ class FactApi extends Component {
 
     allMonthAndDayOptions = () => {
         return (
-            <div>
-            <select name="valueMonth" value={this.state.valueMonth} onChange={ this.handleInputChange} style={{ textAlign: 'center' , marginLeft:'225px' ,width: '20%' , backgroundColor:'wheat'}}>
+            <span>
+            <select name="valueMonth" value={this.state.valueMonth} onChange={ this.handleInputChange} style={selectStyle}>
                 <option value="1">January</option>
                 <option value="2">February</option>
                 <option value="3">March</option>
@@ -124,9 +147,8 @@ class FactApi extends Component {
                 <option value="10">October</option>
                 <option value="11">November</option>
                 <option value="12">December</option>
-
             </select>
-            <select name="valueDay" value={this.state.valueDay} onChange={ this.handleInputChange } style={{ textAlign: 'center' , marginLeft:'5px' ,width: '10%' , backgroundColor:'wheat'}}>
+            <select name="valueDay" value={this.state.valueDay} onChange={ this.handleInputChange } style={selectStyle}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -159,13 +181,14 @@ class FactApi extends Component {
                 <option value="30">30</option>
                 <option value="31">31</option>
             </select>
-            </div>
+            </span>
     )
     }
 
     allYearOptions = () => {
         return (
-            <select name="valueYear" value={this.state.valueYear} onChange={ this.handleInputChange} style={{ textAlign: 'center' , marginLeft:'235px' ,width: '30%' , backgroundColor:'wheat'}}>
+            <select name="valueYear" value={this.state.valueYear} onChange={ this.handleInputChange} style={selectStyle}>
+                <option value="2020">2020</option>
                 <option value="2019">2019</option>
                 <option value="2018">2018</option>
                 <option value="2017">2017</option>
@@ -288,8 +311,8 @@ class FactApi extends Component {
     render() {
         return (
             <div>
-                <div className="" style={{ backgroundColor:'lightskyblue' , borderRadius:'30px' , border:'5px solid seagreen', marginRight:'50px' , marginLeft:'50px'}}>
-                    <h2 style={{color:'black', fontWeight:'bolder' , textAlign:'center' , fontFamily:'Comic Sans'}}>Every 7 seconds the fact changes</h2>
+                <div className="" style={factDesignStyle}>
+                    <h2 style={titleStyle}>Every 7 seconds the fact changes</h2>
                     <hr  style={{backgroundColor:'black'}}/>
                 <form style={{marginTop:'20px' , marginBottom:'20px'}}>
                     {this.allYearOptions()}

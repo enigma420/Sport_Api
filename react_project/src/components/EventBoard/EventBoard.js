@@ -68,7 +68,7 @@ class EventBoard extends Component {
         BoardContent = boardAlgorithm(errors, events);
 
         return (
-            <div className="dashboard">
+
             <div className="eventboard"  style={{borderRadius:'8px'}}>
                 <h2 style={teamLeadStyle}>
                     <Trans i18nKey="eventBoard.events"/>
@@ -85,7 +85,7 @@ class EventBoard extends Component {
                 <hr />
                 {BoardContent}
             </div>
-            </div>
+
         );
     }
 }
