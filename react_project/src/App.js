@@ -53,18 +53,6 @@ if(jwtToken){
         window.location.href = "/";
     }
 }
-function MyComponent() {
-    return (
-        <div/>
-    );
-}
-// use hoc for class based components
-
-const Welcome = withTranslation()(MyComponent);
-
-let languages = () => {
-
-}
 
 // page uses the hook
 function Page() {
@@ -103,7 +91,7 @@ function Page() {
             {chooseLanguage()}
                 <Provider store={store}>
                     <Router>
-                        <div className="App">
+                        <div>
 
                             <Header/>
                             {
@@ -116,7 +104,7 @@ function Page() {
                             {
                                 //Private Routes
                             }
-                            <Route exact path={["/info_center","/dashboard","/createTeam","/editTeam/:id","/eventBoard/:id","/addEvent/:id","/updateEvent/:eventslog_id/:pt_id"]} component={Sidebar}/>
+                            <Route exact path={["/info_center","/dashboard","/createTeam","/editTeam/:id","/eventBoard/:id","/addEvent/:id","/updateEvent/:eventslog_id/:pt_id","/contact","/profile"]} component={Sidebar}/>
                             <Switch>
                                 <Route exact path="/info_center" component={ApiCenter}/>
                                 <Route exact path="/info_center/weather" component={WeatherApi}/>

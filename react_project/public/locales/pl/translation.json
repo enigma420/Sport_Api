@@ -5,7 +5,7 @@
     "logout": "Wyloguj"
   },
   "register": {
-    "back": "Cofnij do Strony Głównej",
+    "back": "Cofnij",
     "signUp": "Rejestracja",
     "info": "Utwórz swoje konto",
     "create": "Utwórz konto",
@@ -15,7 +15,7 @@
     "confirmPassword": "Potwierdź Hasło"
   },
   "login": {
-    "back": "Cofnij do Strony Głównej",
+    "back": "Cofnij",
     "login": "Logowanie",
     "create": "Zaloguj się"
   },
@@ -29,7 +29,7 @@
   },
   "createTeamButton": "Utwórz Drużyne",
   "createTeam": {
-    "back": "Cofnij do Tablicy Drużyn",
+    "back": "Cofnij",
     "createTeam": "Utwórz Drużyne",
     "teamName": "Nazwa drużyny:",
     "teamId": "Identyfikator Drużyny:",
@@ -46,7 +46,7 @@
     "deleteTeam": "Usuń drużyne"
   },
   "editTeam": {
-  "back": "Cofnij do Tablicy Drużyn",
+  "back": "Cofnij",
   "editTeam": "Edytuj Drużyne",
   "teamName": "Nazwa drużyny:",
   "teamId": "Identyfikator Drużyny:",
@@ -73,7 +73,7 @@
     "noEventsOnBoard": "Obecnie nie posiadasz żadnych Wydarzeń"
   },
   "createEvent": {
-    "back": "Cofnij do Tablicy Wydarzeń",
+    "back": "Cofnij",
     "createEvent": "Utwórz Wydarzenie",
     "eventName": "Nazwa Wydarzenia:",
     "description": "Opis:",
@@ -94,7 +94,7 @@
     "amountOfEachEvents": "Ilość Wydarzeń: "
   },
   "editEvent": {
-    "back": "Cofnij do Tablicy Wydarzeń",
+    "back": "Cofnij",
     "editEvent": "Edytuj Wydarzenie",
     "eventName": "Nazwa Wydarzenia:",
     "description": "Opis:",

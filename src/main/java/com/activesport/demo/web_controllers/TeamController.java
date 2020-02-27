@@ -41,7 +41,7 @@ public class TeamController {
     /* GET endpoint which get Team by team Identifier (PathVariable annotation)*/
 
     @GetMapping("/{teamIdentifier}")
-    public ResponseEntity<?> getTeamById(@PathVariable String teamId, Principal principal){
+    public ResponseEntity<?> getTeamById(@PathVariable("teamIdentifier") String teamId, Principal principal){
 
         Team team = teamService.findTeamByIdentifier(teamId, principal.getName());
 
@@ -65,7 +65,7 @@ public class TeamController {
     /* DELETE endpoint which delete Team by team Identifier (PathVariable annotation)*/
 
     @DeleteMapping("/{teamIdentifier}")
-    public ResponseEntity<?> deleteTeam(@PathVariable String teamId, Principal principal){
+    public ResponseEntity<?> deleteTeam(@PathVariable("teamIdentifier") String teamId, Principal principal){
 
         teamService.deleteTeamByIdentifier(teamId , principal.getName());
 

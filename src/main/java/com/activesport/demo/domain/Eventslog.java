@@ -22,7 +22,8 @@ public class Eventslog {
     private Team team;
 
     //OneToMany Event
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "eventslog", orphanRemoval = true)
+    //Było jeszcze cascade = CascadeType.ALL , ale gdy delete mialo odpowiedz 200 to po odswiezeniu i tak bylo na nowo => nie usuwalo sie z bazy danych
+    @OneToMany(mappedBy = "eventslog", orphanRemoval = true)
     private List<Event> events = new ArrayList<>();
 
     public Eventslog() {

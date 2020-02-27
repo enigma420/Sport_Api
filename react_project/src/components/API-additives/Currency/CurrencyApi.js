@@ -102,8 +102,8 @@ allCurrencyOptions = (name,value,onChange) => {
     render() {
         return (
             <div className="container"style={{position: 'relative', display: 'block'}} >
-                <div className="list-group-currency" style={{ position: 'relative',border:'5px wheat solid' , boxShadow:'0px 12px 25px 0px rgba(0.3,0.5,0.5,0.5)'}}>
-                    <div className="list-group-item" style={{position: 'relative' , backgroundColor:"powderblue" , height:'100px'}}>
+                <div className="list-group-currency" style={{ position: 'relative',border:'2px wheat solid' , boxShadow:'0px 12px 25px 0px rgba(0.3,0.5,0.5,0.5)'}}>
+                    <div className="list-group-item" style={{position: 'relative' , background: "linear-gradient(to bottom right,lightskyblue 85%,lightskyblue 100%,#b0bec5 35%,#b0bec5 65% ) no-repeat" , height:'100px'}}>
                 <form>
                     <div className="card-columns">
                    From: {this.allCurrencyOptions("valueFromCurrency",this.state.valueFromCurrency,this.handleInputChange)}

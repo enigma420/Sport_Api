@@ -80,7 +80,7 @@ class TranslateApi extends Component {
 
     render() {
         return (
-            <div className="list-group-country" style={{ position: 'relative',borderRight:'4px seagreen solid' ,borderLeft:'4px seagreen solid' ,borderTop:'4px seagreen solid' ,borderBottom:'3px seagreen solid' , boxShadow:'0px 0px 8px 3px rgba(0.3,0.5,0.5,0.5)' , borderRadius:'15px'}}>
+            <div className="list-group-country" style={{ position: 'relative',borderRight:'4px dodgerblue solid' ,borderLeft:'4px seagreen solid' ,borderTop:'4px seagreen solid' ,borderBottom:'3px seagreen solid' , boxShadow:'0px 0px 8px 3px rgba(0.3,0.5,0.5,0.5)' , borderRadius:'15px'}}>
             <form onSubmit={this.onSubmit}>
                     <select name="valueFromLang" value={this.state.valueFromLang} onChange={ this.onChange} style={{textAlignVertical: "center",textAlign: "center", marginLeft:'280px'}}>
                         <option value="en-pl">English-polish</option>

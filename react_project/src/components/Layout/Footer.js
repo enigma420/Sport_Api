@@ -1,30 +1,35 @@
 import React, {Component} from 'react';
-import {Trans} from "react-i18next";
+
+const footerStyle = {
+    position: "fixed",
+    bottom: 0,
+    left: 0,
+    width: "100%",
+    height: "5%",
+    backgroundColor: "whitesmoke",
+    borderTop: "2px solid dodgerblue",
+    zIndex: 1,
+    textAlign: 'center',
+};
+
+const iconStyle = {
+    padding: 5,
+};
 
 class Footer extends Component {
     render() {
         return (
-<div>
-            <div className="footer">
-                <div className="container" style={{height:'25px'}}>
-                    <p className="navbar-text pull-left" className="copywriter">©CopyWriter -> 2019 Simple App
-                        <a href="http://tinyurl.com/tbvalid"  className="copywriter"> HTML 5</a>
-                        <h5>
-                            <Trans i18nKey="footer"/>
-                        </h5>
-                    </p>
+            <div style={footerStyle}>
+                <div className="row" style={{textAlign: 'center', display: 'block'}}>
+                    <a href="http://www.skype.com" style={iconStyle} className="demo-icon icon-skype"/>
+                    <a href="http://www.twitter.com" style={iconStyle} className="demo-icon icon-twitter"/>
+                    <a href="http://www.facebook.com" style={iconStyle} className="demo-icon icon-facebook-rect"/>
+                    <a href="http://www.google.com" style={iconStyle} className="demo-icon icon-googleplus-rect"/>
+                    <a href="http://www.booking.com" style={iconStyle} className="demo-icon icon-vkontakte-rect"/>
+                    <a href="http://www.linkedin.com" style={iconStyle} className="demo-icon icon-linkedin-rect"/>
+                    <a href="http://www.youtube.com" style={iconStyle} className="demo-icon icon-youtube"/>
                 </div>
-                    <div className="icons" style={{width:'100%' , height:'30px'}}>
-                <a href="http://www.skype.com" className="demo-icon icon-skype"/>
-                <a href="http://www.twitter.com" className="demo-icon icon-twitter"/>
-                <a href="http://www.facebook.com" className="demo-icon icon-facebook-rect"/>
-                <a href="http://www.google.com" className="demo-icon icon-googleplus-rect"/>
-                <a href="http://www.booking.com" className="demo-icon icon-vkontakte-rect"/>
-                <a href="http://www.linkedin.com" className="demo-icon icon-linkedin-rect"/>
-                <a href="http://www.youtube.com" className="demo-icon icon-youtube"/>
-                    </div>
-                </div>
-</div>
+            </div>
         );
     }
 }

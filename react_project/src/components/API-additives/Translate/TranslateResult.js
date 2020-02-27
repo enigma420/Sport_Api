@@ -8,7 +8,6 @@ const Result = props => {
 
     if(!err && word && fromLang){
 
-
         content = (
             <div className="list-group-item" style={{backgroundColor:"powderblue" , position:'relative'}}>
                 <div className="cityApiResult">
@@ -16,8 +15,6 @@ const Result = props => {
                 <h1>Output: <b>{output}</b></h1>
                 <h5><b>Languages: {fromLang}</b></h5>
                 </div>
-
-
             </div>
         )
     }

@@ -42,11 +42,7 @@ class Event extends Component {
     toggle() {
         this.setState(state => ({ collapse: !state.collapse }));
     }
-
-    /* end of expand text */
-    onDeleteClick(eventslog_id,pt_id){
-        this.props.deleteEvent(eventslog_id,pt_id);
-    }
+    
 
     changeTimeStampIntoDateTime = (timeStamp) => {
         return <span>{moment(timeStamp).format('lll')}</span>
@@ -79,8 +75,8 @@ class Event extends Component {
         }
 
         return (
-            <div className={`card mb-2 bg-muted ${disabl}`} style={{borderRadius:'20px' , border:'3px solid cornflowerblue' , marginTop:'5px'}}>
-                <div className={`card-header text-primary text-center ${priorityClass}`} style={{width:'100%' , borderRadius:'10px' , border:'3px solid cornflowerblue'}}>
+            <div className={`card mb-2 bg-muted ${disabl}`} style={{ border:'3px solid dodgerblue' , marginTop:'5px'}}>
+                <div className={`card-header text-primary text-center ${priorityClass}`} style={{width:'100%' , }}>
                     <div className="eventer">{event.nameOfEvent}</div>
                 </div>
                 <div className="list-group" style={{textAlign:'center'}}>
@@ -155,15 +151,10 @@ class Event extends Component {
                             </Card>
                         </Collapse>
                     </div>
-                <div className="row" style={{marginLeft:'5%'}}>
-                    <Link to={`/updateEvent/${event.teamIdentifier}/${
-                        event.teamSequence}
-                        }`}
-                          className="view btn btn-success ">
-                        <Trans i18nKey="event.editButton"/>
-                    </Link>
-
-                    <button
+               <Link to={`/updateEvent/${event.teamIdentifier}/${event.teamSequence}`} className="view btn btn-success " >
+                   <div style={{fontSize:'10px',fontWeight:'bolder' , color:'white'}}><Trans i18nKey="event.editButton"/></div>
+                </Link>
+                    <button style={{}}
                         className="delete btn btn-danger "
                         onClick={this.onDeleteClick.bind(
                             this,
@@ -171,9 +162,9 @@ class Event extends Component {
                             event.teamSequence
                         )}
                     >
-                        <Trans i18nKey="event.deleteButton"/>
+                       <div style={{fontSize:'10px',fontWeight:'bolder'}}><Trans i18nKey="event.deleteButton"/></div>
                     </button>
-                </div>
+
                 </div>
 
         );

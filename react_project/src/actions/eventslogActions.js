@@ -17,7 +17,6 @@ try {
 
 }
 };
-
 export const getEventslog = eventslog_id => async dispatch => {
     try{
         const res = await axios.get(`/api/eventslog/${eventslog_id}`);
@@ -35,7 +34,7 @@ export const getEventslog = eventslog_id => async dispatch => {
 
 export const getEvent = (eventslog_id,pt_id,history) => async dispatch => {
     try{
-  const res = await axios.get(`/api/eventslog/${eventslog_id}`);
+  const res = await axios.get(`/api/eventslog/${eventslog_id}/${pt_id}`);
   dispatch({
       type: GET_EVENT,
       payload: res.data

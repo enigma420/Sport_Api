@@ -6,6 +6,13 @@ import PropTypes from "prop-types";
 import { getEventslog} from "../../actions/eventslogActions";
 import {Trans} from "react-i18next";
 
+const teamLeadStyle = {
+    fontFamily: "'Permanent Marker', cursive",
+    textAlign: "center",
+    color: "#007bff",
+    fontSize: 55,
+    textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"
+};
 
 class EventBoard extends Component {
     constructor() {
@@ -61,9 +68,9 @@ class EventBoard extends Component {
         BoardContent = boardAlgorithm(errors, events);
 
         return (
-            <div className="dashboard">
+
             <div className="eventboard"  style={{borderRadius:'8px'}}>
-                <h2 className="TEAM_LEAD">
+                <h2 style={teamLeadStyle}>
                     <Trans i18nKey="eventBoard.events"/>
                 </h2>
                 <br />
@@ -78,7 +85,7 @@ class EventBoard extends Component {
                 <hr />
                 {BoardContent}
             </div>
-            </div>
+
         );
     }
 }

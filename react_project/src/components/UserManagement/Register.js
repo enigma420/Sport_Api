@@ -4,7 +4,15 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import classnames from "classnames";
 import {Link} from "react-router-dom";
-import {Trans, useTranslation} from "react-i18next";
+import {Trans} from "react-i18next";
+
+const teamLeadStyle = {
+    fontFamily: "'Permanent Marker', cursive",
+    textAlign: "center",
+    color: "#007bff",
+    fontSize: 55,
+    textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"
+};
 
 class Register extends Component {
     constructor(){
@@ -48,8 +56,80 @@ class Register extends Component {
     onChange(e){
         this.setState({[e.target.name]: e.target.value})
     }
-    render() {
+
+    registrationForm = () => {
         const {errors} = this.state;
+        return(
+            <form onSubmit={this.onSubmit}>
+                <div className="form-group">
+                    <input
+                        type="text"
+                        className={classnames("form-control form-control-lg" , {
+                            "is-invalid": errors.fullName
+                        })}
+                        placeholder="Full Name"
+                        name="fullName"
+                        value={this.state.fullName}
+                        onChange={this.onChange}
+                    />
+                    {errors.fullName && (
+                        <div className="invalid-feedback">{errors.fullName}</div>
+                    )}
+                </div>
+                <div className="form-group">
+                    <input
+                        type="text"
+                        className={classnames("form-control form-control-lg", {
+                            "is-invalid": errors.username
+                        })}
+                        placeholder="Email Address (Username)"
+                        name="username"
+                        value={this.state.username}
+                        onChange={this.onChange}
+                    />
+                    {errors.username && (
+                        <div className="invalid-feedback">{errors.username}</div>
+                    )}
+                </div>
+                <div className="form-group">
+                    <input
+                        type="password"
+                        className={classnames("form-control form-control-lg" , {
+                            "is-invalid": errors.password
+                        })}
+                        placeholder="Password"
+                        name="password"
+                        value={this.state.password}
+                        onChange={this.onChange}
+                    />
+                    {errors.password && (
+                        <div className="invalid-feedback">{errors.password}</div>
+                    )}
+                </div>
+                <div className="form-group">
+                    <input
+                        type="password"
+                        className={classnames("form-control form-control-lg" , {
+                            "is-invalid": errors.confirmPassword
+                        })}
+                        placeholder="Confirm Password"
+                        name="confirmPassword"
+                        value={this.state.confirmPassword}
+                        onChange={this.onChange}
+                    />
+                    {errors.confirmPassword && (
+                        <div className="invalid-feedback">{errors.confirmPassword}</div>
+                    )}
+                </div>
+                <button type="submit" className="btn btn-success btn-block mt-4 col-auto" value="Create Account">
+                    <h2><Trans i18nKey="register.create"/></h2>
+                </button>
+            </form>
+        )
+    }
+
+    render() {
+
         return (
             <div className="dashboard">
                 <Link to="/">
@@ -60,78 +140,14 @@ class Register extends Component {
                 <div className="container2">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <h1 className="TEAM_LEAD">
+                            <h1 style={teamLeadStyle}>
                                 <Trans i18nKey="header.signUp"/>
                             </h1>
                             <hr/>
                             <p className="lead text-center">
                                 <Trans i18nKey="register.info"/>
                             </p>
-                            <form onSubmit={this.onSubmit}>
-                                <div className="form-group">
-                                    <input
-                                        type="text"
-                                        className={classnames("form-control form-control-lg" , {
-                                            "is-invalid": errors.fullName
-                                        })}
-                                        placeholder="Full Name"
-                                        name="fullName"
-                                        value={this.state.fullName}
-                                        onChange={this.onChange}
-                                    />
-                                    {errors.fullName && (
-                                        <div className="invalid-feedback">{errors.fullName}</div>
-                                    )}
-                                </div>
-                                <div className="form-group">
-                                    <input
-                                        type="text"
-                                        className={classnames("form-control form-control-lg", {
-                                            "is-invalid": errors.username
-                                        })}
-                                        placeholder="Email Address (Username)"
-                                        name="username"
-                                        value={this.state.username}
-                                        onChange={this.onChange}
-                                    />
-                                    {errors.username && (
-                                        <div className="invalid-feedback">{errors.username}</div>
-                                    )}
-                                </div>
-                                <div className="form-group">
-                                    <input
-                                        type="password"
-                                        className={classnames("form-control form-control-lg" , {
-                                            "is-invalid": errors.password
-                                        })}
-                                        placeholder="Password"
-                                        name="password"
-                                        value={this.state.password}
-                                        onChange={this.onChange}
-                                    />
-                                    {errors.password && (
-                                        <div className="invalid-feedback">{errors.password}</div>
-                                    )}
-                                </div>
-                                <div className="form-group">
-                                    <input
-                                        type="password"
-                                        className={classnames("form-control form-control-lg" , {
-                                            "is-invalid": errors.confirmPassword
-                                        })}
-                                        placeholder="Confirm Password"
-                                        name="confirmPassword"
-                                        value={this.state.confirmPassword}
-                                        onChange={this.onChange}
-                                    />
-                                    {errors.confirmPassword && (
-                                        <div className="invalid-feedback">{errors.confirmPassword}</div>
-                                    )}
-                                </div>
-                                <button type="submit" className="btn btn-success btn-block mt-4 col-auto" value="Create Account">
-                                    <Trans i18nKey="register.create"/>
-                                </button>
-                                </form>
+                            {this.registrationForm()}
                         </div>
                     </div>
                 </div>

@@ -92,7 +92,6 @@ public class EventService {
         if(eventRepository.count() == 0){
             throw new TeamNotFoundException("You cannot delete because no event exist");
         }
-
         eventRepository.delete(event);
     }
 

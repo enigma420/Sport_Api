@@ -5,7 +5,7 @@
     "logout": "Ausloggen"
   },
   "register": {
-    "back": "zurück zur Startseite",
+    "back": "Zurück",
     "signUp": "Anmelden",
     "info": "Erstelle deinen Account",
     "create": "Benutzerkonto anlegen",
@@ -15,7 +15,7 @@
     "confirmPassword": "Passwort bestätigen"
   },
   "login": {
-    "back": "zurück zur Startseite",
+    "back": "Zurück",
     "login": "Anmeldung",
     "create": "Anmeldung"
   },
@@ -29,7 +29,7 @@
   },
   "createTeamButton": "Team erstellen",
   "createTeam": {
-    "back": "Zurück zum Dashboard",
+    "back": "Zurück",
     "createTeam": "Team erstellen",
     "teamName": "Teamname:",
     "teamId": "Team ID:",
@@ -46,7 +46,7 @@
     "deleteTeam": "Team löschen"
   },
   "editTeam": {
-    "back": "Zurück zum Dashboard",
+    "back": "Zurück",
     "editTeam": "Team bearbeiten",
     "teamName": "Teamname:",
     "teamId": "Team ID:",
@@ -73,7 +73,7 @@
     "noEventsOnBoard": "Sie haben derzeit keine Veranstaltungen"
   },
   "createEvent": {
-    "back": "Zurück zum Event Board",
+    "back": "Zurück",
     "createEvent": "Ereignis erstellen",
     "eventName": "Veranstaltungsname:",
     "description": "Beschreibung:",
@@ -94,7 +94,7 @@
     "amountOfEachEvents": "Anzahl der Ereignisse: "
   },
   "editEvent": {
-    "back": "Zurück zum Event Board",
+    "back": "Zurück",
     "editEvent": "Ereignis bearbeiten",
     "eventName": "Veranstaltungsname:",
     "description": "Beschreibung:",
