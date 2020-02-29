@@ -28,6 +28,8 @@ public class PersonalData {
     @JsonIgnore
     private User user;
 
+    private String emailUser;
+
     public PersonalData() {
     }
 
@@ -93,5 +95,13 @@ public class PersonalData {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getEmailUser() {
+        return emailUser;
+    }
+
+    public void setEmailUser(String emailUser) {
+        this.emailUser = emailUser;
     }
 }

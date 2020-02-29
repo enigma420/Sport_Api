@@ -1,5 +1,6 @@
 package com.activesport.demo.web_controllers;
 
+import com.activesport.demo.domain.Event;
 import com.activesport.demo.domain.PersonalData;
 import com.activesport.demo.services.MapValidationErrorService;
 import com.activesport.demo.services.PersonalDataService;
@@ -35,4 +36,26 @@ public class PersonalDataController {
         PersonalData newPersonalData = personalDataService.saveOrUpdatePersonalData(personalData, principal.getName());
         return new ResponseEntity<PersonalData>(personalData, HttpStatus.CREATED);
     }
+
+    @GetMapping("/{pesel}")
+    public ResponseEntity<?> getPersonalDataByPesel(@PathVariable("pesel") String pesel, Principal principal){
+
+        PersonalData personalData = personalDataService.findPersonalDataByPesel(pesel,principal.getName());
+
+        return new ResponseEntity<PersonalData>(personalData, HttpStatus.OK);
+
+    }
+
+
+//    @PatchMapping("")
+//    public ResponseEntity<?> updatePersonalData(@Valid @RequestBody PersonalData personalData, BindingResult result, Principal principal){
+//
+//        ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
+//        if(errorMap != null) return errorMap;
+//
+//        PersonalData updatedPersonalData = personalDataService.saveOrUpdatePersonalData(personalData,principal.getName());
+//
+//        return new ResponseEntity<PersonalData>(updatedPersonalData,HttpStatus.OK);
+//    }
+
 }
