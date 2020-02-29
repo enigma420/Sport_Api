@@ -43,9 +43,15 @@ public class PersonalDataController {
         PersonalData personalData = personalDataService.findPersonalDataByPesel(pesel,principal.getName());
 
         return new ResponseEntity<PersonalData>(personalData, HttpStatus.OK);
-
     }
 
+    @GetMapping("/{email_user}")
+    public ResponseEntity<?> getPersonalDataByEmailUser(@PathVariable("email_user") String emailUser, Principal principal){
+
+        PersonalData personalData = personalDataService.findPersonalDataByEmailUser(emailUser, principal.getName());
+
+        return new ResponseEntity<PersonalData>(personalData,HttpStatus.OK);
+    }
 
 //    @PatchMapping("")
 //    public ResponseEntity<?> updatePersonalData(@Valid @RequestBody PersonalData personalData, BindingResult result, Principal principal){
