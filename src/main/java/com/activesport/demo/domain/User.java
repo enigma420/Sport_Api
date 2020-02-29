@@ -16,13 +16,12 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+//    @Basic(optional = true)
 //    private String name;
 //    private String surname;
 //    private String country;
 //    private String city;
-//    private char gender;
 //    private int age;
-
 
     @Email(message = "Username needs to be an email")
     @NotBlank(message = "username is required")
@@ -41,9 +40,9 @@ public class User implements UserDetails {
     @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "user", orphanRemoval = true)
     private List<Team> teams = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(name = "user_friends" , joinColumns = @JoinColumn(name = "userId"), inverseJoinColumns = @JoinColumn(name = "friendId"))
-    private Set<User> userFriends;
+//    @ManyToMany
+//    @JoinTable(name = "user_friends" , joinColumns = @JoinColumn(name = "userId"), inverseJoinColumns = @JoinColumn(name = "friendId"))
+//    private Set<User> userFriends;
 
     public User() {
     }
@@ -111,6 +110,46 @@ public class User implements UserDetails {
     public void setTeams(List<Team> teams) {
         this.teams = teams;
     }
+
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+
+//    public String getSurname() {
+//        return surname;
+//    }
+//
+//    public void setSurname(String surname) {
+//        this.surname = surname;
+//    }
+//
+//    public String getCountry() {
+//        return country;
+//    }
+//
+//    public void setCountry(String country) {
+//        this.country = country;
+//    }
+
+//    public String getCity() {
+//        return city;
+//    }
+//
+//    public void setCity(String city) {
+//        this.city = city;
+//    }
+
+//    public int getAge() {
+//        return age;
+//    }
+//
+//    public void setAge(int age) {
+//        this.age = age;
+//    }
 
     @PrePersist
     protected void onCreate(){

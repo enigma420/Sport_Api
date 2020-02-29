@@ -32,4 +32,15 @@ public class UserService {
 
     }
 
+//    public User savePersonalDataUser(User newUser){
+//
+//        newUser.setName(newUser.getName());
+//        newUser.setSurname(newUser.getSurname());
+//        newUser.setCountry(newUser.getCountry());
+//        newUser.setCity(newUser.getCity());
+//        newUser.setAge(newUser.getAge());
+//
+//        return userRepository.save(newUser);
+//    }
+
 }
