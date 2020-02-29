@@ -22,7 +22,7 @@ public class PersonalDataService {
 
         if(personalData.getId() != null){
         PersonalData existingPersonalData = personalDataRepository.findByPesel(personalData.getPesel());
-        if(existingPersonalData != null ){
+        if(existingPersonalData != null && (!existingPersonalData.getEmailUser().equals(username))){
             throw new PersonalDataNotFoundException("Personal Data not found in your account");
                 }else if(existingPersonalData == null){
                     throw new PersonalDataNotFoundException("Personal Data with Pesel: '" + personalData.getPesel() + "' cannot be updated");
@@ -32,10 +32,24 @@ public class PersonalDataService {
             User user = userRepository.findByUsername(username);
             personalData.setUser(user);
             personalData.setPesel(personalData.getPesel());
+            personalData.setEmailUser(user.getUsername());
 
             return personalDataRepository.save(personalData);
         }catch(Exception e){
             throw new PersonalDataPeselException("Personal Data with Pesel: '" + personalData.getPesel() + "' already exists");
         }
+    }
+
+    public PersonalData findPersonalDataByPesel(String pesel, String username){
+
+        PersonalData personalData = personalDataRepository.findByPesel(pesel);
+
+        if(personalDataRepository.count() == 0){
+            throw new PersonalDataPeselException("No Personal Data Exist");
+        }else if(personalData == null){
+            throw new PersonalDataPeselException("Personal Data Pesel '" + pesel + "' does not exist");
+        }
+
+        return personalData;
     }
 }

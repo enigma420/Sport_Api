@@ -9,4 +9,6 @@ public interface PersonalDataRepository extends CrudRepository<PersonalData,Long
 
     PersonalData findByPesel(String personalId);
 
+    PersonalData findByEmailUser(String emailUser);
+
 }

@@ -40,6 +40,10 @@ public class User implements UserDetails {
     @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "user", orphanRemoval = true)
     private List<Team> teams = new ArrayList<>();
 
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private PersonalData personalData;
+
 //    @ManyToMany
 //    @JoinTable(name = "user_friends" , joinColumns = @JoinColumn(name = "userId"), inverseJoinColumns = @JoinColumn(name = "friendId"))
 //    private Set<User> userFriends;
@@ -111,7 +115,15 @@ public class User implements UserDetails {
         this.teams = teams;
     }
 
-//    public String getName() {
+    public PersonalData getPersonalData() {
+        return personalData;
+    }
+
+    public void setPersonalData(PersonalData personalData) {
+        this.personalData = personalData;
+    }
+
+    //    public String getName() {
 //        return name;
 //    }
 //
