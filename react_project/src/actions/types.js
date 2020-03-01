@@ -10,3 +10,7 @@ export const GET_EVENT = "GET_EVENT";
 export const DELETE_EVENT = "DELETE_EVENT";
 
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
+
+//Types for PersonalData actions
+
+export const GET_PERSONALDATA = "GET_PERSONALDATA";
