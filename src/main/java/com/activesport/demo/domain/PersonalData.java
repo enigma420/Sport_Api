@@ -17,7 +17,9 @@ public class PersonalData {
     @Column(updatable = false, unique = true)
     @Size(min = 11,max = 11)
     private String pesel;
+    @NotBlank(message = "name is required")
     private String name;
+    @NotBlank(message = "surname is required")
     private String surname;
     private String country;
     private String city;
