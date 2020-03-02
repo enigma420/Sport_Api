@@ -5,6 +5,15 @@ import {createPersonalData, getPersonalData} from "../../actions/personalDataAct
 import classnames from "classnames";
 import {Link} from "react-router-dom";
 
+const teamLeadStyle = {
+    fontFamily: "'Permanent Marker', cursive",
+    textAlign: "center",
+    color: "dimgrey",
+    fontSize: 28,
+    textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"
+};
+
+
 class Profile extends Component {
 constructor(props) {
     super(props);
@@ -22,6 +31,17 @@ constructor(props) {
     this.onSubmit = this.onSubmit.bind(this);
 
 }
+
+    componentDidMount() {
+
+        this.props.getPersonalData(this.state.pesel, this.props.history);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.errors){
+            this.setState({errors: nextProps.errors});
+        }
+    }
 
     onChange(e){
         this.setState({[e.target.name]: e.target.value});
@@ -45,7 +65,7 @@ constructor(props) {
         return(
             <div className="tab-pane active" id="tab_default_1" style={{backgroundColor:'darkgrey'}}>
                 <div className="well well-sm">
-                    <h4>PERSONAL DATA</h4>
+                    <h6 style={teamLeadStyle}>PERSONAL INFO DETAILS</h6>
                 </div>
                 <p style={{align:'right'}}>
                     <button type="button" className="btn btn-default btn-sm">
@@ -89,18 +109,9 @@ constructor(props) {
         return(
             <div className="tab-pane" id="tab_default_3">
                 <div className="well well-sm">
-                    <h4>ADDRESS DETAILS</h4>
+                    <h6 style={teamLeadStyle}>PERSONAL DATA FORM</h6>
                 </div>
-                <p style={{align:'right'}}>
-                    <button type="button" className="btn btn-default btn-sm">
-                        Edit
-                    </button>
-                </p>
-                <div className="row">
-                    <div className="col-md-4 col-md-offset-4">
-                        <form onSubmit={this.onSubmit} className="form-horizontal">
-                            <fieldset>
-                                <legend>Address Details</legend>
+                        <form onSubmit={this.onSubmit} className="form-horizontal" style={{margin:'20px'}}>
                                 <div className="form-group">
                                     <label className="col-sm-2 control-label"
                                            htmlFor="textinput">PESEL</label>
@@ -226,52 +237,16 @@ constructor(props) {
                                     </div>
                                 </div>
                                 <div className="form-group">
-                                    <div className="col-sm-offset-2 col-sm-10">
-                                        <div className="pull-right">
-                                            {/*<button type="submit"*/}
-                                            {/*        className="btn btn-default">Cancel*/}
-                                            {/*</button>*/}
+                                    <div className="col-md-12">
                                             <button type="submit"
-                                                    className="btn btn-primary">Save
+                                                    className="btn btn-primary"
+                                                    style={{alignContent:"center"}}>Save
                                             </button>
-                                        </div>
                                     </div>
                                 </div>
-                            </fieldset>
                         </form>
-                    </div>
-                </div>
-            </div>
-        )
-    };
 
-    contactDetails = () => {
-        return(
-            <div className="tab-pane" id="tab_default_2">
-                <div className="well well-sm">
-                    <h4>OFFICIAL AND PERSONAL CONTACTS</h4>
-                </div>
-                <p style={{align:'right'}}>
-                    <button type="button" className="btn btn-default btn-sm">
-                        Edit
-                    </button>
-                </p>
-                <table className="table bio-table">
-                    <tbody>
-                    <tr>
-                        <td>Telephone Number</td>
-                        <td>:</td>
-                    </tr>
-                    <tr>
-                        <td>Email Address</td>
-                        <td>:</td>
-                    </tr>
-                    <tr>
-                        <td>Github Account</td>
-                        <td>:</td>
-                    </tr>
-                    </tbody>
-                </table>
+
             </div>
         )
     };
@@ -280,13 +255,10 @@ constructor(props) {
         return(
             <ul className="nav nav-tabs ">
                 <li className="active">
-                    <a href="#tab_default_1" data-toggle="tab" style={{backgroundColor:'darkgrey',fontSize:'16px'}}><strong>Personal Info</strong></a>
+                    <a href="#tab_default_1" data-toggle="tab" style={{backgroundColor:'darkgrey',fontSize:'16px'}}><strong>Personal Info Details</strong></a>
                 </li>
                 <li>
-                    <a href="#tab_default_2" data-toggle="tab" style={{backgroundColor:'darkgrey',fontSize:'16px'}}><strong>Contact Details</strong></a>
-                </li>
-                <li>
-                    <a href="#tab_default_3" data-toggle="tab" style={{backgroundColor:'darkgrey',fontSize:'16px'}}><strong>Contact Details</strong></a>
+                    <a href="#tab_default_3" data-toggle="tab" style={{backgroundColor:'darkgrey',fontSize:'16px'}}><strong>Personal Data Form</strong></a>
                 </li>
             </ul>
         )
@@ -301,7 +273,6 @@ constructor(props) {
                             {this.bookmarks()}
                             <div className="tab-content" style={{backgroundColor:'darkgrey'}}>
                                 {this.personalInfo()}
-                                {this.contactDetails()}
                                 {this.formDetails()}
                             </div>
                         </div>
@@ -312,7 +283,8 @@ constructor(props) {
     };
 
     render() {
-        const {personalData} = this.props.personalData;
+        const {personalData} = this.props;
+        console.log(personalData.pesel)
         return (
             <div className="container" style={{marginTop:'10px' , marginBottom:'100px', }} >
                 <div className="profile-head">
@@ -336,23 +308,27 @@ constructor(props) {
                                     <div className="col-lg-12" style={{textAlign:'center'}}>
                                         <div className="form-group">
                                             <label htmlFor="email">Name:</label>
-                                            <p>{personaldata.pesel}</p>
+                                            <p>{personalData.name}</p>
                                         </div>
                                         <div className="form-group">
                                             <label htmlFor="email">Surname:</label>
-                                            <p>{personaldata.name}</p>
+                                            <p>{personalData.surname}</p>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="email">Date of Joining:</label>
-                                            <p>Variables</p>
+                                            <label htmlFor="email">PESEL:</label>
+                                            <p>{personalData.pesel}</p>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="email">Address E-mail:</label>
-                                            <p>Variables</p>
+                                            <label htmlFor="email">Country:</label>
+                                            <p>{personalData.country}</p>
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="email">Telephone Number:</label>
-                                            <p>Variables</p>
+                                            <label htmlFor="email">City:</label>
+                                            <p>{personalData.city}</p>
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="email">Age:</label>
+                                            <p>{personalData.age}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -378,7 +354,8 @@ Profile.propTypes = {
 const mapStateToProps = state => ({
     errors: state.errors,
     personalData: state.personalData
+
 });
 
 
-export default connect(mapStateToProps,{createPersonalData,getPersonalData})(Profile);
+export default connect(mapStateToProps,{getPersonalData,createPersonalData})(Profile);

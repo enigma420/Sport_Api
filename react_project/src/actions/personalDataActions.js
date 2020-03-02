@@ -20,12 +20,12 @@ export const createPersonalData = (personalData,history) => async dispatch => {
 export const getPersonalData = (pesel,history) => async dispatch => {
 
     try{
-        const res = await axios.get(`/api/team/${pesel}`);
+        const res = await axios.get(`/api/personalData/${pesel}`);
         dispatch({
             type: GET_PERSONALDATA,
             payload: res.data
         })
     }catch (err) {
-        history.push("/dashboard");
+
     }
 };
