@@ -33,8 +33,8 @@ constructor(props) {
 }
 
     componentDidMount() {
-        const {pesel} = this.props.newPersonalData
-        this.props.getPersonalData(pesel, this.props.history);
+
+        this.props.getPersonalData(this.state.pesel, this.props.history);
     }
 
     componentWillReceiveProps(nextProps) {
