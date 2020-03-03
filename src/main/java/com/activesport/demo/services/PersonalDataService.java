@@ -53,16 +53,16 @@ public class PersonalDataService {
         return personalData;
     }
 
-    public PersonalData findPersonalDataByEmailUser(String emailUser, String username){
-
-        PersonalData personalData = personalDataRepository.findByEmailUser(emailUser);
-
-        if(personalDataRepository.count() == 0){
-            throw new PersonalDataPeselException("No Personal Data Exist");
-        }else if(personalData == null){
-            throw new PersonalDataPeselException("Personal Data from Email '" + emailUser + "' does not exist");
-        }
-
-        return personalData;
-    }
+//    public PersonalData findPersonalDataByEmailUser(String emailUser, String username){
+//
+//        PersonalData personalData = personalDataRepository.findByEmailUser(emailUser);
+//
+//        if(personalDataRepository.count() == 0){
+//            throw new PersonalDataPeselException("No Personal Data Exist");
+//        }else if(personalData == null){
+//            throw new PersonalDataPeselException("Personal Data from Email '" + emailUser + "' does not exist");
+//        }
+//
+//        return personalData;
+//    }
 }

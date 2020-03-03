@@ -30,7 +30,7 @@ class Sidebar extends Component {
                             </a>
                         </li>
                         <li>
-                            <a href="/profile">
+                            <a href="/profile_menu">
                                 <i id="sideBarIcons" className="fa fa-smile-o fa-2x"/>
                                 <span className="nav-text">
                                     <Trans i18nKey="sidebar.profile"/>

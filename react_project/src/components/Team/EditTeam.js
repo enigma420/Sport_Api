@@ -61,6 +61,7 @@ class EditTeam extends Component {
     }
 
     componentDidMount() {
+        console.log("Params:" + JSON.stringify(this.props.match.params));
         const {id} = this.props.match.params;
         this.props.getTeam(id, this.props.history);
     }
