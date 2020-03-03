@@ -4,7 +4,7 @@ import {GET_ERRORS, GET_PERSONALDATA} from "./types";
 export const createPersonalData = (personalData,history) => async dispatch => {
     try{
         await axios.post("/api/personalData", personalData);
-        history.push("/dashboard");
+        history.push("/profile");
         dispatch({
             type: GET_ERRORS,
             payload: {}
@@ -26,6 +26,5 @@ export const getPersonalData = (pesel,history) => async dispatch => {
             payload: res.data
         })
     }catch (err) {
-
     }
 };

@@ -10,7 +10,7 @@ export default function(state = initialState, action){
         case GET_PERSONALDATA:
             return {
                 ...state,
-                teams: action.payload
+                personalData: action.payload
             };
 
         default:

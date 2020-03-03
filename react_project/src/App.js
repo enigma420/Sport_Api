@@ -34,6 +34,8 @@ import ReactFlagsSelect from 'react-flags-select';
 import ApiCenter from "./components/API-additives/ApiCenter";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from 'react-loader-spinner'
+import CreatePersonalData from "./components/UserManagement/CreatePersonalData";
+import ProfileMenu from "./components/UserManagement/ProfileMenu";
 
 const jwtToken = localStorage.jwtToken;
 
@@ -104,9 +106,12 @@ function Page() {
                             {
                                 //Private Routes
                             }
-                            <Route exact path={["/info_center","/dashboard","/createTeam","/editTeam/:id","/eventBoard/:id","/addEvent/:id","/updateEvent/:eventslog_id/:pt_id","/contact","/profile"]} component={Sidebar}/>
+                            <Route exact path={["/info_center","/dashboard","/createTeam","/editTeam/:id","/eventBoard/:id","/addEvent/:id","/updateEvent/:eventslog_id/:pt_id","/contact"]} component={Sidebar}/>
                             <Switch>
                                 <Route exact path="/info_center" component={ApiCenter}/>
+                                <Route exact path="/profile_menu/" component={ProfileMenu}/>
+                                <Route exact path="/profile/:pesel" component={Profile}/>
+                                <Route exact path="/profile/createPersonalData" component={CreatePersonalData}/>
                                 <Route exact path="/info_center/weather" component={WeatherApi}/>
                                 <Route exact path="/info_center/country" component={CountryApi}/>
                                 <Route exact path="/info_center/translate" component={TranslateApi}/>

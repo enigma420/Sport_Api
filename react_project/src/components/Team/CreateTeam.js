@@ -51,7 +51,7 @@ class CreateTeam extends Component {
             nameOfTeamLeader: this.state.nameOfTeamLeader,
             typeOfSport: this.state.typeOfSport,
             description: this.state.description,
-            dateOfCreationTeam: this.state.dateOfCreationTeam
+            dateOfCreationTeam: Date.now()
         };
         this.props.createTeam(newTeam, this.props.history);
     }
