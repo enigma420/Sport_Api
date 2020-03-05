@@ -1,0 +1,50 @@
+Sport_Api is my first developed project which is written in:
+
+Back-end:
+Java & Spring
+ORM => Hibernate
+
+Database:
+MySQL
+
+Frond-end:
+Javascript & React
+
+Main functionality:
+
+1. Register account at endpoint "/api/user/register" ==> POST
+2. Login at endpoint "api/user/login" ==> POST with Bearer token 
+> Any logged in user can:
+1. Create Team with unique teamIdentifier at endpoint "/api/team/create" ==> POST
+2. Edit Team at endpoint "/api/team/edit/{teamIdentifier}" ==> POST
+3. Delete Team at endpoint "/api/team/delete/{teamIdentifier}" ==> DELETE
+Also in Dashboard appears all created teams by endpoint "/api/team/all" ==> GET, with necessary information
+> When we have a team then an eventslog_id is automatically created.
+> In event log we can:
+1. Create Event at endpoint "/api/eventslog/{eventslog_id}" ==> GET, which is connected with team by teamIdentifier. Moreover id of event(pt_id) is incremental.
+2. Edit Event at endpoint "/api/eventslog/{eventslog_id}/{pt_id}" ==> PATCH
+3. Delete Event at endpoint "/api/eventslog/{eventslog_id}/{pt_id}" ==> DELETE
+Also in EventsBoard appears all created events by mapping through endpoint "/api/eventslog/{eventslog_id}/{pt_id}" ==> GET
+> Moreover user can
+1. Added Personal Data of user in profile at endpoint "/api/user/personalData/create" ==> POST
+2. Get personal data in user info through endpoint "/api/user/personalData" ==> GET
+
+Side functionality:
+
+> Add a few simple API:
+1. API weather (which given information about weather in this localization)
+2. API exchange (simple calculates currency relations)
+3. API facts (which given every 7 second random fact from year or month&day)
+4. API translate (no need to explain ^_^ )
+5. API City (which given information about city like population,geographical coordinates etc.)
+
+
+How to start:
+
+Execute spring at for example localhost:8080 and then get to the path react_project (cd react_project) and enter "npm start"
+You must remember to change variables describing the database because it's rigidly set to my values in application.resources =>
+server name: localhost
+user name: dominik
+password: qwerty123
+database name: sport
+
