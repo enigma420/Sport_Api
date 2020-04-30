@@ -12,7 +12,7 @@
     "i18next-browser-languagedetector": "^3.0.3",
     "i18next-locize-backend": "^2.0.2",
     "i18next-xhr-backend": "^3.1.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jwt-decode": "^2.2.0",
     "modernizr": "^3.7.1",
     "moment": "^2.24.0",
